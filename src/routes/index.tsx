@@ -170,8 +170,8 @@ function ImportedSectionPesquisaCompadrODeexcel() {
         </div>
       </div>
       <div className="relative">
-        <div className="card-surface overflow-hidden product-bg aspect-[4/5] sm:aspect-square">
-          <img className="h-full w-full object-cover" src="/site-assets/d65abae490cd08ff.jpg" alt="Produto em destaque OCTA LABS" width="1024" height="1024" fetchPriority="high" />
+        <div className="card-surface overflow-hidden product-bg aspect-[4/5] sm:aspect-[4/5]">
+          <img className="h-full w-full object-contain" src={heroFrasco} alt="Frasco OCTA LABS Retatrutida com etiqueta prateada" width="1024" height="1024" fetchPriority="high" />
         </div>
         <div className="card-surface absolute -bottom-5 left-5 flex items-center gap-3 px-4 py-3">
           <svg className="h-6 w-6 text-highlight" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
