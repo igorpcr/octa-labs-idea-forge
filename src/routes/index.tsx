@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import capturedCSS from "../styles/site.css?raw";
+import heroFrasco from "@/assets/hero-frasco-prata.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
