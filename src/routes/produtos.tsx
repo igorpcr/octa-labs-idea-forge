@@ -209,7 +209,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/adipotide-2mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20Adipotide%202mg." target="_blank" rel="noreferrer" aria-label="Pedir Adipotide 2mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/22d75cfa4f5849d2.jpg" alt="Adipotide 2mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -220,7 +220,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/aicar-50mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20AICAR%2050mg." target="_blank" rel="noreferrer" aria-label="Pedir AICAR 50mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/11095b27b40c984f.jpg" alt="AICAR 50mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -231,7 +231,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/slu-pp-332-5mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20SLU-PP-332%205mg." target="_blank" rel="noreferrer" aria-label="Pedir SLU-PP-332 5mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/e27bcfa8cea73f2c.jpg" alt="SLU-PP-332 5mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -242,7 +242,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/slu-pp-332-10mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20SLU-PP-332%2010mg." target="_blank" rel="noreferrer" aria-label="Pedir SLU-PP-332 10mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/b2df7946bdafeef9.jpg" alt="SLU-PP-332 10mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -253,7 +253,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/5-amino-1mq-5mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%205-Amino-1MQ%205mg." target="_blank" rel="noreferrer" aria-label="Pedir 5-Amino-1MQ 5mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/7668234eb8100f43.jpg" alt="5-Amino-1MQ 5mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -264,7 +264,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/5-amino-1mq-10mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%205-Amino-1MQ%2010mg." target="_blank" rel="noreferrer" aria-label="Pedir 5-Amino-1MQ 10mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/d4b9bda402a2f558.jpg" alt="5-Amino-1MQ 10mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -275,7 +275,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/hgh-frag-176-191-1mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20HGH%20Frag%20176-191%201mg." target="_blank" rel="noreferrer" aria-label="Pedir HGH Frag 176-191 1mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/456fc7fec1c5fd6c.jpg" alt="HGH Frag 176-191 1mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -286,7 +286,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/hgh-frag-176-191-2mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20HGH%20Frag%20176-191%202mg." target="_blank" rel="noreferrer" aria-label="Pedir HGH Frag 176-191 2mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/0f1c6bc449d2cbdc.jpg" alt="HGH Frag 176-191 2mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -297,7 +297,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/hgh-frag-176-191-5mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20HGH%20Frag%20176-191%205mg." target="_blank" rel="noreferrer" aria-label="Pedir HGH Frag 176-191 5mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/41f74e6af43024c5.jpg" alt="HGH Frag 176-191 5mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -308,7 +308,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/hgh-frag-176-191-10mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20HGH%20Frag%20176-191%2010mg." target="_blank" rel="noreferrer" aria-label="Pedir HGH Frag 176-191 10mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/c8482ce054ec9a12.jpg" alt="HGH Frag 176-191 10mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -319,7 +319,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/hgh-frag-176-191-12mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20HGH%20Frag%20176-191%2012mg." target="_blank" rel="noreferrer" aria-label="Pedir HGH Frag 176-191 12mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/0007da0d43b5e0ef.jpg" alt="HGH Frag 176-191 12mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -330,7 +330,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/hgh-frag-176-191-15mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20HGH%20Frag%20176-191%2015mg." target="_blank" rel="noreferrer" aria-label="Pedir HGH Frag 176-191 15mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/df7e584fb1568717.jpg" alt="HGH Frag 176-191 15mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -341,7 +341,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/bpc-157-5mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20BPC-157%205mg." target="_blank" rel="noreferrer" aria-label="Pedir BPC-157 5mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/9d47657d7013f12b.jpg" alt="BPC-157 5mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -352,7 +352,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/bpc-157-10mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20BPC-157%2010mg." target="_blank" rel="noreferrer" aria-label="Pedir BPC-157 10mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/8d168023382a6b9e.jpg" alt="BPC-157 10mg" loading="lazy" width="1024" height="1024" />
             <span className="absolute left-3 top-3">
@@ -366,7 +366,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/bpc-157-20mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20BPC-157%2020mg." target="_blank" rel="noreferrer" aria-label="Pedir BPC-157 20mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/8a91833345236eb5.jpg" alt="BPC-157 20mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -377,7 +377,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/tb-500-5mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20TB-500%205mg." target="_blank" rel="noreferrer" aria-label="Pedir TB-500 5mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/5452600e947e9a3c.jpg" alt="TB-500 5mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -388,7 +388,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/tb-500-10mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20TB-500%2010mg." target="_blank" rel="noreferrer" aria-label="Pedir TB-500 10mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/7dd0d67ffffcd0fa.jpg" alt="TB-500 10mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -399,7 +399,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/tb-500-mais-bpc-157-10mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20TB-500%20%2B%20BPC-157%2010mg." target="_blank" rel="noreferrer" aria-label="Pedir TB-500 + BPC-157 10mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/0d00e3f51df5157d.jpg" alt="TB-500 + BPC-157 10mg" loading="lazy" width="1024" height="1024" />
             <span className="absolute left-3 top-3">
@@ -413,7 +413,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/kpv-10mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20KPV%2010mg." target="_blank" rel="noreferrer" aria-label="Pedir KPV 10mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/6088525f8c3f0b2d.jpg" alt="KPV 10mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -424,7 +424,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/klow-80mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20KLOW%2080mg." target="_blank" rel="noreferrer" aria-label="Pedir KLOW 80mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/56495ed255cae660.jpg" alt="KLOW 80mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -435,7 +435,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/peg-mgf-2mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20PEG-MGF%202mg." target="_blank" rel="noreferrer" aria-label="Pedir PEG-MGF 2mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/803b61fb95aa5537.jpg" alt="PEG-MGF 2mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -446,7 +446,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/ace-031-10mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20ACE-031%2010mg." target="_blank" rel="noreferrer" aria-label="Pedir ACE-031 10mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/83d375bba98a716d.jpg" alt="ACE-031 10mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -457,7 +457,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/vip-5mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20VIP%205mg." target="_blank" rel="noreferrer" aria-label="Pedir VIP 5mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/1e49db4e3418f9a0.jpg" alt="VIP 5mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -468,7 +468,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/cjc-1295-sem-dac-5mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20CJC-1295%20sem%20DAC%205mg." target="_blank" rel="noreferrer" aria-label="Pedir CJC-1295 sem DAC 5mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/7fca8cb2fbd6e0db.jpg" alt="CJC-1295 sem DAC 5mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -479,7 +479,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/cjc-1295-sem-dac-10mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20CJC-1295%20sem%20DAC%2010mg." target="_blank" rel="noreferrer" aria-label="Pedir CJC-1295 sem DAC 10mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/6d378e0994a5d26a.jpg" alt="CJC-1295 sem DAC 10mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -490,7 +490,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/cjc-1295-sem-dac-5mg-mais-ipamorelin-5mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20CJC-1295%20sem%20DAC%205mg%20%2B%20Ipamorelin%205mg." target="_blank" rel="noreferrer" aria-label="Pedir CJC-1295 sem DAC 5mg + Ipamorelin 5mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/e2dd5f107f4b8f5d.jpg" alt="CJC-1295 sem DAC 5mg + Ipamorelin 5mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -501,7 +501,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/ipamorelin-5mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20Ipamorelin%205mg." target="_blank" rel="noreferrer" aria-label="Pedir Ipamorelin 5mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/bee834c2cc442e4c.jpg" alt="Ipamorelin 5mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -512,7 +512,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/ipamorelin-10mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20Ipamorelin%2010mg." target="_blank" rel="noreferrer" aria-label="Pedir Ipamorelin 10mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/45e563f3630a07c7.jpg" alt="Ipamorelin 10mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -523,7 +523,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/ghrp-6-5mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20GHRP-6%205mg." target="_blank" rel="noreferrer" aria-label="Pedir GHRP-6 5mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/61201b989e2be8c5.jpg" alt="GHRP-6 5mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -534,7 +534,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/ghrp-6-10mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20GHRP-6%2010mg." target="_blank" rel="noreferrer" aria-label="Pedir GHRP-6 10mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/567abcd4941df34a.jpg" alt="GHRP-6 10mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -545,7 +545,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/tesamorelin-5mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20Tesamorelin%205mg." target="_blank" rel="noreferrer" aria-label="Pedir Tesamorelin 5mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/226875243f688dc9.jpg" alt="Tesamorelin 5mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -556,7 +556,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/tesamorelin-10mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20Tesamorelin%2010mg." target="_blank" rel="noreferrer" aria-label="Pedir Tesamorelin 10mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/da2ac09d5b62546f.jpg" alt="Tesamorelin 10mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -567,7 +567,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/tesamorelin-15mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20Tesamorelin%2015mg." target="_blank" rel="noreferrer" aria-label="Pedir Tesamorelin 15mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/4b08d92931b89892.jpg" alt="Tesamorelin 15mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -578,7 +578,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/sermorelin-5mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20Sermorelin%205mg." target="_blank" rel="noreferrer" aria-label="Pedir Sermorelin 5mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/31f2f286d8e96a27.jpg" alt="Sermorelin 5mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -589,7 +589,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/igf-1-lr3-0-1mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20IGF-1%20LR3%200%2C1mg." target="_blank" rel="noreferrer" aria-label="Pedir IGF-1 LR3 0,1mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/26848909357c6639.jpg" alt="IGF-1 LR3 0,1mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -600,7 +600,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/igf-1-lr3-1mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20IGF-1%20LR3%201mg." target="_blank" rel="noreferrer" aria-label="Pedir IGF-1 LR3 1mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/7c55805b3c7a4107.jpg" alt="IGF-1 LR3 1mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -611,7 +611,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/hgh-191aa-10ui">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20HGH%20191AA%2010UI." target="_blank" rel="noreferrer" aria-label="Pedir HGH 191AA 10UI pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/6cb6f6373d6cab38.jpg" alt="HGH 191AA 10UI" loading="lazy" width="1024" height="1024" />
           </div>
@@ -622,7 +622,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/hgh-191aa-12ui">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20HGH%20191AA%2012UI." target="_blank" rel="noreferrer" aria-label="Pedir HGH 191AA 12UI pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/85f61ccd209836fd.jpg" alt="HGH 191AA 12UI" loading="lazy" width="1024" height="1024" />
           </div>
@@ -633,7 +633,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/hgh-191aa-15ui">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20HGH%20191AA%2015UI." target="_blank" rel="noreferrer" aria-label="Pedir HGH 191AA 15UI pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/5e3b47527260ca56.jpg" alt="HGH 191AA 15UI" loading="lazy" width="1024" height="1024" />
           </div>
@@ -644,7 +644,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/hgh-191aa-24ui">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20HGH%20191AA%2024UI." target="_blank" rel="noreferrer" aria-label="Pedir HGH 191AA 24UI pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/c6a7162d7b04558f.jpg" alt="HGH 191AA 24UI" loading="lazy" width="1024" height="1024" />
           </div>
@@ -655,7 +655,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/hgh-191aa-36ui">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20HGH%20191AA%2036UI." target="_blank" rel="noreferrer" aria-label="Pedir HGH 191AA 36UI pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/f4956a9b2b31537b.jpg" alt="HGH 191AA 36UI" loading="lazy" width="1024" height="1024" />
           </div>
@@ -666,7 +666,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/hcg-5000ui">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20HCG%205000UI." target="_blank" rel="noreferrer" aria-label="Pedir HCG 5000UI pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/052664be300c9a46.jpg" alt="HCG 5000UI" loading="lazy" width="1024" height="1024" />
           </div>
@@ -677,7 +677,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/kisspeptin-10mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20Kisspeptin%2010mg." target="_blank" rel="noreferrer" aria-label="Pedir Kisspeptin 10mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/358e46c935a93f4a.jpg" alt="Kisspeptin 10mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -688,7 +688,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/epithalon-10mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20Epithalon%2010mg." target="_blank" rel="noreferrer" aria-label="Pedir Epithalon 10mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/b0b924cb97272be3.jpg" alt="Epithalon 10mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -699,7 +699,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/epithalon-50mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20Epithalon%2050mg." target="_blank" rel="noreferrer" aria-label="Pedir Epithalon 50mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/a16e79ddc03c8717.jpg" alt="Epithalon 50mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -710,7 +710,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/epithalon-100mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20Epithalon%20100mg." target="_blank" rel="noreferrer" aria-label="Pedir Epithalon 100mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/b1985aa503ea53f1.jpg" alt="Epithalon 100mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -721,7 +721,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/mots-c-10mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20MOTS-C%2010mg." target="_blank" rel="noreferrer" aria-label="Pedir MOTS-C 10mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/ab5e95c047591724.jpg" alt="MOTS-C 10mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -732,7 +732,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/mots-c-20mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20MOTS-C%2020mg." target="_blank" rel="noreferrer" aria-label="Pedir MOTS-C 20mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/5c292f6e791fd0b2.jpg" alt="MOTS-C 20mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -743,7 +743,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/mots-c-40mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20MOTS-C%2040mg." target="_blank" rel="noreferrer" aria-label="Pedir MOTS-C 40mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/8ffa76a1e6d85c52.jpg" alt="MOTS-C 40mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -754,7 +754,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/ss-31-10mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20SS-31%2010mg." target="_blank" rel="noreferrer" aria-label="Pedir SS-31 10mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/ba0e7f3ea03a59c4.jpg" alt="SS-31 10mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -765,7 +765,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/ss-31-50mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20SS-31%2050mg." target="_blank" rel="noreferrer" aria-label="Pedir SS-31 50mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/29867e81dd539a77.jpg" alt="SS-31 50mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -776,7 +776,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/nad-mais-100mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20NAD%2B%20100mg." target="_blank" rel="noreferrer" aria-label="Pedir NAD+ 100mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/0901e7c3f5df2766.jpg" alt="NAD+ 100mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -787,7 +787,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/nad-mais-500mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20NAD%2B%20500mg." target="_blank" rel="noreferrer" aria-label="Pedir NAD+ 500mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/fb309de4d0c21392.jpg" alt="NAD+ 500mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -798,7 +798,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/nad-mais-1000mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20NAD%2B%201000mg." target="_blank" rel="noreferrer" aria-label="Pedir NAD+ 1000mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/7d5040c10452abcf.jpg" alt="NAD+ 1000mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -809,7 +809,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/cardiogen-20mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20Cardiogen%2020mg." target="_blank" rel="noreferrer" aria-label="Pedir Cardiogen 20mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/39e49dd11b406fd7.jpg" alt="Cardiogen 20mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -820,7 +820,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/cortagen-20mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20Cortagen%2020mg." target="_blank" rel="noreferrer" aria-label="Pedir Cortagen 20mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/cb69aed0d93a1a83.jpg" alt="Cortagen 20mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -831,7 +831,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/matrixyl-30mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20Matrixyl%2030mg." target="_blank" rel="noreferrer" aria-label="Pedir Matrixyl 30mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/f13b2a1320725887.jpg" alt="Matrixyl 30mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -842,7 +842,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/selank-10mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20Selank%2010mg." target="_blank" rel="noreferrer" aria-label="Pedir Selank 10mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/a72a5748d733d54d.jpg" alt="Selank 10mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -853,7 +853,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/semax-10mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20Semax%2010mg." target="_blank" rel="noreferrer" aria-label="Pedir Semax 10mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/9d48f7959af31cc9.jpg" alt="Semax 10mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -864,7 +864,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/semax-mais-selank-20mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20Semax%20%2B%20Selank%2020mg." target="_blank" rel="noreferrer" aria-label="Pedir Semax + Selank 20mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/0808aa9a63c8f318.jpg" alt="Semax + Selank 20mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -875,7 +875,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/adamax-5mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20Adamax%205mg." target="_blank" rel="noreferrer" aria-label="Pedir Adamax 5mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/6cad19084f4dc120.jpg" alt="Adamax 5mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -886,7 +886,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/cerebrolysin-60mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20Cerebrolysin%2060mg." target="_blank" rel="noreferrer" aria-label="Pedir Cerebrolysin 60mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/b6856b5ec91d5c81.jpg" alt="Cerebrolysin 60mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -897,7 +897,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/dsip-2mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20DSIP%202mg." target="_blank" rel="noreferrer" aria-label="Pedir DSIP 2mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/697ee0f7d3698b46.jpg" alt="DSIP 2mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -908,7 +908,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/pe-22-28-5mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20PE-22-28%205mg." target="_blank" rel="noreferrer" aria-label="Pedir PE-22-28 5mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/86a6b5eeb56b3ade.jpg" alt="PE-22-28 5mg" loading="lazy" width="1024" height="1024" />
           </div>
@@ -919,7 +919,7 @@ function ImportedSection() {
             <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-highlight">Comprar <svg className={"h-4 w-4 transition-transform \x67roup-hover:\x74ranslate-x-1"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
           </div>
         </a>
-        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/pt-141-10mg">
+        <a className="group card-surface card-hover flex flex-col overflow-hidden" href="https://wa.me/5511943181553?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20de%20PT-141%2010mg." target="_blank" rel="noreferrer" aria-label="Pedir PT-141 10mg pelo WhatsApp">
           <div className="relative aspect-square product-bg">
             <img className={"h-full w-full object-cover transition-transform duration-500 \x67roup-hover:\x73cale-[\x31.\x303]"} src="/site-assets/698feb59250ba120.jpg" alt="PT-141 10mg" loading="lazy" width="1024" height="1024" />
           </div>
