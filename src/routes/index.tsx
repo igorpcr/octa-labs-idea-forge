@@ -1,13 +1,24 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useRef, useState } from "react";
 import capturedCSS from "../styles/site.css?raw";
 
 export const Route = createFileRoute("/")({
-  head: () => ({ meta: [{ title: "OCTA LABS — Biological Research Solutions" }] }),
+  head: () => ({ meta: [
+    { title: "OCTA LABS — Biological Research Solutions" },
+    { name: "description", content: "OCTA LABS: produtos de pesquisa com qualidade documentada por lote e rastreabilidade individual." },
+    { property: "og:title", content: "OCTA LABS — Biological Research Solutions" },
+    { property: "og:description", content: "Produtos de pesquisa com qualidade documentada por lote." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary_large_image" },
+  ] }),
   staticData: { importedDocument: { html: { "lang": "pt-BR" }, body: { "data-site-import-popup-incomplete": "limit" } } },
   component: Index,
 });
 
 function Index() {
+  const [cookiesDone, setCookiesDone] = useState(true);
+  useEffect(() => { setCookiesDone(!!localStorage.getItem("cookie-consent")); }, []);
+  const decide = (v: string) => { localStorage.setItem("cookie-consent", v); setCookiesDone(true); };
   return (
     <>
       <style>{capturedCSS}</style>
@@ -40,21 +51,31 @@ function Index() {
         <ImportedSectionEntreEmContato />
       </main>
       <ImportedFooter />
-      <ImportedAsideEditWithLovable />
-      <div className={"card-surface fixed bottom-4 left-4 right-4 z-40 p-5 \x73hadow-lg sm:left-auto sm:max-w-sm"} role="dialog" aria-label="Preferências de cookies">
+      {!cookiesDone && <div className={"card-surface fixed bottom-4 left-4 right-4 z-40 p-5 \x73hadow-lg sm:left-auto sm:max-w-sm"} role="dialog" aria-label="Preferências de cookies">
         <p className="text-sm font-semibold text-foreground">Usamos cookies</p>
         <p className="mt-1 text-xs leading-relaxed text-muted-foreground">Utilizamos cookies para melhorar sua experiência. Veja nossa <a className="text-highlight underline" href="/privacidade">Política de Privacidade</a>.</p>
         <div className="mt-4 flex gap-2">
-          <button className={"rounded-full \x62g-primary px-4 py-2 text-xs font-semibold text-primary-foreground \x68over:\x62g-primary-deep"}>Aceitar</button>
-          <button className={"rounded-full \x62order \x62order-silver px-4 py-2 text-xs font-semibold text-primary \x68over:\x62order-highlight"}>Essenciais</button>
-          <button className="px-2 py-2 text-xs font-semibold text-highlight">Opções</button>
+          <button onClick={() => decide("all")} className={"rounded-full \x62g-primary px-4 py-2 text-xs font-semibold text-primary-foreground \x68over:\x62g-primary-deep"}>Aceitar</button>
+          <button onClick={() => decide("essential")} className={"rounded-full \x62order \x62order-silver px-4 py-2 text-xs font-semibold text-primary \x68over:\x62order-highlight"}>Essenciais</button>
+          <a href="/privacidade" className="px-2 py-2 text-xs font-semibold text-highlight">Opções</a>
         </div>
-      </div>
+      </div>}
     </>
   );
 }
 
 function ImportedHeader() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const openBtn = useRef<HTMLButtonElement>(null);
+  const closeBtn = useRef<HTMLButtonElement>(null);
+  const close = () => { setMenuOpen(false); openBtn.current?.focus(); };
+  useEffect(() => {
+    if (!menuOpen) return;
+    closeBtn.current?.focus();
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") close(); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
   return (
     <header className={"sticky top-0 z-40 \x62order-b \x62g-card/\x390 \x62ackdrop-blur-md"}>
       <div className="container-x flex h-[72px] items-center justify-between gap-6">
@@ -87,7 +108,7 @@ function ImportedHeader() {
           <a className={"inline-flex items-center justify-center gap-2 rounded-full \x62order \x62order-silver \x62g-card px-6 py-3 text-sm font-semibold text-primary transition-all duration-200 \x68over:\x62order-highlight hover:text-highlight !px-4 !py-2.5"} href="/produtos?categoria=Premium">Catálogo Premium</a>
           <a className={"inline-flex items-center justify-center gap-2 rounded-full \x62g-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all duration-200 \x68over:\x62g-primary-deep \x68over:\x2dtranslate-y-0.\x35 !px-5 !py-2.5"} href="/produtos">Catálogo</a>
         </div>
-        <button className={"rounded-lg p-2 text-primary \x6cg:\x68idden"} aria-label="Abrir menu">
+        <button ref={openBtn} onClick={() => setMenuOpen(true)} aria-expanded={menuOpen} className={"rounded-lg p-2 text-primary \x6cg:\x68idden"} aria-label="Abrir menu">
           <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M4 5h16" />
             <path d="M4 12h16" />
@@ -95,6 +116,39 @@ function ImportedHeader() {
           </svg>
         </button>
       </div>
+      {menuOpen && (
+        <div className="fixed inset-0 z-50 lg:hidden" role="dialog" aria-modal="true" aria-label="Menu">
+          <div className="absolute inset-0 bg-foreground/40" onClick={close} />
+          <div className="absolute inset-y-0 right-0 flex h-dvh w-[85%] max-w-sm flex-col overflow-y-auto bg-card">
+            <div className="flex h-[72px] items-center justify-between border-b px-6">
+              <span className="flex items-center gap-2.5">
+                <img className="h-9 w-9 object-contain" src="/site-assets/652a01c8780ff967.png" alt="" width="40" height="40" />
+                <span className="leading-none">
+                  <span className="block font-display text-[19px] font-extrabold tracking-[0.06em] text-foreground">OCTA</span>
+                  <span className="block text-[10px] font-semibold uppercase tracking-[0.42em] text-muted-foreground">Labs</span>
+                </span>
+              </span>
+              <button ref={closeBtn} onClick={close} className="rounded-lg p-2 text-primary" aria-label="Fechar menu">
+                <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" /></svg>
+              </button>
+            </div>
+            <nav className="flex flex-col gap-1 px-6 py-6" aria-label="Menu móvel">
+              <a className="py-3 text-lg font-medium text-foreground" href="/" onClick={close}>Home</a>
+              <a className="py-3 text-lg font-medium text-foreground" href="/sobre" onClick={close}>Sobre</a>
+              <a className="py-3 text-lg font-medium text-foreground" href="/produtos" onClick={close}>Produtos</a>
+              <p className="pt-3 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Ferramentas</p>
+              <a className="py-2 pl-3 text-sm text-foreground" href="/faq" onClick={close}>FAQ</a>
+              <a className="py-2 pl-3 text-sm text-foreground" href="/envio" onClick={close}>Política de Envio</a>
+              <a className="py-2 pl-3 text-sm text-foreground" href="/contato" onClick={close}>Suporte Técnico</a>
+              <a className="py-3 text-lg font-medium text-foreground" href="/contato" onClick={close}>Contato</a>
+              <div className="mt-4 flex flex-col gap-3">
+                <a className="rounded-full bg-primary px-6 py-3 text-center text-sm font-semibold text-primary-foreground" href="/produtos">Catálogo</a>
+                <a className="rounded-full border border-silver bg-card px-6 py-3 text-center text-sm font-semibold text-primary" href="/produtos?categoria=Premium">Catálogo Premium</a>
+              </div>
+            </nav>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
