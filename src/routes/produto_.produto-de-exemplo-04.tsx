@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import capturedCSS from "../styles/pages/produto.produto-de-exemplo-04.css?raw";
+import capturedCSS from "../styles/site.css?raw";
 
 export const Route = createFileRoute("/produto_/produto-de-exemplo-04")({
   head: () => ({ meta: [{ title: "OCTA LABS — Biological Research Solutions" }] }),
@@ -25,7 +25,6 @@ function Index() {
         </div>
       </main>
       <ImportedFooter />
-      <ImportedAsideEditWithLovable />
       <div className={"card-surface fixed bottom-4 left-4 right-4 z-40 p-5 \x73hadow-lg sm:left-auto sm:max-w-sm"} role="dialog" aria-label="Preferências de cookies">
         <p className="text-sm font-semibold text-foreground">Usamos cookies</p>
         <p className="mt-1 text-xs leading-relaxed text-muted-foreground">Utilizamos cookies para melhorar sua experiência. Veja nossa <a className="text-highlight underline" href="/privacidade">Política de Privacidade</a>.</p>
