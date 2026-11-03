@@ -10,33 +10,170 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProdutosRouteImport } from './routes/produtos'
+import { Route as ProdutoAod960410mgRouteImport } from './routes/produto_.aod-9604-10mg'
+import { Route as ProdutoAod96045mgRouteImport } from './routes/produto_.aod-9604-5mg'
+import { Route as ProdutoCagrilintidaMaisSemaglutida10mgRouteImport } from './routes/produto_.cagrilintida-mais-semaglutida-10mg'
+import { Route as ProdutoCagrilintidaMaisSemaglutida20mgRouteImport } from './routes/produto_.cagrilintida-mais-semaglutida-20mg'
+import { Route as ProdutoProdutoDeExemplo04RouteImport } from './routes/produto_.produto-de-exemplo-04'
+import { Route as ProdutoRetatrutida30mgRouteImport } from './routes/produto_.retatrutida-30mg'
+import { Route as ProdutoRetatrutida60mgRouteImport } from './routes/produto_.retatrutida-60mg'
+import { Route as ProdutoTirzepatida30mgRouteImport } from './routes/produto_.tirzepatida-30mg'
+import { Route as ProdutoTirzepatida60mgRouteImport } from './routes/produto_.tirzepatida-60mg'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProdutosRoute = ProdutosRouteImport.update({
+  id: '/produtos',
+  path: '/produtos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProdutoAod960410mgRoute = ProdutoAod960410mgRouteImport.update({
+  id: '/produto_/aod-9604-10mg',
+  path: '/produto/aod-9604-10mg',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProdutoAod96045mgRoute = ProdutoAod96045mgRouteImport.update({
+  id: '/produto_/aod-9604-5mg',
+  path: '/produto/aod-9604-5mg',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProdutoCagrilintidaMaisSemaglutida10mgRoute =
+  ProdutoCagrilintidaMaisSemaglutida10mgRouteImport.update({
+    id: '/produto_/cagrilintida-mais-semaglutida-10mg',
+    path: '/produto/cagrilintida-mais-semaglutida-10mg',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProdutoCagrilintidaMaisSemaglutida20mgRoute =
+  ProdutoCagrilintidaMaisSemaglutida20mgRouteImport.update({
+    id: '/produto_/cagrilintida-mais-semaglutida-20mg',
+    path: '/produto/cagrilintida-mais-semaglutida-20mg',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProdutoProdutoDeExemplo04Route =
+  ProdutoProdutoDeExemplo04RouteImport.update({
+    id: '/produto_/produto-de-exemplo-04',
+    path: '/produto/produto-de-exemplo-04',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProdutoRetatrutida30mgRoute = ProdutoRetatrutida30mgRouteImport.update({
+  id: '/produto_/retatrutida-30mg',
+  path: '/produto/retatrutida-30mg',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProdutoRetatrutida60mgRoute = ProdutoRetatrutida60mgRouteImport.update({
+  id: '/produto_/retatrutida-60mg',
+  path: '/produto/retatrutida-60mg',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProdutoTirzepatida30mgRoute = ProdutoTirzepatida30mgRouteImport.update({
+  id: '/produto_/tirzepatida-30mg',
+  path: '/produto/tirzepatida-30mg',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProdutoTirzepatida60mgRoute = ProdutoTirzepatida60mgRouteImport.update({
+  id: '/produto_/tirzepatida-60mg',
+  path: '/produto/tirzepatida-60mg',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/produtos': typeof ProdutosRoute
+  '/produto/aod-9604-10mg': typeof ProdutoAod960410mgRoute
+  '/produto/aod-9604-5mg': typeof ProdutoAod96045mgRoute
+  '/produto/cagrilintida-mais-semaglutida-10mg': typeof ProdutoCagrilintidaMaisSemaglutida10mgRoute
+  '/produto/cagrilintida-mais-semaglutida-20mg': typeof ProdutoCagrilintidaMaisSemaglutida20mgRoute
+  '/produto/produto-de-exemplo-04': typeof ProdutoProdutoDeExemplo04Route
+  '/produto/retatrutida-30mg': typeof ProdutoRetatrutida30mgRoute
+  '/produto/retatrutida-60mg': typeof ProdutoRetatrutida60mgRoute
+  '/produto/tirzepatida-30mg': typeof ProdutoTirzepatida30mgRoute
+  '/produto/tirzepatida-60mg': typeof ProdutoTirzepatida60mgRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/produtos': typeof ProdutosRoute
+  '/produto/aod-9604-10mg': typeof ProdutoAod960410mgRoute
+  '/produto/aod-9604-5mg': typeof ProdutoAod96045mgRoute
+  '/produto/cagrilintida-mais-semaglutida-10mg': typeof ProdutoCagrilintidaMaisSemaglutida10mgRoute
+  '/produto/cagrilintida-mais-semaglutida-20mg': typeof ProdutoCagrilintidaMaisSemaglutida20mgRoute
+  '/produto/produto-de-exemplo-04': typeof ProdutoProdutoDeExemplo04Route
+  '/produto/retatrutida-30mg': typeof ProdutoRetatrutida30mgRoute
+  '/produto/retatrutida-60mg': typeof ProdutoRetatrutida60mgRoute
+  '/produto/tirzepatida-30mg': typeof ProdutoTirzepatida30mgRoute
+  '/produto/tirzepatida-60mg': typeof ProdutoTirzepatida60mgRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/produtos': typeof ProdutosRoute
+  '/produto_/aod-9604-10mg': typeof ProdutoAod960410mgRoute
+  '/produto_/aod-9604-5mg': typeof ProdutoAod96045mgRoute
+  '/produto_/cagrilintida-mais-semaglutida-10mg': typeof ProdutoCagrilintidaMaisSemaglutida10mgRoute
+  '/produto_/cagrilintida-mais-semaglutida-20mg': typeof ProdutoCagrilintidaMaisSemaglutida20mgRoute
+  '/produto_/produto-de-exemplo-04': typeof ProdutoProdutoDeExemplo04Route
+  '/produto_/retatrutida-30mg': typeof ProdutoRetatrutida30mgRoute
+  '/produto_/retatrutida-60mg': typeof ProdutoRetatrutida60mgRoute
+  '/produto_/tirzepatida-30mg': typeof ProdutoTirzepatida30mgRoute
+  '/produto_/tirzepatida-60mg': typeof ProdutoTirzepatida60mgRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/produtos'
+    | '/produto/aod-9604-10mg'
+    | '/produto/aod-9604-5mg'
+    | '/produto/cagrilintida-mais-semaglutida-10mg'
+    | '/produto/cagrilintida-mais-semaglutida-20mg'
+    | '/produto/produto-de-exemplo-04'
+    | '/produto/retatrutida-30mg'
+    | '/produto/retatrutida-60mg'
+    | '/produto/tirzepatida-30mg'
+    | '/produto/tirzepatida-60mg'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/produtos'
+    | '/produto/aod-9604-10mg'
+    | '/produto/aod-9604-5mg'
+    | '/produto/cagrilintida-mais-semaglutida-10mg'
+    | '/produto/cagrilintida-mais-semaglutida-20mg'
+    | '/produto/produto-de-exemplo-04'
+    | '/produto/retatrutida-30mg'
+    | '/produto/retatrutida-60mg'
+    | '/produto/tirzepatida-30mg'
+    | '/produto/tirzepatida-60mg'
+  id:
+    | '__root__'
+    | '/'
+    | '/produtos'
+    | '/produto_/aod-9604-10mg'
+    | '/produto_/aod-9604-5mg'
+    | '/produto_/cagrilintida-mais-semaglutida-10mg'
+    | '/produto_/cagrilintida-mais-semaglutida-20mg'
+    | '/produto_/produto-de-exemplo-04'
+    | '/produto_/retatrutida-30mg'
+    | '/produto_/retatrutida-60mg'
+    | '/produto_/tirzepatida-30mg'
+    | '/produto_/tirzepatida-60mg'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ProdutosRoute: typeof ProdutosRoute
+  ProdutoAod960410mgRoute: typeof ProdutoAod960410mgRoute
+  ProdutoAod96045mgRoute: typeof ProdutoAod96045mgRoute
+  ProdutoCagrilintidaMaisSemaglutida10mgRoute: typeof ProdutoCagrilintidaMaisSemaglutida10mgRoute
+  ProdutoCagrilintidaMaisSemaglutida20mgRoute: typeof ProdutoCagrilintidaMaisSemaglutida20mgRoute
+  ProdutoProdutoDeExemplo04Route: typeof ProdutoProdutoDeExemplo04Route
+  ProdutoRetatrutida30mgRoute: typeof ProdutoRetatrutida30mgRoute
+  ProdutoRetatrutida60mgRoute: typeof ProdutoRetatrutida60mgRoute
+  ProdutoTirzepatida30mgRoute: typeof ProdutoTirzepatida30mgRoute
+  ProdutoTirzepatida60mgRoute: typeof ProdutoTirzepatida60mgRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +185,93 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/produtos': {
+      id: '/produtos'
+      path: '/produtos'
+      fullPath: '/produtos'
+      preLoaderRoute: typeof ProdutosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/produto_/aod-9604-10mg': {
+      id: '/produto_/aod-9604-10mg'
+      path: '/produto/aod-9604-10mg'
+      fullPath: '/produto/aod-9604-10mg'
+      preLoaderRoute: typeof ProdutoAod960410mgRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/produto_/aod-9604-5mg': {
+      id: '/produto_/aod-9604-5mg'
+      path: '/produto/aod-9604-5mg'
+      fullPath: '/produto/aod-9604-5mg'
+      preLoaderRoute: typeof ProdutoAod96045mgRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/produto_/cagrilintida-mais-semaglutida-10mg': {
+      id: '/produto_/cagrilintida-mais-semaglutida-10mg'
+      path: '/produto/cagrilintida-mais-semaglutida-10mg'
+      fullPath: '/produto/cagrilintida-mais-semaglutida-10mg'
+      preLoaderRoute: typeof ProdutoCagrilintidaMaisSemaglutida10mgRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/produto_/cagrilintida-mais-semaglutida-20mg': {
+      id: '/produto_/cagrilintida-mais-semaglutida-20mg'
+      path: '/produto/cagrilintida-mais-semaglutida-20mg'
+      fullPath: '/produto/cagrilintida-mais-semaglutida-20mg'
+      preLoaderRoute: typeof ProdutoCagrilintidaMaisSemaglutida20mgRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/produto_/produto-de-exemplo-04': {
+      id: '/produto_/produto-de-exemplo-04'
+      path: '/produto/produto-de-exemplo-04'
+      fullPath: '/produto/produto-de-exemplo-04'
+      preLoaderRoute: typeof ProdutoProdutoDeExemplo04RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/produto_/retatrutida-30mg': {
+      id: '/produto_/retatrutida-30mg'
+      path: '/produto/retatrutida-30mg'
+      fullPath: '/produto/retatrutida-30mg'
+      preLoaderRoute: typeof ProdutoRetatrutida30mgRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/produto_/retatrutida-60mg': {
+      id: '/produto_/retatrutida-60mg'
+      path: '/produto/retatrutida-60mg'
+      fullPath: '/produto/retatrutida-60mg'
+      preLoaderRoute: typeof ProdutoRetatrutida60mgRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/produto_/tirzepatida-30mg': {
+      id: '/produto_/tirzepatida-30mg'
+      path: '/produto/tirzepatida-30mg'
+      fullPath: '/produto/tirzepatida-30mg'
+      preLoaderRoute: typeof ProdutoTirzepatida30mgRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/produto_/tirzepatida-60mg': {
+      id: '/produto_/tirzepatida-60mg'
+      path: '/produto/tirzepatida-60mg'
+      fullPath: '/produto/tirzepatida-60mg'
+      preLoaderRoute: typeof ProdutoTirzepatida60mgRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ProdutosRoute: ProdutosRoute,
+  ProdutoAod960410mgRoute: ProdutoAod960410mgRoute,
+  ProdutoAod96045mgRoute: ProdutoAod96045mgRoute,
+  ProdutoCagrilintidaMaisSemaglutida10mgRoute:
+    ProdutoCagrilintidaMaisSemaglutida10mgRoute,
+  ProdutoCagrilintidaMaisSemaglutida20mgRoute:
+    ProdutoCagrilintidaMaisSemaglutida20mgRoute,
+  ProdutoProdutoDeExemplo04Route: ProdutoProdutoDeExemplo04Route,
+  ProdutoRetatrutida30mgRoute: ProdutoRetatrutida30mgRoute,
+  ProdutoRetatrutida60mgRoute: ProdutoRetatrutida60mgRoute,
+  ProdutoTirzepatida30mgRoute: ProdutoTirzepatida30mgRoute,
+  ProdutoTirzepatida60mgRoute: ProdutoTirzepatida60mgRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
