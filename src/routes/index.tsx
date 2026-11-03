@@ -612,7 +612,7 @@ function ImportedSectionEntreEmContato() {
 
 function ImportedFooter() {
   return (
-    <footer className={"\x62g-primary-deep text-silver"}>
+    <footer className={"octa-footer text-muted-foreground"}>
       <div className="container-x grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
         <div>
           <a className="flex items-center gap-2.5" aria-current="page" aria-label="OCTA LABS — início" href="/">
