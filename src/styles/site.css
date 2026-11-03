@@ -1422,3 +1422,4 @@ h1 .text-highlight, h1 span[class*="highlight"] { background: linear-gradient(90
 ::selection { background: oklch(72% .19 155); color: oklch(12% .006 160); }
 .octa-footer { background: linear-gradient(180deg, oklch(9% .005 160), oklch(6% .004 160)); border-top: 1px solid oklch(72% .19 155 / .25); }
 .octa-footer a:hover { color: var(--highlight); }
+.octa-footer .text-primary-foreground, .octa-footer h3, .octa-footer h4, .octa-footer p.font-semibold { color: var(--foreground); }
