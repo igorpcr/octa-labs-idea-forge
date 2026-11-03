@@ -149,21 +149,21 @@
    --site-import-* variables to restyle the clone. Unprefixed roles theme new UI. */
 :root {
   --background: oklch(0.9751 0.00169 145.56);
-  --site-import-background: oklch(0.9751 0.00169 145.56);
+  --site-import-background: oklch(11% .006 160);
   --foreground: oklch(0.17953 0.00378 164.58);
-  --site-import-foreground: oklch(0.17953 0.00378 164.58);
+  --site-import-foreground: oklch(97% .005 160);
   --primary: oklch(0.55248 0.12725 158.9);
   --site-import-primary: oklch(0.55248 0.12725 158.9);
   --primary-foreground: oklch(0.985 0 0);
   --site-import-primary-foreground: oklch(0.985 0 0);
   --border: oklch(0.916 0.00419 157.17);
-  --site-import-border: oklch(0.916 0.00419 157.17);
+  --site-import-border: oklch(25% .02 160);
   --muted-foreground: oklch(0.4792 0.00888 164.65);
-  --site-import-muted-foreground: oklch(0.4792 0.00888 164.65);
+  --site-import-muted-foreground: oklch(72% .02 160);
   --card: oklch(1 0 0);
-  --site-import-card: oklch(1 0 0);
+  --site-import-card: oklch(15.5% .01 160);
   --muted: oklch(0.95583 0.02554 158.21);
-  --site-import-muted: oklch(0.95583 0.02554 158.21);
+  --site-import-muted: oklch(20% .012 160);
 }
 /* Design tokens captured from the imported site, registered as Tailwind
    utilities (bg-<name>, text-<name>, font-<name>). var() values live in
