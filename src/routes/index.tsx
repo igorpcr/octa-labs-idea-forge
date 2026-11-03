@@ -616,66 +616,66 @@ function ImportedFooter() {
       <div className="container-x grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
         <div>
           <a className="flex items-center gap-2.5" aria-current="page" aria-label="OCTA LABS — início" href="/">
-            <span className={"grid h-10 w-10 place-items-center rounded-xl \x62g-silver/\x390"}>
+            <span className={"grid h-10 w-10 place-items-center rounded-xl \x62g-muted"}>
               <img className="h-9 w-9 object-contain" src="/site-assets/652a01c8780ff967.png" alt="" width="40" height="40" />
             </span>
             <span className="leading-none">
-              <span className="block font-display text-[19px] font-extrabold tracking-[0.06em] text-primary-foreground">OCTA</span>
+              <span className="block font-display text-[19px] font-extrabold tracking-[0.06em] text-foreground">OCTA</span>
               <span className="block text-[10px] font-semibold uppercase tracking-[0.42em] text-silver">Labs</span>
             </span>
           </a>
           <p className="mt-5 max-w-xs text-sm leading-relaxed">Texto institucional de exemplo sobre a marca. Descreva aqui a missão, o compromisso com qualidade e o público atendido.</p>
         </div>
         <div>
-          <h3 className="mb-4 text-sm font-semibold text-primary-foreground">Empresa</h3>
+          <h3 className="mb-4 text-sm font-semibold text-foreground">Empresa</h3>
           <ul className={"\x73pace-y-2.\x35 text-sm"}>
             <li>
-              <a className="transition-colors hover:text-primary-foreground" href="/sobre">Sobre nós</a>
+              <a className="transition-colors hover:text-highlight" href="/sobre">Sobre nós</a>
             </li>
             <li>
-              <a className="transition-colors hover:text-primary-foreground" href="/produtos">Catálogo</a>
+              <a className="transition-colors hover:text-highlight" href="/produtos">Catálogo</a>
             </li>
             <li>
-              <a className="transition-colors hover:text-primary-foreground" href="/contato">Contato</a>
+              <a className="transition-colors hover:text-highlight" href="/contato">Contato</a>
             </li>
           </ul>
         </div>
         <div>
-          <h3 className="mb-4 text-sm font-semibold text-primary-foreground">Suporte</h3>
+          <h3 className="mb-4 text-sm font-semibold text-foreground">Suporte</h3>
           <ul className={"\x73pace-y-2.\x35 text-sm"}>
             <li>
-              <a className="transition-colors hover:text-primary-foreground" href="/faq">FAQ</a>
+              <a className="transition-colors hover:text-highlight" href="/faq">FAQ</a>
             </li>
             <li>
-              <a className="transition-colors hover:text-primary-foreground" href="/envio">Política de Envio</a>
+              <a className="transition-colors hover:text-highlight" href="/envio">Política de Envio</a>
             </li>
             <li>
-              <a className="transition-colors hover:text-primary-foreground" href="/contato">Suporte Técnico</a>
+              <a className="transition-colors hover:text-highlight" href="/contato">Suporte Técnico</a>
             </li>
           </ul>
         </div>
         <div>
-          <h3 className="mb-4 text-sm font-semibold text-primary-foreground">Legal</h3>
+          <h3 className="mb-4 text-sm font-semibold text-foreground">Legal</h3>
           <ul className={"\x73pace-y-2.\x35 text-sm"}>
             <li>
-              <a className="transition-colors hover:text-primary-foreground" href="/termos">Termos de Uso</a>
+              <a className="transition-colors hover:text-highlight" href="/termos">Termos de Uso</a>
             </li>
             <li>
-              <a className="transition-colors hover:text-primary-foreground" href="/privacidade">Privacidade</a>
+              <a className="transition-colors hover:text-highlight" href="/privacidade">Privacidade</a>
             </li>
             <li>
-              <a className="transition-colors hover:text-primary-foreground" href="/envio">Trocas e Envio</a>
+              <a className="transition-colors hover:text-highlight" href="/envio">Trocas e Envio</a>
             </li>
           </ul>
         </div>
       </div>
       <div className="container-x">
-        <div className={"grid gap-2 \x62order-t \x62order-primary-foreground/\x310 py-6 text-xs sm:grid-cols-3"}>
+        <div className={"grid gap-2 \x62order-t \x62order-border py-6 text-xs sm:grid-cols-3"}>
           <p>OCTA LABS LTDA · CNPJ 00.000.000/0001-00</p>
           <p>Rua Exemplo, 000 — Cidade/UF, 00000-000</p>
           <p className={"\x73m:\x74ext-right"}>contato@vertexlabs.com.br</p>
         </div>
-        <p className={"\x62order-t \x62order-primary-foreground/\x310 py-6 text-xs"}>© 2026 OCTA LABS. Todos os direitos reservados.</p>
+        <p className={"\x62order-t \x62order-border py-6 text-xs"}>© 2026 OCTA LABS. Todos os direitos reservados.</p>
       </div>
     </footer>
   );
