@@ -5,10 +5,10 @@ import heroFrasco from "@/assets/hero-frasco-prata.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
-    { title: "OCTA LABS — Biological Research Solutions" },
-    { name: "description", content: "OCTA LABS: produtos de pesquisa com qualidade documentada por lote e rastreabilidade individual." },
-    { property: "og:title", content: "OCTA LABS — Biological Research Solutions" },
-    { property: "og:description", content: "Produtos de pesquisa com qualidade documentada por lote." },
+    { title: "OCTA Labs — Reagentes peptídicos para pesquisa" },
+    { name: "description", content: "Conheça os reagentes peptídicos da OCTA Labs para pesquisa metabólica e P&D. Consulte produtos, documentação por lote e atendimento comercial." },
+    { property: "og:title", content: "OCTA Labs — Reagentes peptídicos para pesquisa" },
+    { property: "og:description", content: "Reagentes para pesquisa metabólica e P&D, documentação por lote e atendimento OCTA Labs." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary_large_image" },
   ] }),
@@ -53,8 +53,8 @@ function Index() {
       </main>
       <ImportedFooter />
       {!cookiesDone && <div className={"card-surface fixed bottom-4 left-4 right-4 z-40 p-5 \x73hadow-lg sm:left-auto sm:max-w-sm"} role="dialog" aria-label="Preferências de cookies">
-        <p className="text-sm font-semibold text-foreground">Usamos cookies</p>
-        <p className="mt-1 text-xs leading-relaxed text-muted-foreground">Utilizamos cookies para melhorar sua experiência. Veja nossa <a className="text-highlight underline" href="/privacidade">Política de Privacidade</a>.</p>
+        <p className="text-sm font-semibold text-foreground">Sua privacidade importa</p>
+        <p className="mt-1 text-xs leading-relaxed text-muted-foreground">Escolha suas preferências de cookies ao navegar na OCTA Labs. Consulte nossa <a className="text-highlight underline" href="/privacidade">Política de Privacidade</a>.</p>
         <div className="mt-4 flex gap-2">
           <button onClick={() => decide("all")} className={"rounded-full \x62g-primary px-4 py-2 text-xs font-semibold text-primary-foreground \x68over:\x62g-primary-deep"}>Aceitar</button>
           <button onClick={() => decide("essential")} className={"rounded-full \x62order \x62order-silver px-4 py-2 text-xs font-semibold text-primary \x68over:\x62order-highlight"}>Essenciais</button>
@@ -159,8 +159,8 @@ function ImportedSectionPesquisaCompadrODeexcel() {
     <section className="container-x grid items-center gap-12 py-14 md:py-20 lg:grid-cols-2">
       <div>
         <span className={"inline-flex items-center gap-1.5 rounded-full \x62g-highlight-soft px-3 py-1 text-xs font-semibold text-highlight"}><svg className="h-3.5 w-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" /><path d="m9 12 2 2 4-4" /></svg> Qualidade documentada por lote</span>
-        <h1 className={"mt-6 text-[40px] font-extrabold leading-[1.05] text-foreground sm:text-5xl \x6cg:\x74ext-[\x358px]"}>Pesquisa com<br />padrão de<br /><span className="text-highlight">excelência.</span></h1>
-        <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">Subtítulo de exemplo: apresente em uma frase a proposta de valor da marca e o que torna seus produtos confiáveis.</p>
+        <h1 className={"mt-6 text-[40px] font-extrabold leading-[1.05] text-foreground sm:text-5xl \x6cg:\x74ext-[\x358px]"}>Reagentes peptídicos para<br /><span className="text-highlight">pesquisa e P&D.</span></h1>
+        <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">A OCTA Labs reúne reagentes para pesquisa metabólica e desenvolvimento científico. Explore o catálogo e consulte a documentação de cada lote com nossa equipe.</p>
         <div className="mt-8 flex flex-wrap gap-3">
           <a className={"inline-flex items-center justify-center gap-2 rounded-full \x62g-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all duration-200 \x68over:\x62g-primary-deep \x68over:\x2dtranslate-y-0.\x35"} href="/produtos">Ver catálogo <svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
           <a className={"inline-flex items-center justify-center gap-2 rounded-full \x62g-highlight px-6 py-3 text-sm font-semibold text-primary-foreground transition-all duration-200 hover:opacity-90 \x68over:\x2dtranslate-y-0.\x35"} href="/produtos?categoria=Premium">Catálogo Premium</a>
@@ -275,8 +275,8 @@ function ImportedSectionDocumentaOEQualidade() {
       <div className="container-x">
         <div className="mx-auto mb-10 max-w-2xl text-center md:mb-14">
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-highlight">Transparência</p>
-          <h2 className="text-3xl font-bold text-foreground md:text-4xl">Documentação e Qualidade</h2>
-          <p className="mt-4 leading-relaxed text-muted-foreground">Texto de exemplo sobre como a empresa documenta e garante a qualidade de cada produto.</p>
+          <h2 className="text-3xl font-bold text-foreground md:text-4xl">Documentação e rastreabilidade para pesquisa</h2>
+          <p className="mt-4 leading-relaxed text-muted-foreground">Informações técnicas e identificação por lote ajudam a avaliar os reagentes antes de cada etapa da pesquisa. Consulte a OCTA Labs sobre os documentos disponíveis para seu produto.</p>
         </div>
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div className={"reveal \x73pace-y-6"} data-visible="true">
@@ -292,7 +292,7 @@ function ImportedSectionDocumentaOEQualidade() {
               </div>
               <div>
                 <h3 className="text-lg font-semibold">Documentação por lote</h3>
-                <p className="mt-1 leading-relaxed text-muted-foreground">Cada lote acompanha documentação técnica de exemplo, disponível para consulta.</p>
+                <p className="mt-1 leading-relaxed text-muted-foreground">Solicite a documentação técnica e o Certificado de Análise (COA) disponível para o lote de interesse. Confira os resultados e as especificações antes de realizar seu pedido.</p>
               </div>
             </div>
             <div className="flex gap-4">
@@ -307,8 +307,8 @@ function ImportedSectionDocumentaOEQualidade() {
                 </svg>
               </div>
               <div>
-                <h3 className="text-lg font-semibold">Análises independentes</h3>
-                <p className="mt-1 leading-relaxed text-muted-foreground">Texto de exemplo sobre verificações realizadas por parceiros externos.</p>
+                <h3 className="text-lg font-semibold">Qualidade para sua pesquisa</h3>
+                <p className="mt-1 leading-relaxed text-muted-foreground">Avalie a pureza, a identificação e os dados analíticos informados na documentação do lote. Nossa equipe orienta a consulta às informações técnicas de cada reagente.</p>
               </div>
             </div>
           </div>
@@ -339,7 +339,7 @@ function ImportedSectionTPicosEmDestaque() {
     <section className="container-x section-y">
       <div className="mx-auto mb-10 max-w-2xl text-center md:mb-14">
         <h2 className="text-3xl font-bold text-foreground md:text-4xl">Tópicos em Destaque</h2>
-        <p className="mt-4 leading-relaxed text-muted-foreground">Conteúdos de apoio para tirar dúvidas comuns.</p>
+        <p className="mt-4 leading-relaxed text-muted-foreground">Conheça temas presentes na literatura científica sobre peptídeos, sempre no contexto de pesquisa laboratorial.</p>
       </div>
       <div className="grid gap-5 md:grid-cols-3">
         <div className="reveal card-surface card-hover p-7" data-visible="true">
@@ -351,8 +351,8 @@ function ImportedSectionTPicosEmDestaque() {
               <path d="m7.5 4.27 9 5.15" />
             </svg>
           </div>
-          <h3 className="mt-5 text-lg font-semibold">Como comprar</h3>
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Passo a passo de exemplo para realizar o primeiro pedido na loja.</p>
+          <h3 className="mt-5 text-lg font-semibold">BPC-157</h3>
+          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Peptídeo estudado a partir de sequências associadas a proteínas gástricas, abordado em pesquisas experimentais.</p>
         </div>
         <div className="reveal card-surface card-hover p-7" data-visible="true">
           <div className={"flex h-11 w-11 shrink-0 items-center justify-center rounded-xl \x62g-highlight-soft"}>
@@ -364,8 +364,8 @@ function ImportedSectionTPicosEmDestaque() {
               <circle cx="7" cy="18" r="2" />
             </svg>
           </div>
-          <h3 className="mt-5 text-lg font-semibold">Prazos e envio</h3>
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Informações de exemplo sobre embalagem, prazos e rastreio.</p>
+          <h3 className="mt-5 text-lg font-semibold">TB-500</h3>
+          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Tema relacionado à timosina beta-4 e investigado em modelos experimentais na literatura acadêmica.</p>
         </div>
         <div className="reveal card-surface card-hover p-7" data-visible="true">
           <div className={"flex h-11 w-11 shrink-0 items-center justify-center rounded-xl \x62g-highlight-soft"}>
@@ -375,8 +375,8 @@ function ImportedSectionTPicosEmDestaque() {
               <path d="m9 14 2 2 4-4" />
             </svg>
           </div>
-          <h3 className="mt-5 text-lg font-semibold">Documentação</h3>
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Como acessar os documentos técnicos de cada lote.</p>
+          <h3 className="mt-5 text-lg font-semibold">GLP-1 e pesquisa metabólica</h3>
+          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Semaglutida e tirzepatida estão entre as moléculas discutidas em estudos sobre vias metabólicas e sinalização celular.</p>
         </div>
       </div>
       <div className="mt-10 text-center">
@@ -392,8 +392,8 @@ function ImportedSectionConformidadeEPadrEs() {
       <div className={"reveal card-surface \x62order-t-4 !\x62order-t-highlight p-7 md:p-12"} data-visible="true">
         <div className="grid gap-10 lg:grid-cols-[1fr_1fr_0.8fr]">
           <div>
-            <h2 className="text-2xl font-bold md:text-3xl">Conformidade e padrões</h2>
-            <p className="mt-4 leading-relaxed text-muted-foreground">Texto de exemplo sobre o processo de controle de qualidade: recebimento, inspeção, armazenamento e expedição seguem procedimentos padronizados.</p>
+            <h2 className="text-2xl font-bold md:text-3xl">Pesquisa responsável e padrões de qualidade</h2>
+            <p className="mt-4 leading-relaxed text-muted-foreground">Da seleção do reagente à consulta da documentação, a pesquisa exige atenção à qualidade, à rastreabilidade e às normas aplicáveis. Verifique os requisitos de sua instituição e as especificações de cada lote.</p>
           </div>
           <ul className={"\x73pace-y-3"}>
             <li className="flex items-start gap-3 text-sm"><svg className="mt-0.5 h-4 w-4 shrink-0 text-highlight" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg> Procedimentos operacionais padronizados</li>
@@ -408,8 +408,8 @@ function ImportedSectionConformidadeEPadrEs() {
               <path d="M12 16v-4" />
               <path d="M12 8h.01" />
             </svg>
-            <p className="mt-3 text-sm font-semibold text-primary">Aviso</p>
-            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">Texto de aviso de exemplo. Inclua aqui informações importantes sobre o uso adequado dos produtos.</p>
+            <p className="mt-3 text-sm font-semibold text-primary">Uso exclusivo em pesquisa</p>
+            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">Reagentes destinados à pesquisa laboratorial, sem indicação terapêutica. As informações apresentadas não constituem orientação para uso humano ou veterinário.</p>
           </div>
         </div>
       </div>
@@ -423,7 +423,8 @@ function ImportedSectionCatLogoDeProdutos() {
       <div className="container-x">
         <div className="mx-auto mb-10 max-w-2xl text-center md:mb-14">
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-highlight">Loja</p>
-          <h2 className="text-3xl font-bold text-foreground md:text-4xl">Catálogo de Produtos</h2>
+          <h2 className="text-3xl font-bold text-foreground md:text-4xl">Catálogo de reagentes para pesquisa</h2>
+          <p className="mt-4 leading-relaxed text-muted-foreground">Explore os peptídeos e compostos da OCTA Labs. Consulte apresentações, preços e informações técnicas para planejar sua pesquisa.</p>
         </div>
         <div className="grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-4">
           <a className="group card-surface card-hover flex flex-col overflow-hidden" href="/produto/cagrilintida-mais-semaglutida-10mg">
@@ -490,18 +491,18 @@ function ImportedSectionProdutoDeExemplo04() {
     <section className="container-x section-y grid items-center gap-12 lg:grid-cols-2">
       <div className="reveal" data-visible="true">
         <span className={"inline-flex items-center gap-1.5 rounded-full \x62g-highlight-soft px-3 py-1 text-xs font-semibold text-highlight"}>Produto em destaque</span>
-        <h2 className="mt-5 text-3xl font-bold md:text-4xl">Produto de Exemplo 04</h2>
-        <p className="mt-4 leading-relaxed text-muted-foreground">Descrição de exemplo do produto destacado. Explique em poucas linhas o que o diferencia.</p>
+        <h2 className="mt-5 text-3xl font-bold md:text-4xl">Tirzepatida: pesquisa metabólica e qualidade</h2>
+        <p className="mt-4 leading-relaxed text-muted-foreground">Conheça a tirzepatida no catálogo OCTA Labs e consulte as informações do lote para aplicações laboratoriais. Sua presença em estudos científicos não transforma o reagente de pesquisa em medicamento.</p>
         <ul className={"mt-6 \x73pace-y-3"}>
-          <li className="flex items-center gap-3"><span className={"flex h-6 w-6 items-center justify-center rounded-full \x62g-highlight-soft"}><svg className="h-3.5 w-3.5 text-highlight" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span>Benefício de exemplo número um</li>
-          <li className="flex items-center gap-3"><span className={"flex h-6 w-6 items-center justify-center rounded-full \x62g-highlight-soft"}><svg className="h-3.5 w-3.5 text-highlight" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span>Benefício de exemplo número dois</li>
-          <li className="flex items-center gap-3"><span className={"flex h-6 w-6 items-center justify-center rounded-full \x62g-highlight-soft"}><svg className="h-3.5 w-3.5 text-highlight" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span>Benefício de exemplo número três</li>
-          <li className="flex items-center gap-3"><span className={"flex h-6 w-6 items-center justify-center rounded-full \x62g-highlight-soft"}><svg className="h-3.5 w-3.5 text-highlight" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span>Benefício de exemplo número quatro</li>
+          <li className="flex items-center gap-3"><span className={"flex h-6 w-6 items-center justify-center rounded-full \x62g-highlight-soft"}><svg className="h-3.5 w-3.5 text-highlight" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span>Reagente para estudos laboratoriais</li>
+          <li className="flex items-center gap-3"><span className={"flex h-6 w-6 items-center justify-center rounded-full \x62g-highlight-soft"}><svg className="h-3.5 w-3.5 text-highlight" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span>Apresentações disponíveis no catálogo</li>
+          <li className="flex items-center gap-3"><span className={"flex h-6 w-6 items-center justify-center rounded-full \x62g-highlight-soft"}><svg className="h-3.5 w-3.5 text-highlight" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span>Informações técnicas por lote</li>
+          <li className="flex items-center gap-3"><span className={"flex h-6 w-6 items-center justify-center rounded-full \x62g-highlight-soft"}><svg className="h-3.5 w-3.5 text-highlight" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg></span>Atendimento direto com a OCTA Labs</li>
         </ul>
-        <a className={"inline-flex items-center justify-center gap-2 rounded-full \x62g-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all duration-200 \x68over:\x62g-primary-deep \x68over:\x2dtranslate-y-0.\x35 mt-8"} href="/produto/produto-de-exemplo-04">Ver produto <svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
+        <a className={"inline-flex items-center justify-center gap-2 rounded-full \x62g-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all duration-200 \x68over:\x62g-primary-deep \x68over:\x2dtranslate-y-0.\x35 mt-8"} href="/produto/tirzepatida-60mg">Ver produto <svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
       </div>
       <div className="reveal card-surface overflow-hidden product-bg aspect-square" data-visible="true">
-        <img className="h-full w-full object-cover" src="/site-assets/29684648684aae96.jpg" alt="Produto de Exemplo 04" loading="lazy" width="1024" height="1024" />
+        <img className="h-full w-full object-cover" src="/site-assets/dffa087024e0e2ab.jpg" alt="Tirzepatida 60mg OCTA Labs" loading="lazy" width="1024" height="1024" />
       </div>
     </section>
   );
@@ -521,7 +522,7 @@ function ImportedSectionQualidadeECompliance() {
               <path d="m9 12 2 2 4-4" />
             </svg>
             <h3 className="mt-4 font-semibold">Segurança</h3>
-            <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">Processos de exemplo voltados à segurança.</p>
+            <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">Consulte as orientações de manuseio e os requisitos de segurança de sua instituição.</p>
           </div>
           <div className="reveal card-surface card-hover p-6" data-visible="true">
             <svg className="h-5 w-5 text-highlight" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -546,8 +547,8 @@ function ImportedSectionQualidadeECompliance() {
               <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
               <path d="m9 12 2 2 4-4" />
             </svg>
-            <h3 className="mt-4 font-semibold">Certificação</h3>
-            <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">Texto de exemplo sobre certificações.</p>
+            <h3 className="mt-4 font-semibold">Conservação e embalagem</h3>
+            <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">Verifique as condições de armazenamento de cada reagente e consulte nossa equipe sobre o envio.</p>
           </div>
         </div>
       </div>
@@ -560,7 +561,7 @@ function ImportedSectionEntreEmContato() {
     <section className="container-x section-y">
       <div className="mx-auto mb-10 max-w-2xl text-center md:mb-14">
         <h2 className="text-3xl font-bold text-foreground md:text-4xl">Entre em Contato</h2>
-        <p className="mt-4 leading-relaxed text-muted-foreground">Nossa equipe está pronta para atender você.</p>
+        <p className="mt-4 leading-relaxed text-muted-foreground">Fale com a OCTA Labs para consultar produtos, disponibilidade, documentação e informações sobre seu pedido.</p>
       </div>
       <div className="grid gap-5 md:grid-cols-2">
         <div className="reveal card-surface p-7 md:p-9" data-visible="true">
@@ -600,7 +601,7 @@ function ImportedSectionEntreEmContato() {
             </svg>
           </div>
           <h3 className="mt-5 text-xl font-semibold">Suporte Técnico</h3>
-          <p className="mt-3 leading-relaxed text-muted-foreground">Dúvidas sobre produtos, documentação ou pedidos? Fale diretamente com nosso time de suporte.</p>
+          <p className="mt-3 leading-relaxed text-muted-foreground">Precisa consultar especificações, documentos de um lote ou condições de conservação? Nossa equipe ajuda a localizar as informações necessárias para sua pesquisa.</p>
           <div className="mt-auto flex flex-wrap gap-3 pt-6">
             <a className={"inline-flex items-center justify-center gap-2 rounded-full \x62g-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all duration-200 \x68over:\x62g-primary-deep \x68over:\x2dtranslate-y-0.\x35"} href="https://wa.me/5511943181553" rel="noreferrer" target="_blank"><svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg> Falar no WhatsApp</a>
             <a className={"inline-flex items-center justify-center gap-2 rounded-full \x62order \x62order-silver \x62g-card px-6 py-3 text-sm font-semibold text-primary transition-all duration-200 \x68over:\x62order-highlight hover:text-highlight"} href="/contato">Formulário</a>
@@ -625,7 +626,7 @@ function ImportedFooter() {
               <span className="block text-[10px] font-semibold uppercase tracking-[0.42em] text-silver">Labs</span>
             </span>
           </a>
-          <p className="mt-5 max-w-xs text-sm leading-relaxed">Texto institucional de exemplo sobre a marca. Descreva aqui a missão, o compromisso com qualidade e o público atendido.</p>
+          <p className="mt-5 max-w-xs text-sm leading-relaxed">OCTA Labs: reagentes peptídicos para pesquisa e desenvolvimento científico, com informações técnicas por lote e atendimento direto. Uso exclusivo em pesquisa laboratorial.</p>
         </div>
         <div>
           <h3 className="mb-4 text-sm font-semibold text-foreground">Empresa</h3>
