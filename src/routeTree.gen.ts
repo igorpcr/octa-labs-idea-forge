@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as EnvioRouteImport } from './routes/envio'
 import { Route as ProdutosRouteImport } from './routes/produtos'
 import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as FerramentasIndexRouteImport } from './routes/ferramentas.index'
@@ -32,6 +33,11 @@ import { Route as ProdutoTirzepatida60mgRouteImport } from './routes/produto_.ti
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnvioRoute = EnvioRouteImport.update({
+  id: '/envio',
+  path: '/envio',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProdutosRoute = ProdutosRouteImport.update({
@@ -130,6 +136,7 @@ const ProdutoTirzepatida60mgRoute = ProdutoTirzepatida60mgRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/envio': typeof EnvioRoute
   '/produtos': typeof ProdutosRoute
   '/sobre': typeof SobreRoute
   '/ferramentas/amostra': typeof FerramentasAmostraRoute
@@ -151,6 +158,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/envio': typeof EnvioRoute
   '/produtos': typeof ProdutosRoute
   '/sobre': typeof SobreRoute
   '/ferramentas/amostra': typeof FerramentasAmostraRoute
@@ -173,6 +181,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/envio': typeof EnvioRoute
   '/produtos': typeof ProdutosRoute
   '/sobre': typeof SobreRoute
   '/ferramentas/amostra': typeof FerramentasAmostraRoute
@@ -196,6 +205,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/envio'
     | '/produtos'
     | '/sobre'
     | '/ferramentas/amostra'
@@ -217,6 +227,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/envio'
     | '/produtos'
     | '/sobre'
     | '/ferramentas/amostra'
@@ -238,6 +249,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/envio'
     | '/produtos'
     | '/sobre'
     | '/ferramentas/amostra'
@@ -260,6 +272,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  EnvioRoute: typeof EnvioRoute
   ProdutosRoute: typeof ProdutosRoute
   SobreRoute: typeof SobreRoute
   FerramentasAmostraRoute: typeof FerramentasAmostraRoute
@@ -287,6 +300,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/envio': {
+      id: '/envio'
+      path: '/envio'
+      fullPath: '/envio'
+      preLoaderRoute: typeof EnvioRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/produtos': {
@@ -420,6 +440,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  EnvioRoute: EnvioRoute,
   ProdutosRoute: ProdutosRoute,
   SobreRoute: SobreRoute,
   FerramentasAmostraRoute: FerramentasAmostraRoute,
