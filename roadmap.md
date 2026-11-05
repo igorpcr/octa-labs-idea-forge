@@ -11,5 +11,5 @@
 - [x] Implementar cálculos e validações, testar resultados e conferir o uso real.
 
 ## Política de Envios
-- [ ] Criar política nacional original em /envio com identidade OCTA, sem condições comerciais não confirmadas.
-- [ ] Conferir acesso pelo rodapé, contatos e visual no computador e celular.
+- [x] Criar política nacional original em /envio com identidade OCTA, sem condições comerciais não confirmadas.
+- [x] Conferir acesso pelo rodapé, contatos e visual no computador e celular.
