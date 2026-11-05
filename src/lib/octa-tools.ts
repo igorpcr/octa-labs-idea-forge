@@ -35,7 +35,7 @@ export function calculateTool(id: ToolId, values: ToolValues): ToolResult {
   }
   if (id === "conversor") {
     const amount = n("amount", "Valor");
-    const unit = values.unit;
+    const unit = values["unit"];
     if (unit !== "mg" && unit !== "mcg" && unit !== "g") throw new Error("Selecione uma unidade de massa válida.");
     const mg = amount * (unit === "g" ? 1000 : unit === "mcg" ? 0.001 : 1);
     return [{ label: "Miligramas", value: `${format(mg)} mg` }, { label: "Microgramas", value: `${format(mg * 1000)} µg` }, { label: "Gramas", value: `${format(mg / 1000)} g` }];
@@ -49,7 +49,7 @@ export function calculateTool(id: ToolId, values: ToolValues): ToolResult {
     const sample = n("sample", "Massa da amostra"), ratio = n("ratio", "Proporção");
     return [{ label: "Massa calculada de reagente", value: `${format(sample * ratio)} mg` }, { label: "Equivalente", value: `${format(sample * ratio * 1000)} µg` }];
   }
-  const date = values.start ?? "";
+  const date = values["start"] ?? "";
   const count = n("count", "Quantidade de ensaios"), interval = n("interval", "Intervalo");
   if (!Number.isInteger(count) || count > 100 || !Number.isInteger(interval) || interval > 365) throw new Error("Use entre 1 e 100 ensaios e um intervalo inteiro de 1 a 365 dias.");
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) throw new Error("Informe uma data inicial válida.");
