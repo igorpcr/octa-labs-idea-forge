@@ -12,6 +12,13 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProdutosRouteImport } from './routes/produtos'
 import { Route as SobreRouteImport } from './routes/sobre'
+import { Route as FerramentasIndexRouteImport } from './routes/ferramentas.index'
+import { Route as FerramentasAmostraRouteImport } from './routes/ferramentas.amostra'
+import { Route as FerramentasConcentracaoRouteImport } from './routes/ferramentas.concentracao'
+import { Route as FerramentasConversorRouteImport } from './routes/ferramentas.conversor'
+import { Route as FerramentasCronogramaRouteImport } from './routes/ferramentas.cronograma'
+import { Route as FerramentasDiluicaoRouteImport } from './routes/ferramentas.diluicao'
+import { Route as FerramentasRendimentoRouteImport } from './routes/ferramentas.rendimento'
 import { Route as ProdutoAod960410mgRouteImport } from './routes/produto_.aod-9604-10mg'
 import { Route as ProdutoAod96045mgRouteImport } from './routes/produto_.aod-9604-5mg'
 import { Route as ProdutoCagrilintidaMaisSemaglutida10mgRouteImport } from './routes/produto_.cagrilintida-mais-semaglutida-10mg'
@@ -35,6 +42,41 @@ const ProdutosRoute = ProdutosRouteImport.update({
 const SobreRoute = SobreRouteImport.update({
   id: '/sobre',
   path: '/sobre',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FerramentasIndexRoute = FerramentasIndexRouteImport.update({
+  id: '/ferramentas/',
+  path: '/ferramentas/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FerramentasAmostraRoute = FerramentasAmostraRouteImport.update({
+  id: '/ferramentas/amostra',
+  path: '/ferramentas/amostra',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FerramentasConcentracaoRoute = FerramentasConcentracaoRouteImport.update({
+  id: '/ferramentas/concentracao',
+  path: '/ferramentas/concentracao',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FerramentasConversorRoute = FerramentasConversorRouteImport.update({
+  id: '/ferramentas/conversor',
+  path: '/ferramentas/conversor',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FerramentasCronogramaRoute = FerramentasCronogramaRouteImport.update({
+  id: '/ferramentas/cronograma',
+  path: '/ferramentas/cronograma',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FerramentasDiluicaoRoute = FerramentasDiluicaoRouteImport.update({
+  id: '/ferramentas/diluicao',
+  path: '/ferramentas/diluicao',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FerramentasRendimentoRoute = FerramentasRendimentoRouteImport.update({
+  id: '/ferramentas/rendimento',
+  path: '/ferramentas/rendimento',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProdutoAod960410mgRoute = ProdutoAod960410mgRouteImport.update({
@@ -90,6 +132,12 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/produtos': typeof ProdutosRoute
   '/sobre': typeof SobreRoute
+  '/ferramentas/amostra': typeof FerramentasAmostraRoute
+  '/ferramentas/concentracao': typeof FerramentasConcentracaoRoute
+  '/ferramentas/conversor': typeof FerramentasConversorRoute
+  '/ferramentas/cronograma': typeof FerramentasCronogramaRoute
+  '/ferramentas/diluicao': typeof FerramentasDiluicaoRoute
+  '/ferramentas/rendimento': typeof FerramentasRendimentoRoute
   '/produto/aod-9604-10mg': typeof ProdutoAod960410mgRoute
   '/produto/aod-9604-5mg': typeof ProdutoAod96045mgRoute
   '/produto/cagrilintida-mais-semaglutida-10mg': typeof ProdutoCagrilintidaMaisSemaglutida10mgRoute
@@ -99,11 +147,18 @@ export interface FileRoutesByFullPath {
   '/produto/retatrutida-60mg': typeof ProdutoRetatrutida60mgRoute
   '/produto/tirzepatida-30mg': typeof ProdutoTirzepatida30mgRoute
   '/produto/tirzepatida-60mg': typeof ProdutoTirzepatida60mgRoute
+  '/ferramentas/': typeof FerramentasIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/produtos': typeof ProdutosRoute
   '/sobre': typeof SobreRoute
+  '/ferramentas/amostra': typeof FerramentasAmostraRoute
+  '/ferramentas/concentracao': typeof FerramentasConcentracaoRoute
+  '/ferramentas/conversor': typeof FerramentasConversorRoute
+  '/ferramentas/cronograma': typeof FerramentasCronogramaRoute
+  '/ferramentas/diluicao': typeof FerramentasDiluicaoRoute
+  '/ferramentas/rendimento': typeof FerramentasRendimentoRoute
   '/produto/aod-9604-10mg': typeof ProdutoAod960410mgRoute
   '/produto/aod-9604-5mg': typeof ProdutoAod96045mgRoute
   '/produto/cagrilintida-mais-semaglutida-10mg': typeof ProdutoCagrilintidaMaisSemaglutida10mgRoute
@@ -113,12 +168,19 @@ export interface FileRoutesByTo {
   '/produto/retatrutida-60mg': typeof ProdutoRetatrutida60mgRoute
   '/produto/tirzepatida-30mg': typeof ProdutoTirzepatida30mgRoute
   '/produto/tirzepatida-60mg': typeof ProdutoTirzepatida60mgRoute
+  '/ferramentas': typeof FerramentasIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/produtos': typeof ProdutosRoute
   '/sobre': typeof SobreRoute
+  '/ferramentas/amostra': typeof FerramentasAmostraRoute
+  '/ferramentas/concentracao': typeof FerramentasConcentracaoRoute
+  '/ferramentas/conversor': typeof FerramentasConversorRoute
+  '/ferramentas/cronograma': typeof FerramentasCronogramaRoute
+  '/ferramentas/diluicao': typeof FerramentasDiluicaoRoute
+  '/ferramentas/rendimento': typeof FerramentasRendimentoRoute
   '/produto_/aod-9604-10mg': typeof ProdutoAod960410mgRoute
   '/produto_/aod-9604-5mg': typeof ProdutoAod96045mgRoute
   '/produto_/cagrilintida-mais-semaglutida-10mg': typeof ProdutoCagrilintidaMaisSemaglutida10mgRoute
@@ -128,6 +190,7 @@ export interface FileRoutesById {
   '/produto_/retatrutida-60mg': typeof ProdutoRetatrutida60mgRoute
   '/produto_/tirzepatida-30mg': typeof ProdutoTirzepatida30mgRoute
   '/produto_/tirzepatida-60mg': typeof ProdutoTirzepatida60mgRoute
+  '/ferramentas/': typeof FerramentasIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -135,6 +198,12 @@ export interface FileRouteTypes {
     | '/'
     | '/produtos'
     | '/sobre'
+    | '/ferramentas/amostra'
+    | '/ferramentas/concentracao'
+    | '/ferramentas/conversor'
+    | '/ferramentas/cronograma'
+    | '/ferramentas/diluicao'
+    | '/ferramentas/rendimento'
     | '/produto/aod-9604-10mg'
     | '/produto/aod-9604-5mg'
     | '/produto/cagrilintida-mais-semaglutida-10mg'
@@ -144,11 +213,18 @@ export interface FileRouteTypes {
     | '/produto/retatrutida-60mg'
     | '/produto/tirzepatida-30mg'
     | '/produto/tirzepatida-60mg'
+    | '/ferramentas/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/produtos'
     | '/sobre'
+    | '/ferramentas/amostra'
+    | '/ferramentas/concentracao'
+    | '/ferramentas/conversor'
+    | '/ferramentas/cronograma'
+    | '/ferramentas/diluicao'
+    | '/ferramentas/rendimento'
     | '/produto/aod-9604-10mg'
     | '/produto/aod-9604-5mg'
     | '/produto/cagrilintida-mais-semaglutida-10mg'
@@ -158,11 +234,18 @@ export interface FileRouteTypes {
     | '/produto/retatrutida-60mg'
     | '/produto/tirzepatida-30mg'
     | '/produto/tirzepatida-60mg'
+    | '/ferramentas'
   id:
     | '__root__'
     | '/'
     | '/produtos'
     | '/sobre'
+    | '/ferramentas/amostra'
+    | '/ferramentas/concentracao'
+    | '/ferramentas/conversor'
+    | '/ferramentas/cronograma'
+    | '/ferramentas/diluicao'
+    | '/ferramentas/rendimento'
     | '/produto_/aod-9604-10mg'
     | '/produto_/aod-9604-5mg'
     | '/produto_/cagrilintida-mais-semaglutida-10mg'
@@ -172,12 +255,19 @@ export interface FileRouteTypes {
     | '/produto_/retatrutida-60mg'
     | '/produto_/tirzepatida-30mg'
     | '/produto_/tirzepatida-60mg'
+    | '/ferramentas/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ProdutosRoute: typeof ProdutosRoute
   SobreRoute: typeof SobreRoute
+  FerramentasAmostraRoute: typeof FerramentasAmostraRoute
+  FerramentasConcentracaoRoute: typeof FerramentasConcentracaoRoute
+  FerramentasConversorRoute: typeof FerramentasConversorRoute
+  FerramentasCronogramaRoute: typeof FerramentasCronogramaRoute
+  FerramentasDiluicaoRoute: typeof FerramentasDiluicaoRoute
+  FerramentasRendimentoRoute: typeof FerramentasRendimentoRoute
   ProdutoAod960410mgRoute: typeof ProdutoAod960410mgRoute
   ProdutoAod96045mgRoute: typeof ProdutoAod96045mgRoute
   ProdutoCagrilintidaMaisSemaglutida10mgRoute: typeof ProdutoCagrilintidaMaisSemaglutida10mgRoute
@@ -187,6 +277,7 @@ export interface RootRouteChildren {
   ProdutoRetatrutida60mgRoute: typeof ProdutoRetatrutida60mgRoute
   ProdutoTirzepatida30mgRoute: typeof ProdutoTirzepatida30mgRoute
   ProdutoTirzepatida60mgRoute: typeof ProdutoTirzepatida60mgRoute
+  FerramentasIndexRoute: typeof FerramentasIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -210,6 +301,55 @@ declare module '@tanstack/react-router' {
       path: '/sobre'
       fullPath: '/sobre'
       preLoaderRoute: typeof SobreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ferramentas/': {
+      id: '/ferramentas/'
+      path: '/ferramentas'
+      fullPath: '/ferramentas/'
+      preLoaderRoute: typeof FerramentasIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ferramentas/amostra': {
+      id: '/ferramentas/amostra'
+      path: '/ferramentas/amostra'
+      fullPath: '/ferramentas/amostra'
+      preLoaderRoute: typeof FerramentasAmostraRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ferramentas/concentracao': {
+      id: '/ferramentas/concentracao'
+      path: '/ferramentas/concentracao'
+      fullPath: '/ferramentas/concentracao'
+      preLoaderRoute: typeof FerramentasConcentracaoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ferramentas/conversor': {
+      id: '/ferramentas/conversor'
+      path: '/ferramentas/conversor'
+      fullPath: '/ferramentas/conversor'
+      preLoaderRoute: typeof FerramentasConversorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ferramentas/cronograma': {
+      id: '/ferramentas/cronograma'
+      path: '/ferramentas/cronograma'
+      fullPath: '/ferramentas/cronograma'
+      preLoaderRoute: typeof FerramentasCronogramaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ferramentas/diluicao': {
+      id: '/ferramentas/diluicao'
+      path: '/ferramentas/diluicao'
+      fullPath: '/ferramentas/diluicao'
+      preLoaderRoute: typeof FerramentasDiluicaoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ferramentas/rendimento': {
+      id: '/ferramentas/rendimento'
+      path: '/ferramentas/rendimento'
+      fullPath: '/ferramentas/rendimento'
+      preLoaderRoute: typeof FerramentasRendimentoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/produto_/aod-9604-10mg': {
@@ -282,6 +422,12 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ProdutosRoute: ProdutosRoute,
   SobreRoute: SobreRoute,
+  FerramentasAmostraRoute: FerramentasAmostraRoute,
+  FerramentasConcentracaoRoute: FerramentasConcentracaoRoute,
+  FerramentasConversorRoute: FerramentasConversorRoute,
+  FerramentasCronogramaRoute: FerramentasCronogramaRoute,
+  FerramentasDiluicaoRoute: FerramentasDiluicaoRoute,
+  FerramentasRendimentoRoute: FerramentasRendimentoRoute,
   ProdutoAod960410mgRoute: ProdutoAod960410mgRoute,
   ProdutoAod96045mgRoute: ProdutoAod96045mgRoute,
   ProdutoCagrilintidaMaisSemaglutida10mgRoute:
@@ -293,6 +439,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProdutoRetatrutida60mgRoute: ProdutoRetatrutida60mgRoute,
   ProdutoTirzepatida30mgRoute: ProdutoTirzepatida30mgRoute,
   ProdutoTirzepatida60mgRoute: ProdutoTirzepatida60mgRoute,
+  FerramentasIndexRoute: FerramentasIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

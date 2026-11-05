@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { octaContact } from "@/lib/octa-contact";
 import capturedCSS from "../styles/site.css?raw";
+import { ToolsMenu, MobileToolLinks } from "@/components/tools-menu";
 import heroFrasco from "@/assets/hero-frasco-prata.png";
 
 export const Route = createFileRoute("/")({
@@ -94,16 +95,7 @@ export function ImportedHeader() {
           <a className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary text-primary" aria-current="page" href="/">Home</a>
           <a className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary" href="/sobre">Sobre</a>
           <a className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary" href="/produtos">Produtos</a>
-          <div className="group relative">
-            <button className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary inline-flex items-center gap-1" aria-haspopup="true">Ferramentas <svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg></button>
-            <div className={"invisible absolute left-1/2 top-full w-56 \x2dtranslate-x-1/\x32 pt-3 opacity-0 transition-all duration-200 \x67roup-focus-within:\x76isible \x67roup-focus-within:\x6fpacity-100 \x67roup-hover:\x76isible \x67roup-hover:\x6fpacity-100"}>
-              <div className="card-surface p-2">
-                <a className={"block rounded-lg px-3 py-2 text-sm text-foreground \x68over:\x62g-highlight-soft hover:text-highlight"} href="/faq">FAQ</a>
-                <a className={"block rounded-lg px-3 py-2 text-sm text-foreground \x68over:\x62g-highlight-soft hover:text-highlight"} href="/envio">Política de Envio</a>
-                <a className={"block rounded-lg px-3 py-2 text-sm text-foreground \x68over:\x62g-highlight-soft hover:text-highlight"} href="/contato">Suporte Técnico</a>
-              </div>
-            </div>
-          </div>
+          <ToolsMenu />
           <a className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary" href="/contato">Contato</a>
         </nav>
         <div className={"hidden items-center gap-2 \x6cg:\x66lex"}>
@@ -138,10 +130,7 @@ export function ImportedHeader() {
               <a className="py-3 text-lg font-medium text-foreground" href="/" onClick={close}>Home</a>
               <a className="py-3 text-lg font-medium text-foreground" href="/sobre" onClick={close}>Sobre</a>
               <a className="py-3 text-lg font-medium text-foreground" href="/produtos" onClick={close}>Produtos</a>
-              <p className="pt-3 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Ferramentas</p>
-              <a className="py-2 pl-3 text-sm text-foreground" href="/faq" onClick={close}>FAQ</a>
-              <a className="py-2 pl-3 text-sm text-foreground" href="/envio" onClick={close}>Política de Envio</a>
-              <a className="py-2 pl-3 text-sm text-foreground" href="/contato" onClick={close}>Suporte Técnico</a>
+              <MobileToolLinks onNavigate={close} />
               <a className="py-3 text-lg font-medium text-foreground" href="/contato" onClick={close}>Contato</a>
               <div className="mt-4 flex flex-col gap-3">
                 <a className="rounded-full bg-primary px-6 py-3 text-center text-sm font-semibold text-primary-foreground" href="/produtos">Catálogo</a>
