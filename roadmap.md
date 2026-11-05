@@ -13,3 +13,7 @@
 ## Política de Envios
 - [x] Criar política nacional original em /envio com identidade OCTA, sem condições comerciais não confirmadas.
 - [x] Conferir acesso pelo rodapé, contatos e visual no computador e celular.
+
+## Carrinho e finalização
+- [ ] Criar carrinho, CEP/endereço, revisão e tela final sem cobranças reais.
+- [ ] Integrar produtos e testar quantidades, totais, validação e navegação em computador/celular.
