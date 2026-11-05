@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
+import { octaContact } from "@/lib/octa-contact";
 import capturedCSS from "../styles/site.css?raw";
 import heroFrasco from "@/assets/hero-frasco-prata.png";
 
@@ -65,7 +66,7 @@ function Index() {
   );
 }
 
-function ImportedHeader() {
+export function ImportedHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const openBtn = useRef<HTMLButtonElement>(null);
   const closeBtn = useRef<HTMLButtonElement>(null);
@@ -166,7 +167,7 @@ function ImportedSectionPesquisaCompadrODeexcel() {
           <a className={"inline-flex items-center justify-center gap-2 rounded-full \x62g-highlight px-6 py-3 text-sm font-semibold text-primary-foreground transition-all duration-200 hover:opacity-90 \x68over:\x2dtranslate-y-0.\x35"} href="/produtos?categoria=Premium">Catálogo Premium</a>
         </div>
         <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
-          <a className="inline-flex items-center gap-1.5 hover:text-highlight" href="mailto:contato@vertexlabs.com.br"><svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" /><rect x="2" y="4" width="20" height="16" rx="2" /></svg>{" "}contato@vertexlabs.com.br</a>
+          <a className="inline-flex items-center gap-1.5 hover:text-highlight" href={`mailto:${octaContact.email}`}><svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" /><rect x="2" y="4" width="20" height="16" rx="2" /></svg>{" "}{octaContact.email}</a>
           <a className="inline-flex items-center gap-1.5 hover:text-highlight" href="https://wa.me/5511943181553" rel="noreferrer" target="_blank"><svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg> WhatsApp</a>
         </div>
       </div>
@@ -582,11 +583,7 @@ function ImportedSectionEntreEmContato() {
             </div>
             <div className={"flex flex-col gap-0.5 \x73m:\x66lex-row sm:gap-3"}>
               <dt className="w-24 shrink-0 text-muted-foreground">E-mail</dt>
-              <dd className="font-medium">contato@vertexlabs.com.br</dd>
-            </div>
-            <div className={"flex flex-col gap-0.5 \x73m:\x66lex-row sm:gap-3"}>
-              <dt className="w-24 shrink-0 text-muted-foreground">Endereço</dt>
-              <dd className="font-medium">Rua Exemplo, 000 — Cidade/UF, 00000-000</dd>
+              <dd className="font-medium"><a className="break-all hover:text-highlight" href={`mailto:${octaContact.email}`}>{octaContact.email}</a></dd>
             </div>
             <div className={"flex flex-col gap-0.5 \x73m:\x66lex-row sm:gap-3"}>
               <dt className="w-24 shrink-0 text-muted-foreground">Horário</dt>
@@ -612,7 +609,7 @@ function ImportedSectionEntreEmContato() {
   );
 }
 
-function ImportedFooter() {
+export function ImportedFooter() {
   return (
     <footer className={"octa-footer text-muted-foreground"}>
       <div className="container-x grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
@@ -673,9 +670,7 @@ function ImportedFooter() {
       </div>
       <div className="container-x">
         <div className={"grid gap-2 \x62order-t \x62order-border py-6 text-xs sm:grid-cols-3"}>
-          <p>OCTA LABS LTDA · CNPJ 00.000.000/0001-00</p>
-          <p>Rua Exemplo, 000 — Cidade/UF, 00000-000</p>
-          <p className={"\x73m:\x74ext-right"}>contato@vertexlabs.com.br</p>
+          <p className={"\x73m:\x74ext-right"}>{octaContact.email}</p>
         </div>
         <p className={"\x62order-t \x62order-border py-6 text-xs"}>© 2026 OCTA LABS. Todos os direitos reservados.</p>
       </div>
