@@ -6,6 +6,6 @@
 - [x] Conferir navegação, contatos e visual no computador e celular.
 
 ## Ferramentas Grátis
-- [ ] Identificar as ferramentas da referência e criar equivalentes originais com títulos OCTA.
-- [ ] Integrar menu no computador e celular e criar todas as páginas de ferramentas.
-- [ ] Implementar cálculos e validações, testar resultados e conferir o uso real.
+- [x] Identificar as ferramentas da referência e criar versões originais de uso laboratorial com títulos OCTA.
+- [x] Integrar menu no computador e celular e criar todas as páginas de ferramentas.
+- [x] Implementar cálculos e validações, testar resultados e conferir o uso real.
