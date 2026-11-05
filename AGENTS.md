@@ -14,3 +14,4 @@
 
 - All public pages reuse the home header so desktop and mobile tool navigation stays consistent; tool definitions and pure calculations live in src/lib/octa-tools.ts and each tool has its own leaf route.
 - Free tools operate on laboratory quantities only; do not add human dosing, U-100 injection guidance, or experimental compound titration schedules.
+- The shipping policy lives at /envio and reuses the shared home header, footer and captured theme so existing footer links resolve consistently.
