@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CarrinhoRouteImport } from './routes/carrinho'
 import { Route as EnvioRouteImport } from './routes/envio'
 import { Route as ProdutosRouteImport } from './routes/produtos'
 import { Route as SobreRouteImport } from './routes/sobre'
@@ -20,6 +21,9 @@ import { Route as FerramentasConversorRouteImport } from './routes/ferramentas.c
 import { Route as FerramentasCronogramaRouteImport } from './routes/ferramentas.cronograma'
 import { Route as FerramentasDiluicaoRouteImport } from './routes/ferramentas.diluicao'
 import { Route as FerramentasRendimentoRouteImport } from './routes/ferramentas.rendimento'
+import { Route as FinalizarEntregaRouteImport } from './routes/finalizar.entrega'
+import { Route as FinalizarPagamentoRouteImport } from './routes/finalizar.pagamento'
+import { Route as FinalizarRevisaoRouteImport } from './routes/finalizar.revisao'
 import { Route as ProdutoAod960410mgRouteImport } from './routes/produto_.aod-9604-10mg'
 import { Route as ProdutoAod96045mgRouteImport } from './routes/produto_.aod-9604-5mg'
 import { Route as ProdutoCagrilintidaMaisSemaglutida10mgRouteImport } from './routes/produto_.cagrilintida-mais-semaglutida-10mg'
@@ -33,6 +37,11 @@ import { Route as ProdutoTirzepatida60mgRouteImport } from './routes/produto_.ti
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CarrinhoRoute = CarrinhoRouteImport.update({
+  id: '/carrinho',
+  path: '/carrinho',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EnvioRoute = EnvioRouteImport.update({
@@ -83,6 +92,21 @@ const FerramentasDiluicaoRoute = FerramentasDiluicaoRouteImport.update({
 const FerramentasRendimentoRoute = FerramentasRendimentoRouteImport.update({
   id: '/ferramentas/rendimento',
   path: '/ferramentas/rendimento',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FinalizarEntregaRoute = FinalizarEntregaRouteImport.update({
+  id: '/finalizar/entrega',
+  path: '/finalizar/entrega',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FinalizarPagamentoRoute = FinalizarPagamentoRouteImport.update({
+  id: '/finalizar/pagamento',
+  path: '/finalizar/pagamento',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FinalizarRevisaoRoute = FinalizarRevisaoRouteImport.update({
+  id: '/finalizar/revisao',
+  path: '/finalizar/revisao',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProdutoAod960410mgRoute = ProdutoAod960410mgRouteImport.update({
@@ -136,6 +160,7 @@ const ProdutoTirzepatida60mgRoute = ProdutoTirzepatida60mgRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/carrinho': typeof CarrinhoRoute
   '/envio': typeof EnvioRoute
   '/produtos': typeof ProdutosRoute
   '/sobre': typeof SobreRoute
@@ -145,6 +170,9 @@ export interface FileRoutesByFullPath {
   '/ferramentas/cronograma': typeof FerramentasCronogramaRoute
   '/ferramentas/diluicao': typeof FerramentasDiluicaoRoute
   '/ferramentas/rendimento': typeof FerramentasRendimentoRoute
+  '/finalizar/entrega': typeof FinalizarEntregaRoute
+  '/finalizar/pagamento': typeof FinalizarPagamentoRoute
+  '/finalizar/revisao': typeof FinalizarRevisaoRoute
   '/produto/aod-9604-10mg': typeof ProdutoAod960410mgRoute
   '/produto/aod-9604-5mg': typeof ProdutoAod96045mgRoute
   '/produto/cagrilintida-mais-semaglutida-10mg': typeof ProdutoCagrilintidaMaisSemaglutida10mgRoute
@@ -158,6 +186,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/carrinho': typeof CarrinhoRoute
   '/envio': typeof EnvioRoute
   '/produtos': typeof ProdutosRoute
   '/sobre': typeof SobreRoute
@@ -167,6 +196,9 @@ export interface FileRoutesByTo {
   '/ferramentas/cronograma': typeof FerramentasCronogramaRoute
   '/ferramentas/diluicao': typeof FerramentasDiluicaoRoute
   '/ferramentas/rendimento': typeof FerramentasRendimentoRoute
+  '/finalizar/entrega': typeof FinalizarEntregaRoute
+  '/finalizar/pagamento': typeof FinalizarPagamentoRoute
+  '/finalizar/revisao': typeof FinalizarRevisaoRoute
   '/produto/aod-9604-10mg': typeof ProdutoAod960410mgRoute
   '/produto/aod-9604-5mg': typeof ProdutoAod96045mgRoute
   '/produto/cagrilintida-mais-semaglutida-10mg': typeof ProdutoCagrilintidaMaisSemaglutida10mgRoute
@@ -181,6 +213,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/carrinho': typeof CarrinhoRoute
   '/envio': typeof EnvioRoute
   '/produtos': typeof ProdutosRoute
   '/sobre': typeof SobreRoute
@@ -190,6 +223,9 @@ export interface FileRoutesById {
   '/ferramentas/cronograma': typeof FerramentasCronogramaRoute
   '/ferramentas/diluicao': typeof FerramentasDiluicaoRoute
   '/ferramentas/rendimento': typeof FerramentasRendimentoRoute
+  '/finalizar/entrega': typeof FinalizarEntregaRoute
+  '/finalizar/pagamento': typeof FinalizarPagamentoRoute
+  '/finalizar/revisao': typeof FinalizarRevisaoRoute
   '/produto_/aod-9604-10mg': typeof ProdutoAod960410mgRoute
   '/produto_/aod-9604-5mg': typeof ProdutoAod96045mgRoute
   '/produto_/cagrilintida-mais-semaglutida-10mg': typeof ProdutoCagrilintidaMaisSemaglutida10mgRoute
@@ -205,6 +241,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/carrinho'
     | '/envio'
     | '/produtos'
     | '/sobre'
@@ -214,6 +251,9 @@ export interface FileRouteTypes {
     | '/ferramentas/cronograma'
     | '/ferramentas/diluicao'
     | '/ferramentas/rendimento'
+    | '/finalizar/entrega'
+    | '/finalizar/pagamento'
+    | '/finalizar/revisao'
     | '/produto/aod-9604-10mg'
     | '/produto/aod-9604-5mg'
     | '/produto/cagrilintida-mais-semaglutida-10mg'
@@ -227,6 +267,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/carrinho'
     | '/envio'
     | '/produtos'
     | '/sobre'
@@ -236,6 +277,9 @@ export interface FileRouteTypes {
     | '/ferramentas/cronograma'
     | '/ferramentas/diluicao'
     | '/ferramentas/rendimento'
+    | '/finalizar/entrega'
+    | '/finalizar/pagamento'
+    | '/finalizar/revisao'
     | '/produto/aod-9604-10mg'
     | '/produto/aod-9604-5mg'
     | '/produto/cagrilintida-mais-semaglutida-10mg'
@@ -249,6 +293,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/carrinho'
     | '/envio'
     | '/produtos'
     | '/sobre'
@@ -258,6 +303,9 @@ export interface FileRouteTypes {
     | '/ferramentas/cronograma'
     | '/ferramentas/diluicao'
     | '/ferramentas/rendimento'
+    | '/finalizar/entrega'
+    | '/finalizar/pagamento'
+    | '/finalizar/revisao'
     | '/produto_/aod-9604-10mg'
     | '/produto_/aod-9604-5mg'
     | '/produto_/cagrilintida-mais-semaglutida-10mg'
@@ -272,6 +320,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CarrinhoRoute: typeof CarrinhoRoute
   EnvioRoute: typeof EnvioRoute
   ProdutosRoute: typeof ProdutosRoute
   SobreRoute: typeof SobreRoute
@@ -281,6 +330,9 @@ export interface RootRouteChildren {
   FerramentasCronogramaRoute: typeof FerramentasCronogramaRoute
   FerramentasDiluicaoRoute: typeof FerramentasDiluicaoRoute
   FerramentasRendimentoRoute: typeof FerramentasRendimentoRoute
+  FinalizarEntregaRoute: typeof FinalizarEntregaRoute
+  FinalizarPagamentoRoute: typeof FinalizarPagamentoRoute
+  FinalizarRevisaoRoute: typeof FinalizarRevisaoRoute
   ProdutoAod960410mgRoute: typeof ProdutoAod960410mgRoute
   ProdutoAod96045mgRoute: typeof ProdutoAod96045mgRoute
   ProdutoCagrilintidaMaisSemaglutida10mgRoute: typeof ProdutoCagrilintidaMaisSemaglutida10mgRoute
@@ -300,6 +352,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/carrinho': {
+      id: '/carrinho'
+      path: '/carrinho'
+      fullPath: '/carrinho'
+      preLoaderRoute: typeof CarrinhoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/envio': {
@@ -372,6 +431,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FerramentasRendimentoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/finalizar/entrega': {
+      id: '/finalizar/entrega'
+      path: '/finalizar/entrega'
+      fullPath: '/finalizar/entrega'
+      preLoaderRoute: typeof FinalizarEntregaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/finalizar/pagamento': {
+      id: '/finalizar/pagamento'
+      path: '/finalizar/pagamento'
+      fullPath: '/finalizar/pagamento'
+      preLoaderRoute: typeof FinalizarPagamentoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/finalizar/revisao': {
+      id: '/finalizar/revisao'
+      path: '/finalizar/revisao'
+      fullPath: '/finalizar/revisao'
+      preLoaderRoute: typeof FinalizarRevisaoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/produto_/aod-9604-10mg': {
       id: '/produto_/aod-9604-10mg'
       path: '/produto/aod-9604-10mg'
@@ -440,6 +520,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CarrinhoRoute: CarrinhoRoute,
   EnvioRoute: EnvioRoute,
   ProdutosRoute: ProdutosRoute,
   SobreRoute: SobreRoute,
@@ -449,6 +530,9 @@ const rootRouteChildren: RootRouteChildren = {
   FerramentasCronogramaRoute: FerramentasCronogramaRoute,
   FerramentasDiluicaoRoute: FerramentasDiluicaoRoute,
   FerramentasRendimentoRoute: FerramentasRendimentoRoute,
+  FinalizarEntregaRoute: FinalizarEntregaRoute,
+  FinalizarPagamentoRoute: FinalizarPagamentoRoute,
+  FinalizarRevisaoRoute: FinalizarRevisaoRoute,
   ProdutoAod960410mgRoute: ProdutoAod960410mgRoute,
   ProdutoAod96045mgRoute: ProdutoAod96045mgRoute,
   ProdutoCagrilintidaMaisSemaglutida10mgRoute:
