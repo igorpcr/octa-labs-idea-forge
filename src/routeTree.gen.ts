@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProdutosRouteImport } from './routes/produtos'
+import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as ProdutoAod960410mgRouteImport } from './routes/produto_.aod-9604-10mg'
 import { Route as ProdutoAod96045mgRouteImport } from './routes/produto_.aod-9604-5mg'
 import { Route as ProdutoCagrilintidaMaisSemaglutida10mgRouteImport } from './routes/produto_.cagrilintida-mais-semaglutida-10mg'
@@ -29,6 +30,11 @@ const IndexRoute = IndexRouteImport.update({
 const ProdutosRoute = ProdutosRouteImport.update({
   id: '/produtos',
   path: '/produtos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SobreRoute = SobreRouteImport.update({
+  id: '/sobre',
+  path: '/sobre',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProdutoAod960410mgRoute = ProdutoAod960410mgRouteImport.update({
@@ -83,6 +89,7 @@ const ProdutoTirzepatida60mgRoute = ProdutoTirzepatida60mgRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/produtos': typeof ProdutosRoute
+  '/sobre': typeof SobreRoute
   '/produto/aod-9604-10mg': typeof ProdutoAod960410mgRoute
   '/produto/aod-9604-5mg': typeof ProdutoAod96045mgRoute
   '/produto/cagrilintida-mais-semaglutida-10mg': typeof ProdutoCagrilintidaMaisSemaglutida10mgRoute
@@ -96,6 +103,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/produtos': typeof ProdutosRoute
+  '/sobre': typeof SobreRoute
   '/produto/aod-9604-10mg': typeof ProdutoAod960410mgRoute
   '/produto/aod-9604-5mg': typeof ProdutoAod96045mgRoute
   '/produto/cagrilintida-mais-semaglutida-10mg': typeof ProdutoCagrilintidaMaisSemaglutida10mgRoute
@@ -110,6 +118,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/produtos': typeof ProdutosRoute
+  '/sobre': typeof SobreRoute
   '/produto_/aod-9604-10mg': typeof ProdutoAod960410mgRoute
   '/produto_/aod-9604-5mg': typeof ProdutoAod96045mgRoute
   '/produto_/cagrilintida-mais-semaglutida-10mg': typeof ProdutoCagrilintidaMaisSemaglutida10mgRoute
@@ -125,6 +134,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/produtos'
+    | '/sobre'
     | '/produto/aod-9604-10mg'
     | '/produto/aod-9604-5mg'
     | '/produto/cagrilintida-mais-semaglutida-10mg'
@@ -138,6 +148,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/produtos'
+    | '/sobre'
     | '/produto/aod-9604-10mg'
     | '/produto/aod-9604-5mg'
     | '/produto/cagrilintida-mais-semaglutida-10mg'
@@ -151,6 +162,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/produtos'
+    | '/sobre'
     | '/produto_/aod-9604-10mg'
     | '/produto_/aod-9604-5mg'
     | '/produto_/cagrilintida-mais-semaglutida-10mg'
@@ -165,6 +177,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ProdutosRoute: typeof ProdutosRoute
+  SobreRoute: typeof SobreRoute
   ProdutoAod960410mgRoute: typeof ProdutoAod960410mgRoute
   ProdutoAod96045mgRoute: typeof ProdutoAod96045mgRoute
   ProdutoCagrilintidaMaisSemaglutida10mgRoute: typeof ProdutoCagrilintidaMaisSemaglutida10mgRoute
@@ -190,6 +203,13 @@ declare module '@tanstack/react-router' {
       path: '/produtos'
       fullPath: '/produtos'
       preLoaderRoute: typeof ProdutosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sobre': {
+      id: '/sobre'
+      path: '/sobre'
+      fullPath: '/sobre'
+      preLoaderRoute: typeof SobreRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/produto_/aod-9604-10mg': {
@@ -261,6 +281,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ProdutosRoute: ProdutosRoute,
+  SobreRoute: SobreRoute,
   ProdutoAod960410mgRoute: ProdutoAod960410mgRoute,
   ProdutoAod96045mgRoute: ProdutoAod96045mgRoute,
   ProdutoCagrilintidaMaisSemaglutida10mgRoute:
