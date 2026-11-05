@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { octaContact } from "@/lib/octa-contact";
+import { ImportedHeader } from "./index";
 import capturedCSS from "../styles/site.css?raw";
 
 export const Route = createFileRoute("/produto_/cagrilintida-mais-semaglutida-10mg")({
@@ -205,50 +206,6 @@ function Index() {
   );
 }
 
-function ImportedHeader() {
-  return (
-    <header className={"sticky top-0 z-40 \x62order-b \x62g-card/\x390 \x62ackdrop-blur-md"}>
-      <div className="container-x flex h-[72px] items-center justify-between gap-6">
-        <a className="flex items-center gap-2.5" aria-label="OCTA LABS — início" href="/">
-          <span className="grid h-10 w-10 place-items-center rounded-xl">
-            <img className="h-9 w-9 object-contain" src="/site-assets/652a01c8780ff967.png" alt="" width="40" height="40" />
-          </span>
-          <span className="leading-none">
-            <span className="block font-display text-[19px] font-extrabold tracking-[0.06em] text-foreground">OCTA</span>
-            <span className="block text-[10px] font-semibold uppercase tracking-[0.42em] text-muted-foreground">Labs</span>
-          </span>
-        </a>
-        <nav className={"hidden items-center gap-7 \x6cg:\x66lex"} aria-label="Principal">
-          <a className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary" href="/">Home</a>
-          <a className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary" href="/sobre">Sobre</a>
-          <a className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary" href="/produtos">Produtos</a>
-          <div className="group relative">
-            <button className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary inline-flex items-center gap-1" aria-haspopup="true">Ferramentas <svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg></button>
-            <div className={"invisible absolute left-1/2 top-full w-56 \x2dtranslate-x-1/\x32 pt-3 opacity-0 transition-all duration-200 \x67roup-focus-within:\x76isible \x67roup-focus-within:\x6fpacity-100 \x67roup-hover:\x76isible \x67roup-hover:\x6fpacity-100"}>
-              <div className="card-surface p-2">
-                <a className={"block rounded-lg px-3 py-2 text-sm text-foreground \x68over:\x62g-highlight-soft hover:text-highlight"} href="/faq">FAQ</a>
-                <a className={"block rounded-lg px-3 py-2 text-sm text-foreground \x68over:\x62g-highlight-soft hover:text-highlight"} href="/envio">Política de Envio</a>
-                <a className={"block rounded-lg px-3 py-2 text-sm text-foreground \x68over:\x62g-highlight-soft hover:text-highlight"} href="/contato">Suporte Técnico</a>
-              </div>
-            </div>
-          </div>
-          <a className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary" href="/contato">Contato</a>
-        </nav>
-        <div className={"hidden items-center gap-2 \x6cg:\x66lex"}>
-          <a className={"inline-flex items-center justify-center gap-2 rounded-full \x62order \x62order-silver \x62g-card px-6 py-3 text-sm font-semibold text-primary transition-all duration-200 \x68over:\x62order-highlight hover:text-highlight !px-4 !py-2.5"} href="/produtos?categoria=Premium">Catálogo Premium</a>
-          <a className={"inline-flex items-center justify-center gap-2 rounded-full \x62g-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all duration-200 \x68over:\x62g-primary-deep \x68over:\x2dtranslate-y-0.\x35 !px-5 !py-2.5"} href="/produtos">Catálogo</a>
-        </div>
-        <button className={"rounded-lg p-2 text-primary \x6cg:\x68idden"} aria-label="Abrir menu">
-          <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <path d="M4 5h16" />
-            <path d="M4 12h16" />
-            <path d="M4 19h16" />
-          </svg>
-        </button>
-      </div>
-    </header>
-  );
-}
 
 function ImportedSectionDescriO() {
   return (

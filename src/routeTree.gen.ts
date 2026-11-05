@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProdutosRouteImport } from './routes/produtos'
 import { Route as SobreRouteImport } from './routes/sobre'
+import { Route as FerramentasIndexRouteImport } from './routes/ferramentas.index'
 import { Route as ProdutoAod960410mgRouteImport } from './routes/produto_.aod-9604-10mg'
 import { Route as ProdutoAod96045mgRouteImport } from './routes/produto_.aod-9604-5mg'
 import { Route as ProdutoCagrilintidaMaisSemaglutida10mgRouteImport } from './routes/produto_.cagrilintida-mais-semaglutida-10mg'
@@ -35,6 +36,11 @@ const ProdutosRoute = ProdutosRouteImport.update({
 const SobreRoute = SobreRouteImport.update({
   id: '/sobre',
   path: '/sobre',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FerramentasIndexRoute = FerramentasIndexRouteImport.update({
+  id: '/ferramentas/',
+  path: '/ferramentas/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProdutoAod960410mgRoute = ProdutoAod960410mgRouteImport.update({
@@ -99,6 +105,7 @@ export interface FileRoutesByFullPath {
   '/produto/retatrutida-60mg': typeof ProdutoRetatrutida60mgRoute
   '/produto/tirzepatida-30mg': typeof ProdutoTirzepatida30mgRoute
   '/produto/tirzepatida-60mg': typeof ProdutoTirzepatida60mgRoute
+  '/ferramentas/': typeof FerramentasIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -113,6 +120,7 @@ export interface FileRoutesByTo {
   '/produto/retatrutida-60mg': typeof ProdutoRetatrutida60mgRoute
   '/produto/tirzepatida-30mg': typeof ProdutoTirzepatida30mgRoute
   '/produto/tirzepatida-60mg': typeof ProdutoTirzepatida60mgRoute
+  '/ferramentas': typeof FerramentasIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -128,6 +136,7 @@ export interface FileRoutesById {
   '/produto_/retatrutida-60mg': typeof ProdutoRetatrutida60mgRoute
   '/produto_/tirzepatida-30mg': typeof ProdutoTirzepatida30mgRoute
   '/produto_/tirzepatida-60mg': typeof ProdutoTirzepatida60mgRoute
+  '/ferramentas/': typeof FerramentasIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -144,6 +153,7 @@ export interface FileRouteTypes {
     | '/produto/retatrutida-60mg'
     | '/produto/tirzepatida-30mg'
     | '/produto/tirzepatida-60mg'
+    | '/ferramentas/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -158,6 +168,7 @@ export interface FileRouteTypes {
     | '/produto/retatrutida-60mg'
     | '/produto/tirzepatida-30mg'
     | '/produto/tirzepatida-60mg'
+    | '/ferramentas'
   id:
     | '__root__'
     | '/'
@@ -172,6 +183,7 @@ export interface FileRouteTypes {
     | '/produto_/retatrutida-60mg'
     | '/produto_/tirzepatida-30mg'
     | '/produto_/tirzepatida-60mg'
+    | '/ferramentas/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -187,6 +199,7 @@ export interface RootRouteChildren {
   ProdutoRetatrutida60mgRoute: typeof ProdutoRetatrutida60mgRoute
   ProdutoTirzepatida30mgRoute: typeof ProdutoTirzepatida30mgRoute
   ProdutoTirzepatida60mgRoute: typeof ProdutoTirzepatida60mgRoute
+  FerramentasIndexRoute: typeof FerramentasIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -210,6 +223,13 @@ declare module '@tanstack/react-router' {
       path: '/sobre'
       fullPath: '/sobre'
       preLoaderRoute: typeof SobreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ferramentas/': {
+      id: '/ferramentas/'
+      path: '/ferramentas'
+      fullPath: '/ferramentas/'
+      preLoaderRoute: typeof FerramentasIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/produto_/aod-9604-10mg': {
@@ -293,6 +313,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProdutoRetatrutida60mgRoute: ProdutoRetatrutida60mgRoute,
   ProdutoTirzepatida30mgRoute: ProdutoTirzepatida30mgRoute,
   ProdutoTirzepatida60mgRoute: ProdutoTirzepatida60mgRoute,
+  FerramentasIndexRoute: FerramentasIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
