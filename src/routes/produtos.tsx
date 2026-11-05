@@ -1,8 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { octaContact } from "@/lib/octa-contact";
 import capturedCSS from "../styles/site.css?raw";
 
 export const Route = createFileRoute("/produtos")({
-  head: () => ({ meta: [{ title: "Catálogo de Produtos — OCTA LABS" }] }),
+  head: () => ({ meta: [
+    { title: "Catálogo de Produtos — OCTA LABS" },
+    { name: "description", content: "Explore o catálogo OCTA Labs de reagentes para pesquisa. Consulte disponibilidade e entre em contato com nossa equipe." },
+    { property: "og:title", content: "Catálogo de Produtos — OCTA LABS" },
+    { property: "og:description", content: "Explore o catálogo OCTA Labs de reagentes para pesquisa. Consulte disponibilidade e entre em contato com nossa equipe." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary_large_image" },
+  ] }),
   staticData: { importedDocument: { html: { "lang": "pt-BR" }, body: { "data-site-import-popup-incomplete": "limit" } } },
   component: Index,
 });
@@ -996,9 +1004,7 @@ function ImportedFooter() {
       </div>
       <div className="container-x">
         <div className={"grid gap-2 \x62order-t \x62order-primary-foreground/\x310 py-6 text-xs sm:grid-cols-3"}>
-          <p>OCTA LABS LTDA · CNPJ 00.000.000/0001-00</p>
-          <p>Rua Exemplo, 000 — Cidade/UF, 00000-000</p>
-          <p className={"\x73m:\x74ext-right"}>contato@vertexlabs.com.br</p>
+          <p className={"\x73m:\x74ext-right"}>{octaContact.email}</p>
         </div>
         <p className={"\x62order-t \x62order-primary-foreground/\x310 py-6 text-xs"}>© 2026 OCTA LABS. Todos os direitos reservados.</p>
       </div>
