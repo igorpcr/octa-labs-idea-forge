@@ -20,6 +20,6 @@
 
 ## BlackPix — preparação
 - [x] Ativar Lovable Cloud e preparar recebimento de avisos com bloqueio seguro; confirmar rejeição de eventos não verificados e tela Pix bloqueada.
-- [ ] Confirmar documentação oficial de API, assinatura e ambiente de testes da BlackPix. Bloqueio: aguarda link do painel/documentação do usuário; pesquisa pública não confirmou o provedor de pagamentos.
-- [ ] Conectar credenciais com segurança. Bloqueio: documentação oficial e credenciais do provedor.
-- [ ] Persistir pedidos e preços autorizados, integrar Pix e validar criação/consulta/confirmação sem aprovação fictícia. Bloqueio: contrato e credenciais BlackPix, condições finais de frete e teste autorizado.
+- [ ] Confirmar criação Pix, assinatura de webhook e ambiente de testes. Bloqueio: aguarda documentação privada do painel blackpix.site; GET de pedidos fornecido pelo usuário confirmado com resposta 200.
+- [x] Conectar credenciais com segurança e verificar acesso pelo site com consulta de pedidos somente leitura (200), sem expor dados de clientes.
+- [ ] Persistir pedidos e preços autorizados, integrar Pix e validar criação/consulta/confirmação sem aprovação fictícia. Bloqueio: contrato de criação e assinatura BlackPix, condições finais de frete e teste autorizado.
