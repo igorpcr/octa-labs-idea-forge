@@ -17,5 +17,5 @@
 - The shipping policy lives at /envio and reuses the shared home header, footer and captured theme so existing footer links resolve consistently.
 - Checkout presentation uses /carrinho and /finalizar/{entrega,revisao,pagamento}; the root cart provider keeps only a session draft and address in memory, with payment disabled until a separately authorized integration.
 - Legacy imported purchase markup is adapted by the root cart click bridge; use explicit product data and API-authoritative prices when implementing real payments, never trust draft totals for billing.
-- BlackPix callbacks use /api/public/blackpix-webhook and fail closed without event processing until the official API/signature contract is verified; never infer a contract from similarly named providers.
+- BlackPix callbacks use /api/public/blackpix-webhook, verify timestamped raw-body HMAC with the server-only BLACKPIX_WEBHOOK_SECRET, and fail closed without acknowledgment until the event contract and processing are implemented; never infer contracts from similarly named providers.
 - BlackPix server calls use the linked custom connector gateway and runtime credentials only; never expose account-wide order queries to shoppers or use browser draft prices for charges.
