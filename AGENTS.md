@@ -21,3 +21,4 @@
 - BlackPix server calls use the linked custom connector gateway and runtime credentials only; never expose account-wide order queries to shoppers or use browser draft prices for charges.
 - BlackPix audit records use a strict metadata/error allowlist; persist verified deliveries in a service-only RLS table and log unverified attempts operationally without privileged writes, so payloads, signatures, secrets and PII never enter audit records.
 - BlackPix diagnostics run through authenticated server functions with an explicit server-managed user_roles admin check; AI receives only allowlisted status/error descriptions and never modifies payments, with no automatic admin enrollment.
+- Account access uses /auth and public /reset-password without profiles; one root AuthProvider owns session transitions and cache teardown, while administrative pages live under the client-only authenticated layout and still require server role checks.
