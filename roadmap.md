@@ -17,3 +17,9 @@
 ## Carrinho e finalização
 - [ ] Criar carrinho, CEP/endereço, revisão e tela final sem cobranças reais.
 - [ ] Integrar produtos e testar quantidades, totais, validação e navegação em computador/celular.
+
+## BlackPix — preparação
+- [ ] Preparar recebimento de avisos de pagamento com bloqueio seguro até verificar o contrato oficial.
+- [ ] Confirmar documentação oficial de API, assinatura e ambiente de testes da BlackPix.
+- [ ] Conectar credenciais com segurança após confirmação da documentação.
+- [ ] Persistir pedidos e preços autorizados, integrar Pix e validar criação/consulta/confirmação sem aprovação fictícia.
