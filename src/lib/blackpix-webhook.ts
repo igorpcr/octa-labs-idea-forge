@@ -1,3 +1,5 @@
+import { blackPixAuditSchema, logBlackPixAudit, type BlackPixAudit, type BlackPixAuditOptions } from "./blackpix-audit";
+
 /** Verify the user-supplied BlackPix contract over the untouched request text. */
 export async function validBlackPixSignature(
   body: string,
@@ -36,11 +38,57 @@ function unavailable(): Response {
 }
 
 /** Authenticate, but never acknowledge or process events until their contract is known. */
-export async function receiveBlackPixWebhook(request: Request, secret?: string): Promise<Response> {
-  if (!secret) return unavailable();
-  const body = await request.text();
-  if (!(await validBlackPixSignature(body, request.headers.get("X-BlackPix-Signature"), secret))) {
-    return Response.json({ error: "invalid_signature" }, { status: 401, headers: { "Cache-Control": "no-store" } });
+export async function receiveBlackPixWebhook(request: Request, secret?: string, audit: BlackPixAuditOptions = {}): Promise<Response> {
+  const started = Date.now();
+  const id = crypto.randomUUID();
+  const receivedAt = new Date(started).toISOString();
+  let verified = false;
+  const finish = async (
+    response: Response,
+    status: BlackPixAudit["processing_status"],
+    signature: BlackPixAudit["signature_status"],
+    error: BlackPixAudit["error_code"],
+  ) => {
+    const record = blackPixAuditSchema.parse({
+      id, received_at: receivedAt, processing_status: status, signature_status: signature,
+      error_code: error, http_status: response.status, duration_ms: Math.max(0, Date.now() - started),
+    });
+    // Untrusted callers never cause privileged writes or supply log content.
+    if (verified && audit.persist) {
+      try {
+        await audit.persist(record);
+      } catch {
+        (audit.log ?? logBlackPixAudit)({ ...record, processing_status: "failed", error_code: "audit_write_failed", http_status: 503 });
+        return Response.json({ error: "audit_write_failed" }, { status: 503, headers: { "Cache-Control": "no-store", "Retry-After": "3600" } });
+      }
+    }
+    (audit.log ?? logBlackPixAudit)(record);
+    return response;
+  };
+  const badRequest = (error: string) => Response.json({ error }, { status: 400, headers: { "Cache-Control": "no-store" } });
+  if (!secret) return finish(unavailable(), "blocked", "not_checked", "secret_not_configured");
+  let body: string;
+  try {
+    body = await request.text();
+  } catch {
+    return finish(badRequest("request_read_failed"), "failed", "not_checked", "request_read_failed");
   }
-  return unavailable();
+  try {
+    verified = await validBlackPixSignature(body, request.headers.get("X-BlackPix-Signature"), secret);
+  } catch {
+    return finish(unavailable(), "failed", "not_checked", "signature_verification_failed");
+  }
+  if (!verified) {
+    return finish(Response.json({ error: "invalid_signature" }, { status: 401, headers: { "Cache-Control": "no-store" } }), "rejected", "invalid", "invalid_signature");
+  }
+  let payload: unknown;
+  try {
+    payload = JSON.parse(body);
+  } catch {
+    return finish(badRequest("invalid_json"), "failed", "verified", "invalid_json");
+  }
+  if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
+    return finish(badRequest("invalid_payload"), "failed", "verified", "invalid_payload");
+  }
+  return finish(unavailable(), "blocked", "verified", "event_processing_unavailable");
 }
