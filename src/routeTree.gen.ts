@@ -10,11 +10,13 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as AuthRouteImport } from './routes/auth'
 import { Route as CarrinhoRouteImport } from './routes/carrinho'
 import { Route as EnvioRouteImport } from './routes/envio'
 import { Route as ProdutosRouteImport } from './routes/produtos'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as SobreRouteImport } from './routes/sobre'
-import { Route as AdminBlackpixRouteImport } from './routes/admin.blackpix'
 import { Route as FerramentasIndexRouteImport } from './routes/ferramentas.index'
 import { Route as FerramentasAmostraRouteImport } from './routes/ferramentas.amostra'
 import { Route as FerramentasConcentracaoRouteImport } from './routes/ferramentas.concentracao'
@@ -34,11 +36,21 @@ import { Route as ProdutoRetatrutida30mgRouteImport } from './routes/produto_.re
 import { Route as ProdutoRetatrutida60mgRouteImport } from './routes/produto_.retatrutida-60mg'
 import { Route as ProdutoTirzepatida30mgRouteImport } from './routes/produto_.tirzepatida-30mg'
 import { Route as ProdutoTirzepatida60mgRouteImport } from './routes/produto_.tirzepatida-60mg'
+import { Route as AuthenticatedAdminBlackpixRouteImport } from './routes/_authenticated/admin/blackpix'
 import { Route as ApiPublicBlackpixWebhookRouteImport } from './routes/api/public/blackpix-webhook'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CarrinhoRoute = CarrinhoRouteImport.update({
@@ -56,14 +68,14 @@ const ProdutosRoute = ProdutosRouteImport.update({
   path: '/produtos',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SobreRoute = SobreRouteImport.update({
   id: '/sobre',
   path: '/sobre',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AdminBlackpixRoute = AdminBlackpixRouteImport.update({
-  id: '/admin/blackpix',
-  path: '/admin/blackpix',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FerramentasIndexRoute = FerramentasIndexRouteImport.update({
@@ -164,6 +176,12 @@ const ProdutoTirzepatida60mgRoute = ProdutoTirzepatida60mgRouteImport.update({
   path: '/produto/tirzepatida-60mg',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedAdminBlackpixRoute =
+  AuthenticatedAdminBlackpixRouteImport.update({
+    id: '/admin/blackpix',
+    path: '/admin/blackpix',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const ApiPublicBlackpixWebhookRoute =
   ApiPublicBlackpixWebhookRouteImport.update({
     id: '/api/public/blackpix-webhook',
@@ -173,11 +191,12 @@ const ApiPublicBlackpixWebhookRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
   '/carrinho': typeof CarrinhoRoute
   '/envio': typeof EnvioRoute
   '/produtos': typeof ProdutosRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/sobre': typeof SobreRoute
-  '/admin/blackpix': typeof AdminBlackpixRoute
   '/ferramentas/amostra': typeof FerramentasAmostraRoute
   '/ferramentas/concentracao': typeof FerramentasConcentracaoRoute
   '/ferramentas/conversor': typeof FerramentasConversorRoute
@@ -197,15 +216,17 @@ export interface FileRoutesByFullPath {
   '/produto/tirzepatida-30mg': typeof ProdutoTirzepatida30mgRoute
   '/produto/tirzepatida-60mg': typeof ProdutoTirzepatida60mgRoute
   '/ferramentas/': typeof FerramentasIndexRoute
+  '/admin/blackpix': typeof AuthenticatedAdminBlackpixRoute
   '/api/public/blackpix-webhook': typeof ApiPublicBlackpixWebhookRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
   '/carrinho': typeof CarrinhoRoute
   '/envio': typeof EnvioRoute
   '/produtos': typeof ProdutosRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/sobre': typeof SobreRoute
-  '/admin/blackpix': typeof AdminBlackpixRoute
   '/ferramentas/amostra': typeof FerramentasAmostraRoute
   '/ferramentas/concentracao': typeof FerramentasConcentracaoRoute
   '/ferramentas/conversor': typeof FerramentasConversorRoute
@@ -225,16 +246,19 @@ export interface FileRoutesByTo {
   '/produto/tirzepatida-30mg': typeof ProdutoTirzepatida30mgRoute
   '/produto/tirzepatida-60mg': typeof ProdutoTirzepatida60mgRoute
   '/ferramentas': typeof FerramentasIndexRoute
+  '/admin/blackpix': typeof AuthenticatedAdminBlackpixRoute
   '/api/public/blackpix-webhook': typeof ApiPublicBlackpixWebhookRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/auth': typeof AuthRoute
   '/carrinho': typeof CarrinhoRoute
   '/envio': typeof EnvioRoute
   '/produtos': typeof ProdutosRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/sobre': typeof SobreRoute
-  '/admin/blackpix': typeof AdminBlackpixRoute
   '/ferramentas/amostra': typeof FerramentasAmostraRoute
   '/ferramentas/concentracao': typeof FerramentasConcentracaoRoute
   '/ferramentas/conversor': typeof FerramentasConversorRoute
@@ -254,17 +278,19 @@ export interface FileRoutesById {
   '/produto_/tirzepatida-30mg': typeof ProdutoTirzepatida30mgRoute
   '/produto_/tirzepatida-60mg': typeof ProdutoTirzepatida60mgRoute
   '/ferramentas/': typeof FerramentasIndexRoute
+  '/_authenticated/admin/blackpix': typeof AuthenticatedAdminBlackpixRoute
   '/api/public/blackpix-webhook': typeof ApiPublicBlackpixWebhookRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/auth'
     | '/carrinho'
     | '/envio'
     | '/produtos'
+    | '/reset-password'
     | '/sobre'
-    | '/admin/blackpix'
     | '/ferramentas/amostra'
     | '/ferramentas/concentracao'
     | '/ferramentas/conversor'
@@ -284,15 +310,17 @@ export interface FileRouteTypes {
     | '/produto/tirzepatida-30mg'
     | '/produto/tirzepatida-60mg'
     | '/ferramentas/'
+    | '/admin/blackpix'
     | '/api/public/blackpix-webhook'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/auth'
     | '/carrinho'
     | '/envio'
     | '/produtos'
+    | '/reset-password'
     | '/sobre'
-    | '/admin/blackpix'
     | '/ferramentas/amostra'
     | '/ferramentas/concentracao'
     | '/ferramentas/conversor'
@@ -312,15 +340,18 @@ export interface FileRouteTypes {
     | '/produto/tirzepatida-30mg'
     | '/produto/tirzepatida-60mg'
     | '/ferramentas'
+    | '/admin/blackpix'
     | '/api/public/blackpix-webhook'
   id:
     | '__root__'
     | '/'
+    | '/_authenticated'
+    | '/auth'
     | '/carrinho'
     | '/envio'
     | '/produtos'
+    | '/reset-password'
     | '/sobre'
-    | '/admin/blackpix'
     | '/ferramentas/amostra'
     | '/ferramentas/concentracao'
     | '/ferramentas/conversor'
@@ -340,16 +371,19 @@ export interface FileRouteTypes {
     | '/produto_/tirzepatida-30mg'
     | '/produto_/tirzepatida-60mg'
     | '/ferramentas/'
+    | '/_authenticated/admin/blackpix'
     | '/api/public/blackpix-webhook'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  AuthRoute: typeof AuthRoute
   CarrinhoRoute: typeof CarrinhoRoute
   EnvioRoute: typeof EnvioRoute
   ProdutosRoute: typeof ProdutosRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
   SobreRoute: typeof SobreRoute
-  AdminBlackpixRoute: typeof AdminBlackpixRoute
   FerramentasAmostraRoute: typeof FerramentasAmostraRoute
   FerramentasConcentracaoRoute: typeof FerramentasConcentracaoRoute
   FerramentasConversorRoute: typeof FerramentasConversorRoute
@@ -381,6 +415,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/carrinho': {
       id: '/carrinho'
       path: '/carrinho'
@@ -402,18 +450,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProdutosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sobre': {
       id: '/sobre'
       path: '/sobre'
       fullPath: '/sobre'
       preLoaderRoute: typeof SobreRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/admin/blackpix': {
-      id: '/admin/blackpix'
-      path: '/admin/blackpix'
-      fullPath: '/admin/blackpix'
-      preLoaderRoute: typeof AdminBlackpixRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ferramentas/': {
@@ -549,6 +597,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProdutoTirzepatida60mgRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/admin/blackpix': {
+      id: '/_authenticated/admin/blackpix'
+      path: '/admin/blackpix'
+      fullPath: '/admin/blackpix'
+      preLoaderRoute: typeof AuthenticatedAdminBlackpixRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/api/public/blackpix-webhook': {
       id: '/api/public/blackpix-webhook'
       path: '/api/public/blackpix-webhook'
@@ -559,13 +614,26 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAdminBlackpixRoute: typeof AuthenticatedAdminBlackpixRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAdminBlackpixRoute: AuthenticatedAdminBlackpixRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  AuthRoute: AuthRoute,
   CarrinhoRoute: CarrinhoRoute,
   EnvioRoute: EnvioRoute,
   ProdutosRoute: ProdutosRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
   SobreRoute: SobreRoute,
-  AdminBlackpixRoute: AdminBlackpixRoute,
   FerramentasAmostraRoute: FerramentasAmostraRoute,
   FerramentasConcentracaoRoute: FerramentasConcentracaoRoute,
   FerramentasConversorRoute: FerramentasConversorRoute,

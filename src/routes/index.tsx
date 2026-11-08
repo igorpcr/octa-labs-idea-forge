@@ -5,6 +5,7 @@ import capturedCSS from "../styles/site.css?raw";
 import { ToolsMenu, MobileToolLinks } from "@/components/tools-menu";
 import heroFrasco from "@/assets/hero-frasco-prata.png";
 import { CartLink } from "@/components/cart-context";
+import { AccountActions } from "@/components/auth-context";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
@@ -103,7 +104,7 @@ export function ImportedHeader() {
           <a className={"inline-flex items-center justify-center gap-2 rounded-full \x62order \x62order-silver \x62g-card px-6 py-3 text-sm font-semibold text-primary transition-all duration-200 \x68over:\x62order-highlight hover:text-highlight !px-4 !py-2.5"} href="/produtos?categoria=Premium">Catálogo Premium</a>
           <a className={"inline-flex items-center justify-center gap-2 rounded-full \x62g-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all duration-200 \x68over:\x62g-primary-deep \x68over:\x2dtranslate-y-0.\x35 !px-5 !py-2.5"} href="/produtos">Catálogo</a>
         </div>
-        <CartLink />
+        <div className="flex items-center gap-1"><AccountActions /><CartLink /></div>
         <button ref={openBtn} onClick={() => setMenuOpen(true)} aria-expanded={menuOpen} className={"rounded-lg p-2 text-primary \x6cg:\x68idden"} aria-label="Abrir menu">
           <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M4 5h16" />
@@ -133,6 +134,7 @@ export function ImportedHeader() {
               <a className="py-3 text-lg font-medium text-foreground" href="/sobre" onClick={close}>Sobre</a>
               <a className="py-3 text-lg font-medium text-foreground" href="/produtos" onClick={close}>Produtos</a>
               <MobileToolLinks onNavigate={close} />
+              <AccountActions mobile />
               <a className="py-3 text-lg font-medium text-foreground" href="/contato" onClick={close}>Contato</a>
               <div className="mt-4 flex flex-col gap-3">
                 <a className="rounded-full bg-primary px-6 py-3 text-center text-sm font-semibold text-primary-foreground" href="/produtos">Catálogo</a>
