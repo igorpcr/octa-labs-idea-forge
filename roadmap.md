@@ -19,6 +19,7 @@
 - [x] Integrar produtos e testar quantidades, totais, validação e navegação em computador/celular.
 
 ## BlackPix — preparação
+- [ ] Autorizar a conta do solicitante como primeira administradora após identificar com segurança a conta cadastrada.
 - [ ] Criar entrada/cadastro por e-mail e senha, recuperação de senha e saída segura, sem perfil ou autorização administrativa automática; verificar navegação e acesso.
 - [x] Criar análise de status e erros sanitizados com IA, restrita a administradores e sem alterar pagamentos; testes de autorização e filtragem passaram e tela de entrada verificada em computador/celular.
 - [ ] Validar análise autenticada com administrador. Bloqueio: ainda não há conta cadastrada nem administrador autorizado.
