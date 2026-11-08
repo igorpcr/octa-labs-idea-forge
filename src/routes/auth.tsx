@@ -8,16 +8,18 @@ import { safeAuthDestination, signupNeedsConfirmation } from "@/lib/octa-auth";
 import { checkoutHead } from "@/lib/octa-cart";
 import { ImportedHeader, ImportedFooter } from "./index";
 import capturedCSS from "@/styles/site.css?raw";
+import { lovable } from "@/integrations/lovable/index";
+import "@lovable.dev/cloud-auth-js/styles.css";
 
 export const Route = createFileRoute("/auth")({
-  validateSearch: (search: Record<string, unknown>) => ({ redirect: safeAuthDestination(search.redirect) }),
+  validateSearch: (search: Record<string, unknown>): { redirect?: "/" | "/admin/blackpix" } => ({ redirect: safeAuthDestination(search['redirect']) }),
   head: () => checkoutHead("Entrar ou criar conta", "Acesse sua conta OCTA Labs ou cadastre-se com e-mail e senha."),
   component: AuthPage,
 });
 
 function AuthPage() {
   const { user, loading, signOut } = useAccount();
-  const { redirect } = Route.useSearch();
+  const { redirect = "/" } = Route.useSearch();
   const navigate = useNavigate();
   const [mode, setMode] = useState<"login" | "signup" | "forgot">("login");
   const [email, setEmail] = useState("");
@@ -28,6 +30,16 @@ function AuthPage() {
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   function changeMode(next: typeof mode) { setMode(next); setError(null); setNotice(null); setPassword(""); setConfirm(""); }
+  async function socialSignIn(provider: "google" | "lovable") {
+    setBusy(true); setError(null);
+    try {
+      const outcome = await lovable.auth.signInWithOAuth(provider, { redirect_uri: `${window.location.origin}/auth?redirect=${encodeURIComponent(redirect)}` });
+      if (outcome.error) throw outcome.error;
+      const { data } = await supabase.auth.getUser();
+      if (data.user) await navigate({ to: redirect, replace: true });
+    } catch { setError("Não foi possível entrar. Tente novamente."); }
+    finally { setBusy(false); }
+  }
   async function submit(event: FormEvent) {
     event.preventDefault(); setError(null); setNotice(null);
     if (mode === "signup" && password !== confirm) { setError("As senhas devem ser iguais."); return; }
@@ -71,6 +83,7 @@ function AuthPage() {
           <Button type="submit" className="h-12 w-full" disabled={busy}>{busy ? <LoaderCircle className="animate-spin motion-reduce:animate-none" /> : mode === "forgot" ? <Mail /> : <LogIn />}{busy ? "Aguarde…" : mode === "signup" ? "Criar conta" : mode === "forgot" ? "Enviar link de recuperação" : "Entrar"}</Button>
           <Button type="button" variant="link" className="w-full" disabled={busy} onClick={() => changeMode(mode === "forgot" ? "login" : "forgot")}>{mode === "forgot" ? "Voltar para entrar" : "Esqueci minha senha"}</Button>
         </form>
+        {mode !== "forgot" && <div className="mt-5 space-y-3 border-t border-border pt-5"><Button variant="outline" className="h-11 w-full" disabled={busy} onClick={() => void socialSignIn("google")}>Entrar com Google</Button><Button className="lovable-auth-button h-11 w-full" disabled={busy} onClick={() => void socialSignIn("lovable")}>Sign in with Lovable</Button></div>}
       </>}
       {error && <p role="alert" className="mt-5 text-sm text-destructive">{error}</p>}
       {notice && <p role="status" className="mt-5 text-sm leading-relaxed text-highlight">{notice}</p>}
