@@ -1,5 +1,13 @@
 {
   "version": "7",
   "dialect": "postgresql",
-  "entries": []
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1794141185106,
+      "tag": "0000_blackpix_webhook_audit",
+      "breakpoints": true
+    }
+  ]
 }

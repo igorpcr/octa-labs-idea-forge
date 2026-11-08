@@ -19,3 +19,4 @@
 - Legacy imported purchase markup is adapted by the root cart click bridge; use explicit product data and API-authoritative prices when implementing real payments, never trust draft totals for billing.
 - BlackPix callbacks use /api/public/blackpix-webhook, verify timestamped raw-body HMAC with the server-only BLACKPIX_WEBHOOK_SECRET, and fail closed without acknowledgment until the event contract and processing are implemented; never infer contracts from similarly named providers.
 - BlackPix server calls use the linked custom connector gateway and runtime credentials only; never expose account-wide order queries to shoppers or use browser draft prices for charges.
+- BlackPix audit records use a strict metadata/error allowlist; persist verified deliveries in a service-only RLS table and log unverified attempts operationally without privileged writes, so payloads, signatures, secrets and PII never enter audit records.

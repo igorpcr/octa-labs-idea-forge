@@ -19,6 +19,7 @@
 - [x] Integrar produtos e testar quantidades, totais, validação e navegação em computador/celular.
 
 ## BlackPix — preparação
+- [x] Registrar avisos verificados em histórico privado e tentativas rejeitadas em logs sanitizados; 19 testes passaram e recebimento assinado foi confirmado no banco sem conteúdo sensível.
 - [x] Ativar Lovable Cloud e preparar recebimento de avisos com bloqueio seguro; confirmar rejeição de eventos não verificados e tela Pix bloqueada.
 - [x] Implementar e testar assinatura HMAC-SHA256 fornecida pelo usuário, corpo original e tolerância de 300 segundos, sem confirmar pagamentos.
 - [x] Configurar segredo do webhook em formulário seguro e verificar rejeição de aviso sem assinatura no site (401).

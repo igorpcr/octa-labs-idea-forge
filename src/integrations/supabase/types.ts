@@ -14,7 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      blackpix_webhook_receipts: {
+        Row: {
+          duration_ms: number
+          error_code: string
+          http_status: number
+          id: string
+          processing_status: string
+          received_at: string
+          recorded_at: string
+          signature_status: string
+        }
+        Insert: {
+          duration_ms: number
+          error_code: string
+          http_status: number
+          id: string
+          processing_status: string
+          received_at: string
+          recorded_at?: string
+          signature_status?: string
+        }
+        Update: {
+          duration_ms?: number
+          error_code?: string
+          http_status?: number
+          id?: string
+          processing_status?: string
+          received_at?: string
+          recorded_at?: string
+          signature_status?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
