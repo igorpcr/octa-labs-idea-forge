@@ -4,13 +4,13 @@ import { useEffect, useState } from "react";
 import { ShieldCheck, Sparkles, LoaderCircle, LogOut } from "lucide-react";
 import { useAccount } from "@/components/auth-context";
 import { Button } from "@/components/ui/button";
-import { ImportedHeader, ImportedFooter } from "./index";
+import { ImportedHeader, ImportedFooter } from "../../index";
 import { diagnosticMessages, diagnosticInput, type DiagnosticInput } from "@/lib/blackpix-diagnostics";
 import { analyzeBlackPix, diagnosticAccess } from "@/lib/blackpix-diagnostics.functions";
 import { checkoutHead } from "@/lib/octa-cart";
 import capturedCSS from "@/styles/site.css?raw";
 
-export const Route = createFileRoute("/_authenticated/admin/blackpix")({
+export const Route = createFileRoute("/admin/blackpix")({
   head: () => ({ ...checkoutHead("Diagnóstico BlackPix", "Análise administrativa de avisos BlackPix da OCTA Labs."), meta: [...checkoutHead("Diagnóstico BlackPix", "Análise administrativa de avisos BlackPix da OCTA Labs.").meta, { name: "robots", content: "noindex, nofollow" }] }),
   component: BlackPixDiagnostics,
 });
