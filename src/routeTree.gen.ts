@@ -33,6 +33,7 @@ import { Route as ProdutoRetatrutida30mgRouteImport } from './routes/produto_.re
 import { Route as ProdutoRetatrutida60mgRouteImport } from './routes/produto_.retatrutida-60mg'
 import { Route as ProdutoTirzepatida30mgRouteImport } from './routes/produto_.tirzepatida-30mg'
 import { Route as ProdutoTirzepatida60mgRouteImport } from './routes/produto_.tirzepatida-60mg'
+import { Route as ApiPublicBlackpixWebhookRouteImport } from './routes/api/public/blackpix-webhook'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -157,6 +158,12 @@ const ProdutoTirzepatida60mgRoute = ProdutoTirzepatida60mgRouteImport.update({
   path: '/produto/tirzepatida-60mg',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicBlackpixWebhookRoute =
+  ApiPublicBlackpixWebhookRouteImport.update({
+    id: '/api/public/blackpix-webhook',
+    path: '/api/public/blackpix-webhook',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -183,6 +190,7 @@ export interface FileRoutesByFullPath {
   '/produto/tirzepatida-30mg': typeof ProdutoTirzepatida30mgRoute
   '/produto/tirzepatida-60mg': typeof ProdutoTirzepatida60mgRoute
   '/ferramentas/': typeof FerramentasIndexRoute
+  '/api/public/blackpix-webhook': typeof ApiPublicBlackpixWebhookRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -209,6 +217,7 @@ export interface FileRoutesByTo {
   '/produto/tirzepatida-30mg': typeof ProdutoTirzepatida30mgRoute
   '/produto/tirzepatida-60mg': typeof ProdutoTirzepatida60mgRoute
   '/ferramentas': typeof FerramentasIndexRoute
+  '/api/public/blackpix-webhook': typeof ApiPublicBlackpixWebhookRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -236,6 +245,7 @@ export interface FileRoutesById {
   '/produto_/tirzepatida-30mg': typeof ProdutoTirzepatida30mgRoute
   '/produto_/tirzepatida-60mg': typeof ProdutoTirzepatida60mgRoute
   '/ferramentas/': typeof FerramentasIndexRoute
+  '/api/public/blackpix-webhook': typeof ApiPublicBlackpixWebhookRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -264,6 +274,7 @@ export interface FileRouteTypes {
     | '/produto/tirzepatida-30mg'
     | '/produto/tirzepatida-60mg'
     | '/ferramentas/'
+    | '/api/public/blackpix-webhook'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -290,6 +301,7 @@ export interface FileRouteTypes {
     | '/produto/tirzepatida-30mg'
     | '/produto/tirzepatida-60mg'
     | '/ferramentas'
+    | '/api/public/blackpix-webhook'
   id:
     | '__root__'
     | '/'
@@ -316,6 +328,7 @@ export interface FileRouteTypes {
     | '/produto_/tirzepatida-30mg'
     | '/produto_/tirzepatida-60mg'
     | '/ferramentas/'
+    | '/api/public/blackpix-webhook'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -343,6 +356,7 @@ export interface RootRouteChildren {
   ProdutoTirzepatida30mgRoute: typeof ProdutoTirzepatida30mgRoute
   ProdutoTirzepatida60mgRoute: typeof ProdutoTirzepatida60mgRoute
   FerramentasIndexRoute: typeof FerramentasIndexRoute
+  ApiPublicBlackpixWebhookRoute: typeof ApiPublicBlackpixWebhookRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -515,6 +529,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProdutoTirzepatida60mgRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/blackpix-webhook': {
+      id: '/api/public/blackpix-webhook'
+      path: '/api/public/blackpix-webhook'
+      fullPath: '/api/public/blackpix-webhook'
+      preLoaderRoute: typeof ApiPublicBlackpixWebhookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -545,6 +566,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProdutoTirzepatida30mgRoute: ProdutoTirzepatida30mgRoute,
   ProdutoTirzepatida60mgRoute: ProdutoTirzepatida60mgRoute,
   FerramentasIndexRoute: FerramentasIndexRoute,
+  ApiPublicBlackpixWebhookRoute: ApiPublicBlackpixWebhookRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
