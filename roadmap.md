@@ -15,11 +15,11 @@
 - [x] Conferir acesso pelo rodapé, contatos e visual no computador e celular.
 
 ## Carrinho e finalização
-- [ ] Criar carrinho, CEP/endereço, revisão e tela final sem cobranças reais.
-- [ ] Integrar produtos e testar quantidades, totais, validação e navegação em computador/celular.
+- [x] Criar carrinho, CEP/endereço, revisão e tela final sem cobranças reais.
+- [x] Integrar produtos e testar quantidades, totais, validação e navegação em computador/celular.
 
 ## BlackPix — preparação
-- [ ] Preparar recebimento de avisos de pagamento com bloqueio seguro até verificar o contrato oficial.
-- [ ] Confirmar documentação oficial de API, assinatura e ambiente de testes da BlackPix.
-- [ ] Conectar credenciais com segurança após confirmação da documentação.
-- [ ] Persistir pedidos e preços autorizados, integrar Pix e validar criação/consulta/confirmação sem aprovação fictícia.
+- [x] Ativar Lovable Cloud e preparar recebimento de avisos com bloqueio seguro; confirmar rejeição de eventos não verificados e tela Pix bloqueada.
+- [ ] Confirmar documentação oficial de API, assinatura e ambiente de testes da BlackPix. Bloqueio: aguarda link do painel/documentação do usuário; pesquisa pública não confirmou o provedor de pagamentos.
+- [ ] Conectar credenciais com segurança. Bloqueio: documentação oficial e credenciais do provedor.
+- [ ] Persistir pedidos e preços autorizados, integrar Pix e validar criação/consulta/confirmação sem aprovação fictícia. Bloqueio: contrato e credenciais BlackPix, condições finais de frete e teste autorizado.
