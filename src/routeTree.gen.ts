@@ -14,6 +14,7 @@ import { Route as CarrinhoRouteImport } from './routes/carrinho'
 import { Route as EnvioRouteImport } from './routes/envio'
 import { Route as ProdutosRouteImport } from './routes/produtos'
 import { Route as SobreRouteImport } from './routes/sobre'
+import { Route as AdminBlackpixRouteImport } from './routes/admin.blackpix'
 import { Route as FerramentasIndexRouteImport } from './routes/ferramentas.index'
 import { Route as FerramentasAmostraRouteImport } from './routes/ferramentas.amostra'
 import { Route as FerramentasConcentracaoRouteImport } from './routes/ferramentas.concentracao'
@@ -58,6 +59,11 @@ const ProdutosRoute = ProdutosRouteImport.update({
 const SobreRoute = SobreRouteImport.update({
   id: '/sobre',
   path: '/sobre',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminBlackpixRoute = AdminBlackpixRouteImport.update({
+  id: '/admin/blackpix',
+  path: '/admin/blackpix',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FerramentasIndexRoute = FerramentasIndexRouteImport.update({
@@ -171,6 +177,7 @@ export interface FileRoutesByFullPath {
   '/envio': typeof EnvioRoute
   '/produtos': typeof ProdutosRoute
   '/sobre': typeof SobreRoute
+  '/admin/blackpix': typeof AdminBlackpixRoute
   '/ferramentas/amostra': typeof FerramentasAmostraRoute
   '/ferramentas/concentracao': typeof FerramentasConcentracaoRoute
   '/ferramentas/conversor': typeof FerramentasConversorRoute
@@ -198,6 +205,7 @@ export interface FileRoutesByTo {
   '/envio': typeof EnvioRoute
   '/produtos': typeof ProdutosRoute
   '/sobre': typeof SobreRoute
+  '/admin/blackpix': typeof AdminBlackpixRoute
   '/ferramentas/amostra': typeof FerramentasAmostraRoute
   '/ferramentas/concentracao': typeof FerramentasConcentracaoRoute
   '/ferramentas/conversor': typeof FerramentasConversorRoute
@@ -226,6 +234,7 @@ export interface FileRoutesById {
   '/envio': typeof EnvioRoute
   '/produtos': typeof ProdutosRoute
   '/sobre': typeof SobreRoute
+  '/admin/blackpix': typeof AdminBlackpixRoute
   '/ferramentas/amostra': typeof FerramentasAmostraRoute
   '/ferramentas/concentracao': typeof FerramentasConcentracaoRoute
   '/ferramentas/conversor': typeof FerramentasConversorRoute
@@ -255,6 +264,7 @@ export interface FileRouteTypes {
     | '/envio'
     | '/produtos'
     | '/sobre'
+    | '/admin/blackpix'
     | '/ferramentas/amostra'
     | '/ferramentas/concentracao'
     | '/ferramentas/conversor'
@@ -282,6 +292,7 @@ export interface FileRouteTypes {
     | '/envio'
     | '/produtos'
     | '/sobre'
+    | '/admin/blackpix'
     | '/ferramentas/amostra'
     | '/ferramentas/concentracao'
     | '/ferramentas/conversor'
@@ -309,6 +320,7 @@ export interface FileRouteTypes {
     | '/envio'
     | '/produtos'
     | '/sobre'
+    | '/admin/blackpix'
     | '/ferramentas/amostra'
     | '/ferramentas/concentracao'
     | '/ferramentas/conversor'
@@ -337,6 +349,7 @@ export interface RootRouteChildren {
   EnvioRoute: typeof EnvioRoute
   ProdutosRoute: typeof ProdutosRoute
   SobreRoute: typeof SobreRoute
+  AdminBlackpixRoute: typeof AdminBlackpixRoute
   FerramentasAmostraRoute: typeof FerramentasAmostraRoute
   FerramentasConcentracaoRoute: typeof FerramentasConcentracaoRoute
   FerramentasConversorRoute: typeof FerramentasConversorRoute
@@ -394,6 +407,13 @@ declare module '@tanstack/react-router' {
       path: '/sobre'
       fullPath: '/sobre'
       preLoaderRoute: typeof SobreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/blackpix': {
+      id: '/admin/blackpix'
+      path: '/admin/blackpix'
+      fullPath: '/admin/blackpix'
+      preLoaderRoute: typeof AdminBlackpixRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ferramentas/': {
@@ -545,6 +565,7 @@ const rootRouteChildren: RootRouteChildren = {
   EnvioRoute: EnvioRoute,
   ProdutosRoute: ProdutosRoute,
   SobreRoute: SobreRoute,
+  AdminBlackpixRoute: AdminBlackpixRoute,
   FerramentasAmostraRoute: FerramentasAmostraRoute,
   FerramentasConcentracaoRoute: FerramentasConcentracaoRoute,
   FerramentasConversorRoute: FerramentasConversorRoute,
