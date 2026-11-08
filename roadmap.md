@@ -21,6 +21,7 @@
 ## BlackPix — preparação
 - [x] Ativar Lovable Cloud e preparar recebimento de avisos com bloqueio seguro; confirmar rejeição de eventos não verificados e tela Pix bloqueada.
 - [x] Implementar e testar assinatura HMAC-SHA256 fornecida pelo usuário, corpo original e tolerância de 300 segundos, sem confirmar pagamentos.
-- [ ] Configurar segredo do webhook e confirmar criação Pix, formato dos eventos e ambiente de testes. Bloqueio: aguarda segredo em formulário seguro e documentação privada do painel blackpix.site; GET de pedidos fornecido pelo usuário confirmado com resposta 200.
+- [x] Configurar segredo do webhook em formulário seguro e verificar rejeição de aviso sem assinatura no site (401).
+- [ ] Confirmar criação Pix, formato dos eventos e ambiente de testes. Bloqueio: aguarda documentação privada do painel blackpix.site; GET de pedidos fornecido pelo usuário confirmado com resposta 200.
 - [x] Conectar credenciais com segurança e verificar acesso pelo site com consulta de pedidos somente leitura (200), sem expor dados de clientes.
-- [ ] Persistir pedidos e preços autorizados, integrar Pix e validar criação/consulta/confirmação sem aprovação fictícia. Bloqueio: contrato de criação e eventos BlackPix, segredo do webhook, condições finais de frete e teste autorizado.
+- [ ] Persistir pedidos e preços autorizados, integrar Pix e validar criação/consulta/confirmação sem aprovação fictícia. Bloqueio: contrato de criação e eventos BlackPix, condições finais de frete e teste autorizado.
