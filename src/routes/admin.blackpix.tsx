@@ -10,6 +10,7 @@ import { ImportedHeader, ImportedFooter } from "./index";
 import { diagnosticMessages, diagnosticInput, type DiagnosticInput } from "@/lib/blackpix-diagnostics";
 import { analyzeBlackPix, diagnosticAccess } from "@/lib/blackpix-diagnostics.functions";
 import { checkoutHead } from "@/lib/octa-cart";
+import capturedCSS from "@/styles/site.css?raw";
 
 export const Route = createFileRoute("/admin/blackpix")({
   head: () => ({ ...checkoutHead("Diagnóstico BlackPix", "Análise administrativa de avisos BlackPix da OCTA Labs."), meta: [...checkoutHead("Diagnóstico BlackPix", "Análise administrativa de avisos BlackPix da OCTA Labs.").meta, { name: "robots", content: "noindex, nofollow" }] }),
@@ -54,7 +55,7 @@ function BlackPixDiagnostics() {
     } catch { setError("Acesso indisponível ou não autorizado. Entre novamente com uma conta administradora."); }
     finally { setBusy(false); }
   }
-  return <div className="min-h-screen bg-background text-foreground"><ImportedHeader />
+  return <div className="min-h-screen bg-background text-foreground"><style>{capturedCSS}</style><ImportedHeader />
     <main className="mx-auto max-w-4xl px-5 py-12 sm:py-16">
       <div className="flex items-center gap-3 text-primary"><ShieldCheck size={24} /><span className="text-sm font-medium uppercase">Administração OCTA</span></div>
       <h1 className="mt-4 text-3xl font-semibold sm:text-4xl">Diagnóstico BlackPix</h1>

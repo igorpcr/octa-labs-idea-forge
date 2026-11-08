@@ -19,7 +19,7 @@
 - [x] Integrar produtos e testar quantidades, totais, validação e navegação em computador/celular.
 
 ## BlackPix — preparação
-- [ ] Criar análise de status e erros sanitizados com IA, restrita a administradores e sem alterar pagamentos.
+- [x] Criar análise de status e erros sanitizados com IA, restrita a administradores e sem alterar pagamentos; testes de autorização e filtragem passaram e tela de entrada verificada em computador/celular.
 - [ ] Validar análise autenticada com administrador. Bloqueio: ainda não há conta cadastrada nem administrador autorizado.
 - [x] Registrar avisos verificados em histórico privado e tentativas rejeitadas em logs sanitizados; 19 testes passaram e recebimento assinado foi confirmado no banco sem conteúdo sensível.
 - [x] Ativar Lovable Cloud e preparar recebimento de avisos com bloqueio seguro; confirmar rejeição de eventos não verificados e tela Pix bloqueada.
