@@ -19,11 +19,11 @@
 - [x] Integrar produtos e testar quantidades, totais, validação e navegação em computador/celular.
 
 ## BlackPix — preparação
-- [ ] Autorizar a conta do solicitante como primeira administradora. Bloqueio: não há contas cadastradas; aguarda cadastro, confirmação de e-mail e identificação segura do solicitante.
+- [x] Autorizar a conta indicada pelo solicitante como primeira administradora; e-mail confirmado e permissão administrativa verificados no banco.
 - [x] Criar entrada/cadastro por e-mail e senha, recuperação de senha e saída segura, sem perfil ou autorização administrativa automática; oito testes passaram, formulários e bloqueio administrativo verificados no computador/celular, sem erros ou rolagem horizontal.
-- [ ] Verificar entrada e saída com conta real e recuperação por e-mail. Bloqueio: aguarda conta cadastrada e confirmada; nenhum cadastro de teste ou envio de e-mail foi realizado.
+- [ ] Verificar entrada e saída com conta real e recuperação por e-mail. Bloqueio: aguarda sessão autorizada da conta cadastrada; nenhum envio de recuperação foi realizado.
 - [x] Criar análise de status e erros sanitizados com IA, restrita a administradores e sem alterar pagamentos; testes de autorização e filtragem passaram e tela de entrada verificada em computador/celular.
-- [ ] Validar análise autenticada com administrador. Bloqueio: ainda não há conta cadastrada nem administrador autorizado.
+- [ ] Validar análise autenticada com administrador. Bloqueio: conta confirmada e administradora autorizada; aguarda sessão autorizada para executar a análise.
 - [x] Registrar avisos verificados em histórico privado e tentativas rejeitadas em logs sanitizados; 19 testes passaram e recebimento assinado foi confirmado no banco sem conteúdo sensível.
 - [x] Ativar Lovable Cloud e preparar recebimento de avisos com bloqueio seguro; confirmar rejeição de eventos não verificados e tela Pix bloqueada.
 - [x] Implementar e testar assinatura HMAC-SHA256 fornecida pelo usuário, corpo original e tolerância de 300 segundos, sem confirmar pagamentos.
