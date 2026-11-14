@@ -25,8 +25,8 @@ vi.mock("@/routes/index", () => ({ ImportedHeader: () => null, ImportedFooter: (
 vi.mock("@/lib/blackpix-diagnostics.functions", () => ({ diagnosticAccess: mocks.permission, analyzeBlackPix: vi.fn() }));
 
 async function open(path: string) {
-  if (path === "/auth") await import("./auth");
-  else await import("./_authenticated/admin/blackpix");
+  if (path === "/auth") await import("../routes/auth");
+  else await import("../routes/_authenticated/admin/blackpix");
   const Page = mocks.pages[path];
   if (!Page) throw new Error("Missing existing page");
   await act(async () => { render(<Page />); });
