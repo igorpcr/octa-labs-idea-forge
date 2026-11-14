@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ShieldCheck, Sparkles, LoaderCircle, LogOut } from "lucide-react";
 import { useAccount } from "@/components/auth-context";
 import { Button } from "@/components/ui/button";
@@ -25,13 +25,20 @@ function BlackPixDiagnostics() {
   const [error, setError] = useState<string | null>(null);
   const checkAccess = useServerFn(diagnosticAccess);
   const analyze = useServerFn(analyzeBlackPix);
+  const trackedAccess = useRef<string | null>(null);
   useEffect(() => {
     let active = true;
     async function refresh() {
-      if (!user) { if (active) { setAccess("loading"); setResult(null); } return; }
+      if (!user) { trackedAccess.current = null; if (active) { setAccess("loading"); setResult(null); } return; }
       try {
         const permission = await checkAccess();
-        if (active) { setAccess(permission.isAdmin ? "admin" : "denied"); setResult(null); }
+        if (active) {
+          setAccess(permission.isAdmin ? "admin" : "denied"); setResult(null);
+          if (permission.isAdmin && trackedAccess.current !== user.id) {
+            trackedAccess.current = user.id;
+            window.__lovableEvents?.track?.("project.admin_access_granted", { area: "blackpix" });
+          }
+        }
       } catch { if (active) setAccess("denied"); }
     }
     void refresh();
