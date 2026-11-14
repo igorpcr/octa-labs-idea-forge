@@ -14,6 +14,19 @@
         "properties": {}
       }
     },
+    "project.login_completed": {
+      "event_schema_version": 1,
+      "description": "A successful new sign-in session transition, including social login; excludes initial restored sessions, token refreshes, signup confirmation and password recovery.",
+      "privacy": {
+        "contains_pii": false,
+        "purpose": "product_analytics"
+      },
+      "properties_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {}
+      }
+    },
     "project.signup_completed": {
       "event_schema_version": 1,
       "description": "A new email/password registration succeeded; obfuscated existing-address responses are excluded.",
