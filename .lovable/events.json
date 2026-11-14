@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "events": {
+    "project.signup_completed": {
+      "event_schema_version": 1,
+      "description": "A new email/password registration succeeded; obfuscated existing-address responses are excluded.",
+      "privacy": {
+        "contains_pii": false,
+        "purpose": "product_analytics"
+      },
+      "properties_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "confirmation_required"
+        ],
+        "properties": {
+          "confirmation_required": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}
