@@ -19,9 +19,9 @@
 - [x] Integrar produtos e testar quantidades, totais, validação e navegação em computador/celular.
 
 ## BlackPix — preparação
-- [ ] Conectar BlackPix novamente no workspace atual; ignorar conexões do workspace anterior, coletar credencial em formulário seguro e verificar acesso somente leitura.
+- [ ] Conectar BlackPix novamente no workspace atual. Bloqueio: o formulário de nova conexão foi recusado; nenhuma conexão foi criada ou vinculada, sem reutilizar conexões anteriores.
 - [x] Acompanhar cadastros, confirmações de e-mail, logins e acessos administrativos sem dados pessoais; quatro eventos registrados, catálogo validado e 16 testes passaram. Confirmação mede retorno autenticado do link; recebimento na coleta depende do uso do site com consentimento.
-- [ ] Criar chat de suporte com uma conversa por sessão, sem histórico persistido, usando informações atuais do site e encaminhamento ao WhatsApp OCTA quando não houver resposta confiável.
+- [x] Criar chat de suporte com uma conversa por sessão sem histórico persistido, fontes atuais e encaminhamento ao WhatsApp com cópia voluntária da conversa; resposta real sobre envio e encaminhamento testados no computador/celular sem erros, 20 testes passaram. Consulta de pedidos permanece bloqueada.
 - [ ] Vincular suporte aos pedidos reais de cada cliente. Bloqueio: não existe fonte de pedidos com vínculo seguro ao usuário nem central externa fornecida; nunca consultar pedidos gerais da BlackPix para visitantes.
 - [x] Autorizar a conta indicada pelo solicitante como primeira administradora; e-mail confirmado e permissão administrativa verificados no banco.
 - [x] Criar entrada/cadastro por e-mail e senha, recuperação de senha e saída segura, sem perfil ou autorização administrativa automática; oito testes passaram, formulários e bloqueio administrativo verificados no computador/celular, sem erros ou rolagem horizontal.

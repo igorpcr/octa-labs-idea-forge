@@ -22,22 +22,33 @@ vi.mock("@/components/auth-context", () => ({ useAccount: () => mocks.account })
 vi.mock("@/integrations/supabase/client", () => ({ supabase: { auth: { signUp: mocks.signup } } }));
 vi.mock("@/integrations/lovable/index", () => ({ lovable: { auth: {} } }));
 vi.mock("@/routes/index", () => ({ ImportedHeader: () => null, ImportedFooter: () => null }));
-vi.mock("@/lib/blackpix-diagnostics.functions", () => ({ diagnosticAccess: mocks.permission, analyzeBlackPix: vi.fn() }));
+vi.mock("@/lib/blackpix-diagnostics.functions", () => ({
+  diagnosticAccess: mocks.permission,
+  analyzeBlackPix: vi.fn(),
+}));
 
 async function open(path: string) {
   if (path === "/auth") await import("../routes/auth");
   else await import("../routes/_authenticated/admin/blackpix");
   const Page = mocks.pages[path];
   if (!Page) throw new Error("Missing existing page");
-  await act(async () => { render(<Page />); });
+  await act(async () => {
+    render(<Page />);
+  });
 }
 async function register() {
   await open("/auth");
   fireEvent.click(screen.getByRole("tab", { name: "Criar conta" }));
   fireEvent.change(screen.getByLabelText("E-mail"), { target: { value: "test@example.test" } });
-  fireEvent.change(screen.getByLabelText("Senha", { exact: true }), { target: { value: "test-password-123" } });
-  fireEvent.change(screen.getByLabelText("Confirmar senha"), { target: { value: "test-password-123" } });
-  await act(async () => { fireEvent.click(screen.getByRole("button", { name: /^Criar conta$/ })); });
+  fireEvent.change(screen.getByLabelText("Senha", { exact: true }), {
+    target: { value: "test-password-123" },
+  });
+  fireEvent.change(screen.getByLabelText("Confirmar senha"), {
+    target: { value: "test-password-123" },
+  });
+  await act(async () => {
+    fireEvent.click(screen.getByRole("button", { name: /^Criar conta$/ }));
+  });
 }
 describe("Existing account flow events", () => {
   beforeEach(() => {
@@ -45,14 +56,26 @@ describe("Existing account flow events", () => {
     mocks.account.user = null;
     window.__lovableEvents = { track: vi.fn(() => null) };
   });
-  afterEach(() => { cleanup(); delete window.__lovableEvents; });
+  afterEach(() => {
+    cleanup();
+    delete window.__lovableEvents;
+  });
   it("emits signup only after a new registration succeeds without personal fields", async () => {
-    mocks.signup.mockResolvedValue({ data: { user: { identities: [{}] }, session: null }, error: null });
+    mocks.signup.mockResolvedValue({
+      data: { user: { identities: [{}] }, session: null },
+      error: null,
+    });
     await register();
-    expect(window.__lovableEvents?.track).toHaveBeenCalledExactlyOnceWith("project.signup_completed", { confirmation_required: true });
+    expect(window.__lovableEvents?.track).toHaveBeenCalledExactlyOnceWith(
+      "project.signup_completed",
+      { confirmation_required: true },
+    );
   });
   it("does not count rejected or obfuscated duplicate signups", async () => {
-    mocks.signup.mockResolvedValue({ data: { user: { identities: [] }, session: null }, error: null });
+    mocks.signup.mockResolvedValue({
+      data: { user: { identities: [] }, session: null },
+      error: null,
+    });
     await register();
     expect(window.__lovableEvents?.track).not.toHaveBeenCalled();
     cleanup();
@@ -64,8 +87,13 @@ describe("Existing account flow events", () => {
     mocks.account.user = { id: "test-admin" };
     mocks.permission.mockResolvedValue({ isAdmin: true });
     await open("/_authenticated/admin/blackpix");
-    await waitFor(() => expect(screen.getByRole("button", { name: "Analisar aviso" })).toBeTruthy());
-    expect(window.__lovableEvents?.track).toHaveBeenCalledExactlyOnceWith("project.admin_access_granted", { area: "blackpix" });
+    await waitFor(() =>
+      expect(screen.getByRole("button", { name: "Analisar aviso" })).toBeTruthy(),
+    );
+    expect(window.__lovableEvents?.track).toHaveBeenCalledExactlyOnceWith(
+      "project.admin_access_granted",
+      { area: "blackpix" },
+    );
   });
   it("does not count denied administrator access", async () => {
     mocks.account.user = { id: "test-nonadmin" };
