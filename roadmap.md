@@ -19,6 +19,7 @@
 - [x] Integrar produtos e testar quantidades, totais, validação e navegação em computador/celular.
 
 ## BlackPix — preparação
+- [ ] Acompanhar cadastros, confirmações de e-mail, logins e acessos administrativos com eventos sem dados pessoais; validar catálogo e momentos de sucesso.
 - [x] Autorizar a conta indicada pelo solicitante como primeira administradora; e-mail confirmado e permissão administrativa verificados no banco.
 - [x] Criar entrada/cadastro por e-mail e senha, recuperação de senha e saída segura, sem perfil ou autorização administrativa automática; oito testes passaram, formulários e bloqueio administrativo verificados no computador/celular, sem erros ou rolagem horizontal.
 - [ ] Verificar entrada e saída com conta real e recuperação por e-mail. Bloqueio: aguarda sessão autorizada da conta cadastrada; nenhum envio de recuperação foi realizado.
