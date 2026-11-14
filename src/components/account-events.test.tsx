@@ -37,7 +37,7 @@ async function register() {
   fireEvent.change(screen.getByLabelText("E-mail"), { target: { value: "test@example.test" } });
   fireEvent.change(screen.getByLabelText("Senha", { exact: true }), { target: { value: "test-password-123" } });
   fireEvent.change(screen.getByLabelText("Confirmar senha"), { target: { value: "test-password-123" } });
-  await act(async () => { fireEvent.click(screen.getByRole("button", { name: "Criar conta", exact: true })); });
+  await act(async () => { fireEvent.click(screen.getByRole("button", { name: /^Criar conta$/ })); });
 }
 describe("Existing account flow events", () => {
   beforeEach(() => {
