@@ -19,8 +19,9 @@
 - [x] Integrar produtos e testar quantidades, totais, validação e navegação em computador/celular.
 
 ## BlackPix — preparação
-- [ ] Acompanhar cadastros, confirmações de e-mail, logins e acessos administrativos com eventos sem dados pessoais; validar catálogo e momentos de sucesso.
-- [ ] Criar chat de suporte baseado na central de ajuda e em pedidos do próprio cliente, com transferência humana quando não houver resposta confiável. Aguarda definição de histórico, fontes da central e canal humano.
+- [x] Acompanhar cadastros, confirmações de e-mail, logins e acessos administrativos sem dados pessoais; quatro eventos registrados, catálogo validado e 16 testes passaram. Confirmação mede retorno autenticado do link; recebimento na coleta depende do uso do site com consentimento.
+- [ ] Criar chat de suporte com uma conversa por sessão, sem histórico persistido, usando informações atuais do site e encaminhamento ao WhatsApp OCTA quando não houver resposta confiável.
+- [ ] Vincular suporte aos pedidos reais de cada cliente. Bloqueio: não existe fonte de pedidos com vínculo seguro ao usuário nem central externa fornecida; nunca consultar pedidos gerais da BlackPix para visitantes.
 - [x] Autorizar a conta indicada pelo solicitante como primeira administradora; e-mail confirmado e permissão administrativa verificados no banco.
 - [x] Criar entrada/cadastro por e-mail e senha, recuperação de senha e saída segura, sem perfil ou autorização administrativa automática; oito testes passaram, formulários e bloqueio administrativo verificados no computador/celular, sem erros ou rolagem horizontal.
 - [ ] Verificar entrada e saída com conta real e recuperação por e-mail. Bloqueio: aguarda sessão autorizada da conta cadastrada; nenhum envio de recuperação foi realizado.
