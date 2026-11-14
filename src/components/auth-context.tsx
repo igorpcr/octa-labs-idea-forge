@@ -30,6 +30,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const { data } = supabase.auth.onAuthStateChange((event, session) => {
       const account = session?.user;
       const signIn = account ? `${account.id}:${account.last_sign_in_at ?? ""}` : null;
+      const confirmingEmail = emailConfirmationReturn && !confirmationTracked;
       if (emailConfirmationReturn && !confirmationTracked && account?.email_confirmed_at
         && (event === "SIGNED_IN" || event === "INITIAL_SESSION")) {
         confirmationTracked = true;
@@ -38,7 +39,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       if (event === "SIGNED_IN" && signIn && signIn !== lastSignIn) {
         lastSignIn = signIn;
         // Confirmation and recovery are not login submissions.
-        if (!emailConfirmationReturn) {
+        if (!confirmingEmail) {
           window.__lovableEvents?.track?.("project.login_completed");
         }
       }
