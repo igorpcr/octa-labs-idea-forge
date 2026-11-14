@@ -52,6 +52,10 @@ function AuthPage() {
       } else if (mode === "signup") {
         const { data, error } = await supabase.auth.signUp({ email: email.trim(), password, options: { emailRedirectTo: window.location.origin } });
         if (error) throw error;
+        // Existing-address obfuscated responses are not new registrations.
+        if (data.user && data.user.identities && data.user.identities.length > 0) {
+          window.__lovableEvents?.track?.("project.signup_completed", { confirmation_required: signupNeedsConfirmation(data.session) });
+        }
         setPassword(""); setConfirm("");
         if (signupNeedsConfirmation(data.session)) setNotice("Confira seu e-mail e clique no link de confirmação antes de entrar.");
         else await navigate({ to: redirect, replace: true });
