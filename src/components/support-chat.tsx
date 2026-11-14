@@ -40,7 +40,7 @@ export function SupportChat() {
       setCopied(true);
     } catch { setError("Não foi possível copiar a conversa."); }
   }
-  const handoff = messages.at(-1)?.handoff;
+  const handoff = messages.some(message => message.handoff);
   return <>
     {!open && <Button className="fixed bottom-5 right-5 z-50 h-12 gap-2 border border-border shadow-lg" onClick={() => setOpen(true)} aria-label="Abrir suporte OCTA"><MessageCircle />Suporte OCTA</Button>}
     {open && <section role="dialog" aria-label="Suporte OCTA" className="fixed bottom-4 right-4 z-50 flex h-[min(660px,calc(100dvh-32px))] w-[min(420px,calc(100vw-32px))] flex-col overflow-hidden rounded-lg border border-border bg-background text-foreground shadow-lg">
