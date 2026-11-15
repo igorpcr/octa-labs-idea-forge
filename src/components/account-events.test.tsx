@@ -123,11 +123,12 @@ describe("Existing account flow events", () => {
       error: null,
     });
     await open("/_authenticated/admin/blackpix");
+    const history = await screen.findByRole("region", { name: "Avisos recebidos" });
     await waitFor(() =>
-      expect(screen.getByText("Processamento de eventos ainda não disponível.")).toBeTruthy(),
+      expect(within(history).getByText("Processamento de eventos ainda não disponível.")).toBeTruthy(),
     );
-    expect(screen.getByText("Bloqueado")).toBeTruthy();
-    expect(screen.getByText("Resposta HTTP 503 · 12 ms")).toBeTruthy();
-    expect(screen.queryByText(/123e4567/)).toBeNull();
+    expect(within(history).getByText("Bloqueado")).toBeTruthy();
+    expect(within(history).getByText("Resposta HTTP 503 · 12 ms")).toBeTruthy();
+    expect(within(history).queryByText(/123e4567/)).toBeNull();
   });
 });
