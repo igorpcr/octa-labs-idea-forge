@@ -21,6 +21,14 @@ export type BlackPixAuditOptions = {
   log?: (record: BlackPixAudit) => void;
 };
 
+export const blackPixReceiptSelect =
+  "id,received_at,processing_status,signature_status,error_code,http_status,duration_ms";
+
+/** Keep administrative history to the same allowlist accepted by private storage. */
+export function parseBlackPixReceipts(rows: unknown): BlackPixAudit[] {
+  return z.array(blackPixAuditSchema).parse(rows);
+}
+
 export function logBlackPixAudit(record: BlackPixAudit): void {
   console.info("blackpix_webhook", JSON.stringify(blackPixAuditSchema.parse(record)));
 }
