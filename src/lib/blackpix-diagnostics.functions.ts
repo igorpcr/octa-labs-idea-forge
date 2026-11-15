@@ -1,5 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
+import { blackPixReceiptSelect, parseBlackPixReceipts } from "./blackpix-audit";
 import { diagnosticInput, safeDiagnosticInput, withAdminAccess } from "./blackpix-diagnostics";
 
 export const diagnosticAccess = createServerFn({ method: "GET" })
