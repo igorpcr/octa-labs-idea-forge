@@ -1,4 +1,4 @@
-import { act, cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import type { ComponentType } from "react";
 
@@ -7,6 +7,7 @@ const mocks = vi.hoisted(() => ({
   account: { user: null as null | { id: string }, loading: false, signOut: vi.fn() },
   signup: vi.fn(),
   permission: vi.fn(),
+  receipts: vi.fn(),
   navigate: vi.fn(),
 }));
 vi.mock("@tanstack/react-router", () => ({
@@ -25,6 +26,7 @@ vi.mock("@/routes/index", () => ({ ImportedHeader: () => null, ImportedFooter: (
 vi.mock("@/lib/blackpix-diagnostics.functions", () => ({
   diagnosticAccess: mocks.permission,
   analyzeBlackPix: vi.fn(),
+  listBlackPixReceipts: mocks.receipts,
 }));
 
 async function open(path: string) {
@@ -54,6 +56,7 @@ describe("Existing account flow events", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     mocks.account.user = null;
+    mocks.receipts.mockResolvedValue({ receipts: [], error: null });
     window.__lovableEvents = { track: vi.fn(() => null) };
   });
   afterEach(() => {
@@ -101,5 +104,33 @@ describe("Existing account flow events", () => {
     await open("/_authenticated/admin/blackpix");
     await waitFor(() => expect(screen.getByRole("alert")).toBeTruthy());
     expect(window.__lovableEvents?.track).not.toHaveBeenCalled();
+  });
+  it("shows verified webhook history without identifiers or private content", async () => {
+    mocks.account.user = { id: "test-admin" };
+    mocks.permission.mockResolvedValue({ isAdmin: true });
+    mocks.receipts.mockResolvedValue({
+      receipts: [
+        {
+          id: "123e4567-e89b-42d3-a456-426614174000",
+          received_at: "2026-11-14T10:00:00.000Z",
+          processing_status: "blocked",
+          signature_status: "verified",
+          error_code: "event_processing_unavailable",
+          http_status: 503,
+          duration_ms: 12,
+        },
+      ],
+      error: null,
+    });
+    await open("/_authenticated/admin/blackpix");
+    const history = await screen.findByRole("region", { name: "Avisos recebidos" });
+    await waitFor(() =>
+      expect(
+        within(history).getByText("Processamento de eventos ainda não disponível."),
+      ).toBeTruthy(),
+    );
+    expect(within(history).getByText("Bloqueado")).toBeTruthy();
+    expect(within(history).getByText("Resposta HTTP 503 · 12 ms")).toBeTruthy();
+    expect(within(history).queryByText(/123e4567/)).toBeNull();
   });
 });
