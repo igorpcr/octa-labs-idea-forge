@@ -10,6 +10,29 @@ export const diagnosticAccess = createServerFn({ method: "GET" })
     return { isAdmin: !error && data?.role === "admin" };
   });
 
+export const listBlackPixReceipts = createServerFn({ method: "GET" })
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }) => {
+    const { data: role, error } = await context.supabase
+      .from("user_roles")
+      .select("role")
+      .eq("user_id", context.userId)
+      .eq("role", "admin")
+      .maybeSingle();
+    return withAdminAccess(!error && role?.role === "admin", async () => {
+      const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+      const { data, error: readError } = await supabaseAdmin
+        .from("blackpix_webhook_receipts")
+        .select(blackPixReceiptSelect)
+        .order("received_at", { ascending: false })
+        .limit(50);
+      if (readError) {
+        return { receipts: [], error: "Não foi possível carregar o histórico de avisos." };
+      }
+      return { receipts: parseBlackPixReceipts(data ?? []), error: null };
+    });
+  });
+
 export const analyzeBlackPix = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator((input: unknown) => diagnosticInput.parse(input))
