@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { History, LoaderCircle, LogOut, RefreshCw, ShieldCheck, Sparkles } from "lucide-react";
 import { useAccount } from "@/components/auth-context";
 import { Button } from "@/components/ui/button";
@@ -55,27 +55,22 @@ function BlackPixDiagnostics() {
     void refresh();
     return () => { active = false; };
   }, [checkAccess, user]);
-  useEffect(() => {
-    if (access !== "admin") return;
-    let active = true;
+  const refreshReceipts = useCallback(async () => {
     setReceiptsBusy(true);
     setReceiptsError(null);
-    void listReceipts()
-      .then((history) => {
-        if (!active) return;
-        setReceipts(history.receipts);
-        setReceiptsError(history.error);
-      })
-      .catch(() => {
-        if (active) setReceiptsError("Não foi possível carregar o histórico de avisos.");
-      })
-      .finally(() => {
-        if (active) setReceiptsBusy(false);
-      });
-    return () => {
-      active = false;
-    };
-  }, [access, listReceipts]);
+    try {
+      const history = await listReceipts();
+      setReceipts(history.receipts);
+      setReceiptsError(history.error);
+    } catch {
+      setReceiptsError("Não foi possível carregar o histórico de avisos.");
+    } finally {
+      setReceiptsBusy(false);
+    }
+  }, [listReceipts]);
+  useEffect(() => {
+    if (access === "admin") void refreshReceipts();
+  }, [access, refreshReceipts]);
   async function submit(event: React.FormEvent) {
     event.preventDefault(); setBusy(true); setError(null); setResult(null);
     try {
@@ -98,7 +93,7 @@ function BlackPixDiagnostics() {
       {access === "admin" && <section className="mt-10 border-y border-border py-8" aria-labelledby="blackpix-receipts-title">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2 text-primary"><History size={20} /><h2 id="blackpix-receipts-title" className="text-xl font-semibold text-foreground">Avisos recebidos</h2></div>
-          <Button type="button" variant="outline" size="sm" disabled={receiptsBusy} onClick={() => { setAccess("loading"); setAccess("admin"); }}><RefreshCw className={receiptsBusy ? "animate-spin" : undefined} />Atualizar</Button>
+          <Button type="button" variant="outline" size="sm" disabled={receiptsBusy} onClick={() => { void refreshReceipts(); }}><RefreshCw className={receiptsBusy ? "animate-spin" : undefined} />Atualizar</Button>
         </div>
         <p className="mt-3 text-sm text-muted-foreground">Os 50 avisos verificados mais recentes aparecem aqui. Tentativas sem assinatura válida são rejeitadas e não são gravadas.</p>
         {receiptsBusy && <p className="mt-6 text-muted-foreground" role="status">Carregando avisos…</p>}
