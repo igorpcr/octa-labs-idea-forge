@@ -123,7 +123,9 @@ describe("Existing account flow events", () => {
       error: null,
     });
     await open("/_authenticated/admin/blackpix");
-    await waitFor(() => expect(screen.getByText("Processamento de eventos ainda não disponível.")).toBeTruthy());
+    await waitFor(() =>
+      expect(screen.getByText("Processamento de eventos ainda não disponível.")).toBeTruthy(),
+    );
     expect(screen.getByText("Bloqueado")).toBeTruthy();
     expect(screen.getByText("Resposta HTTP 503 · 12 ms")).toBeTruthy();
     expect(screen.queryByText(/123e4567/)).toBeNull();
