@@ -1,6 +1,6 @@
 import { createHmac } from "node:crypto";
 import { describe, expect, it, vi } from "vitest";
-import { blackPixAuditSchema, type BlackPixAudit } from "./blackpix-audit";
+import { blackPixAuditSchema, parseBlackPixReceipts, type BlackPixAudit } from "./blackpix-audit";
 import { receiveBlackPixWebhook } from "./blackpix-webhook";
 
 const secret = "test-only-audit-secret";
@@ -70,5 +70,18 @@ describe("BlackPix safe audit", () => {
     expect((await receiveBlackPixWebhook(delivery("{}"), undefined, { persist, log })).status).toBe(503);
     expect(persist).not.toHaveBeenCalled();
     expect(log).toHaveBeenCalledWith(expect.objectContaining({ error_code: "secret_not_configured", signature_status: "not_checked" }));
+  });
+  it("keeps the administrative history to the approved fields only", () => {
+    const receipt = {
+      id: "123e4567-e89b-42d3-a456-426614174000",
+      received_at: "2026-11-14T10:00:00.000Z",
+      processing_status: "blocked",
+      signature_status: "verified",
+      error_code: "event_processing_unavailable",
+      http_status: 503,
+      duration_ms: 12,
+    };
+    expect(parseBlackPixReceipts([receipt])).toEqual([receipt]);
+    expect(() => parseBlackPixReceipts([{ ...receipt, customer_email: "private@example.test" }])).toThrow();
   });
 });
