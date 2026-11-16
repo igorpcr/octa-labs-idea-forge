@@ -13,7 +13,7 @@ const json = (status: number, payload: Record<string, string>) =>
  */
 async function receive(request: Request): Promise<Response> {
   const secret = process.env["BLACKPIX_WEBHOOK_SECRET"];
-  if (!secret) return json(503, { error: "webhook_not_configured" });
+  if (!secret) { console.error("[blackpix_webhook] webhook_not_configured"); return json(503, { error: "webhook_not_configured" }); }
   let raw: string;
   try { raw = await request.text(); }
   catch { return json(400, { error: "invalid_body" }); }
@@ -23,7 +23,7 @@ async function receive(request: Request): Promise<Response> {
     if (!(await validBlackPixSignature(raw, signature, secret))) {
       return json(401, { error: "invalid_signature" });
     }
-  } catch { return json(503, { error: "signature_verification_unavailable" }); }
+  } catch { console.error("[blackpix_webhook] signature_verification_unavailable"); return json(503, { error: "signature_verification_unavailable" }); }
   let payload: unknown;
   try { payload = JSON.parse(raw); }
   catch { return json(400, { error: "invalid_json" }); }
@@ -45,7 +45,10 @@ async function receive(request: Request): Promise<Response> {
       { signature_digest: digest, event_payload: payload },
       { onConflict: "signature_digest", ignoreDuplicates: true },
     );
-    if (error) return json(503, { error: "webhook_storage_unavailable" });
+    if (error) {
+      console.error("[blackpix_webhook] storage_error", { code: error.code ?? "unknown", hint: error.hint ? "present" : "absent" });
+      return json(503, { error: "webhook_storage_unavailable" });
+    }
   } catch {
     return json(503, { error: "webhook_storage_unavailable" });
   }
