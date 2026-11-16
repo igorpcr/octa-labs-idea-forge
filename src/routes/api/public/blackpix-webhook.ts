@@ -1,20 +1,57 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { receiveBlackPixWebhook } from "@/lib/blackpix-webhook";
-import { blackPixAuditSchema } from "@/lib/blackpix-audit";
+import { createHash } from "node:crypto";
+import { validBlackPixSignature } from "@/lib/blackpix-webhook";
+
+const json = (status: number, payload: Record<string, string>) =>
+  Response.json(payload, { status, headers: { "Cache-Control": "no-store" } });
+
+/**
+ * The webhook contract does not specify event payload fields.
+ * Verify the exact raw body and durably store the authenticated event before
+ * returning 200. Never mark an order paid based on this payload alone.
+ * A separate worker must reconcile pending deposits against BlackPix GET API.
+ */
+async function receive(request: Request): Promise<Response> {
+  const secret = process.env["BLACKPIX_WEBHOOK_SECRET"];
+  if (!secret) return json(503, { error: "webhook_not_configured" });
+  let raw: string;
+  try { raw = await request.text(); }
+  catch { return json(400, { error: "invalid_body" }); }
+  if (raw.length > 262144) return json(413, { error: "payload_too_large" });
+  const signature = request.headers.get("X-BlackPix-Signature");
+  try {
+    if (!(await validBlackPixSignature(raw, signature, secret))) {
+      return json(401, { error: "invalid_signature" });
+    }
+  } catch { return json(503, { error: "signature_verification_unavailable" }); }
+  let payload: unknown;
+  try { payload = JSON.parse(raw); }
+  catch { return json(400, { error: "invalid_json" }); }
+  if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
+    return json(400, { error: "invalid_payload" });
+  }
+  // Signature digest is unique for provider retries of the same signed request.
+  const digest = createHash("sha256").update(signature ?? "").digest("hex");
+  try {
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    // The inbox is created by migration 0003; generated Supabase types are
+    // refreshed separately. No browser-facing access is granted.
+    const { error } = await (supabaseAdmin as unknown as {
+      from: (name: string) => {
+        upsert: (row: Record<string, unknown>, options: { onConflict: string; ignoreDuplicates: boolean }) =>
+          PromiseLike<{ error: { code?: string } | null }>;
+      };
+    }).from("blackpix_webhook_inbox").upsert(
+      { signature_digest: digest, event_payload: payload },
+      { onConflict: "signature_digest", ignoreDuplicates: true },
+    );
+    if (error) return json(503, { error: "webhook_storage_unavailable" });
+  } catch {
+    return json(503, { error: "webhook_storage_unavailable" });
+  }
+  return json(200, { status: "received" });
+}
 
 export const Route = createFileRoute("/api/public/blackpix-webhook")({
-  server: {
-    handlers: {
-      POST: ({ request }) => receiveBlackPixWebhook(request, process.env['BLACKPIX_WEBHOOK_SECRET'], {
-        persist: async (record) => {
-          const safeRecord = blackPixAuditSchema.parse(record);
-          if (safeRecord.signature_status !== "verified") throw new Error("unverified_audit");
-          // Called only after the handler has verified the request signature.
-          const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-          const { error } = await supabaseAdmin.from("blackpix_webhook_receipts").insert(safeRecord);
-          if (error) throw new Error("audit_write_failed");
-        },
-      }),
-    },
-  },
+  server: { handlers: { POST: ({ request }) => receive(request) } },
 });
