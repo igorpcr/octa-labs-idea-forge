@@ -37,7 +37,20 @@ export function DeliveryPage() {
   const [form, setForm] = useState(delivery);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [rates, setRates] = useState<{ serviceId: number; name: string; carrier: string; priceCents: number; deliveryDays: number }[]>([]);
+  const [shippingLoading, setShippingLoading] = useState(false);
+  const { items } = useCart();
   const navigate = useNavigate();
+  async function calculateShipping() {
+    setShippingLoading(true); setError(""); setRates([]);
+    try {
+      const response = await fetch("/api/public/superfrete-quote", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ destinationCep: form.cep, items: items.map(item => ({ id: item.id, quantity: item.quantity })) }) });
+      if (!response.ok) throw new Error("shipping_unavailable");
+      const result = await response.json();
+      setRates(Array.isArray(result.rates) ? result.rates : []);
+    } catch { setError("Cotação indisponível para este pedido. Consulte a OCTA para confirmar o envio."); }
+    finally { setShippingLoading(false); }
+  }
   async function lookup() {
     const cep = form.cep.replace(/\D/g, "");
     if (cep.length !== 8) { setError("Informe um CEP com 8 dígitos."); return; }
@@ -51,7 +64,7 @@ export function DeliveryPage() {
     } catch { setError("Não foi possível consultar o CEP. Preencha o endereço manualmente."); }
     finally { setLoading(false); }
   }
-  return <CheckoutShell step={1} title="Dados e entrega"><h2 className="flex items-center gap-2 text-xl font-semibold"><MapPin className="text-highlight" />Endereço no Brasil</h2><form className="mt-6" onSubmit={event => { event.preventDefault(); if (!validDelivery(form)) { setError("Confira os dados, o CEP e o endereço completo."); return; } setDelivery(form); void navigate({ to: "/finalizar/revisao" }); }}><div className="grid gap-5 sm:grid-cols-2">{fields.map(field => <label key={field.key} className="block text-sm font-medium" htmlFor={field.key}>{field.label}{field.optional ? " (opcional)" : ""}<Input id={field.key} className="mt-2" type={field.type || "text"} autoComplete={field.autoComplete} required={!field.optional} value={form[field.key]} maxLength={field.key === "state" ? 2 : field.key === "cep" ? 9 : undefined} onChange={event => { const value = event.target.value; setForm(current => ({ ...current, [field.key]: field.key === "state" ? value.toUpperCase() : value })); }} />{field.key === "cep" && <Button type="button" variant="link" className="mt-1 px-0" disabled={loading} onClick={lookup}>{loading ? "Consultando…" : "Buscar endereço pelo CEP"}</Button>}</label>)}</div>{error && <p role="alert" className="mt-4 text-sm text-warning-foreground">{error}</p>}<p className="mt-6 text-sm text-muted-foreground">Frete e previsão de entrega: a confirmar com a OCTA. Seus dados ficam apenas nesta sessão; nenhum pedido foi enviado.</p><div className="mt-6 flex flex-wrap gap-3"><Button type="submit" size="lg">Revisar pedido<ArrowRight /></Button><Button asChild variant="outline"><Link to="/carrinho"><ArrowLeft />Voltar</Link></Button></div></form></CheckoutShell>;
+  return <CheckoutShell step={1} title="Dados e entrega"><h2 className="flex items-center gap-2 text-xl font-semibold"><MapPin className="text-highlight" />Endereço no Brasil</h2><form className="mt-6" onSubmit={event => { event.preventDefault(); if (!validDelivery(form)) { setError("Confira os dados, o CEP e o endereço completo."); return; } setDelivery(form); void navigate({ to: "/finalizar/revisao" }); }}><div className="grid gap-5 sm:grid-cols-2">{fields.map(field => <label key={field.key} className="block text-sm font-medium" htmlFor={field.key}>{field.label}{field.optional ? " (opcional)" : ""}<Input id={field.key} className="mt-2" type={field.type || "text"} autoComplete={field.autoComplete} required={!field.optional} value={form[field.key]} maxLength={field.key === "state" ? 2 : field.key === "cep" ? 9 : undefined} onChange={event => { const value = event.target.value; setForm(current => ({ ...current, [field.key]: field.key === "state" ? value.toUpperCase() : value })); }} />{field.key === "cep" && <Button type="button" variant="link" className="mt-1 px-0" disabled={loading} onClick={lookup}>{loading ? "Consultando…" : "Buscar endereço pelo CEP"}</Button>}</label>)}</div>{error && <p role="alert" className="mt-4 text-sm text-warning-foreground">{error}</p>}<section className="mt-6 border-t border-border pt-5"><h3 className="font-semibold">Consultar opções de frete</h3><p className="mt-2 text-sm text-muted-foreground">Cotação informativa. A modalidade e o valor final ainda precisam ser confirmados antes do pagamento.</p><Button type="button" variant="outline" className="mt-3" disabled={shippingLoading || !/^\\d{5}-?\\d{3}$/.test(form.cep)} onClick={() => void calculateShipping()}>{shippingLoading ? "Consultando…" : "Calcular frete"}</Button>{rates.length > 0 && <ul className="mt-4 space-y-3">{rates.map(rate => <li key={rate.serviceId} className="rounded-md border border-border p-3"><span className="font-medium">{rate.carrier} · {rate.name}</span><span className="ml-3 text-highlight">{money(rate.priceCents)}</span><p className="text-xs text-muted-foreground">Prazo estimado: {rate.deliveryDays} dias. Opção ainda não selecionável.</p></li>)}</ul>}</section><div className="mt-6 flex flex-wrap gap-3"><Button type="submit" size="lg">Revisar pedido<ArrowRight /></Button><Button asChild variant="outline"><Link to="/carrinho"><ArrowLeft />Voltar</Link></Button></div></form></CheckoutShell>;
 }
 export function ReviewPage() {
   const { delivery } = useCart();
