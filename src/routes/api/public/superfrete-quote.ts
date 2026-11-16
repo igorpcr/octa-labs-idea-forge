@@ -18,9 +18,12 @@ export const Route = createFileRoute("/api/public/superfrete-quote")({
     if (Object.keys(input).some(k => k !== "destinationCep" && k !== "items")) return respond(400, { error: "invalid_body" });
     let destinationCep: string;
     let lines: ReturnType<typeof quoteTrustedCart>["lines"];
+    let subtotalCents: number;
     try {
       destinationCep = validateDestinationPostalCode(input.destinationCep);
-      lines = quoteTrustedCart(input.items as never, process.env["OCTA_TRUSTED_CATALOG_JSON"]).lines;
+      const trustedQuote = quoteTrustedCart(input.items as never, process.env["OCTA_TRUSTED_CATALOG_JSON"]);
+      lines = trustedQuote.lines;
+      subtotalCents = trustedQuote.amountCents;
     } catch { return respond(422, { error: "invalid_cart_or_destination" }); }
     // Eligibility must be an explicit server-owned allowlist, never a client flag.
     let eligible: string[];
@@ -53,7 +56,7 @@ export const Route = createFileRoute("/api/public/superfrete-quote")({
         Number((x as Record<string, unknown>).priceCents) > 0 &&
         Number.isSafeInteger((x as Record<string, unknown>).deliveryDays) &&
         Number((x as Record<string, unknown>).deliveryDays) > 0);
-      return respond(200, { rates: safeRates, paymentAvailable: false });
+      return respond(200, { subtotalCents, rates: safeRates.map(rate => ({ ...rate, totalCents: subtotalCents + Number(rate.priceCents) })), currency: "BRL", paymentAvailable: false });
     } catch { return respond(502, { error: "shipping_quote_unavailable" }); }
   } } },
 });
