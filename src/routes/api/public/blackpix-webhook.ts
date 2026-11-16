@@ -53,6 +53,16 @@ async function receive(request: Request): Promise<Response> {
   } catch {
     return json(503, { error: "webhook_storage_unavailable" });
   }
+  // A verified webhook is a trigger, not proof of payment. Query the provider
+  // for a bounded batch of persisted orders; never trust event payload status.
+  // Reconciliation failures do not invalidate a durably stored webhook.
+  try {
+    const { reconcilePendingPixOrders } = await import("@/lib/blackpix-order-reconciliation.server");
+    const result = await reconcilePendingPixOrders(5);
+    if (result.failed) console.error("[blackpix_webhook] reconciliation_incomplete", { failed: result.failed });
+  } catch {
+    console.error("[blackpix_webhook] reconciliation_unavailable");
+  }
   return json(200, { status: "received" });
 }
 
