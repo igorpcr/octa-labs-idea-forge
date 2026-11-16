@@ -37,6 +37,7 @@ import { Route as ProdutoRetatrutida60mgRouteImport } from './routes/produto_.re
 import { Route as ProdutoTirzepatida30mgRouteImport } from './routes/produto_.tirzepatida-30mg'
 import { Route as ProdutoTirzepatida60mgRouteImport } from './routes/produto_.tirzepatida-60mg'
 import { Route as AuthenticatedAdminBlackpixRouteImport } from './routes/_authenticated/admin/blackpix'
+import { Route as AuthenticatedAdminCheckoutHomologacaoRouteImport } from './routes/_authenticated/admin/checkout-homologacao'
 import { Route as ApiPublicBlackpixWebhookRouteImport } from './routes/api/public/blackpix-webhook'
 
 const IndexRoute = IndexRouteImport.update({
@@ -182,6 +183,12 @@ const AuthenticatedAdminBlackpixRoute =
     path: '/admin/blackpix',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedAdminCheckoutHomologacaoRoute =
+  AuthenticatedAdminCheckoutHomologacaoRouteImport.update({
+    id: '/admin/checkout-homologacao',
+    path: '/admin/checkout-homologacao',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const ApiPublicBlackpixWebhookRoute =
   ApiPublicBlackpixWebhookRouteImport.update({
     id: '/api/public/blackpix-webhook',
@@ -217,6 +224,7 @@ export interface FileRoutesByFullPath {
   '/produto/tirzepatida-60mg': typeof ProdutoTirzepatida60mgRoute
   '/ferramentas/': typeof FerramentasIndexRoute
   '/admin/blackpix': typeof AuthenticatedAdminBlackpixRoute
+  '/admin/checkout-homologacao': typeof AuthenticatedAdminCheckoutHomologacaoRoute
   '/api/public/blackpix-webhook': typeof ApiPublicBlackpixWebhookRoute
 }
 export interface FileRoutesByTo {
@@ -247,6 +255,7 @@ export interface FileRoutesByTo {
   '/produto/tirzepatida-60mg': typeof ProdutoTirzepatida60mgRoute
   '/ferramentas': typeof FerramentasIndexRoute
   '/admin/blackpix': typeof AuthenticatedAdminBlackpixRoute
+  '/admin/checkout-homologacao': typeof AuthenticatedAdminCheckoutHomologacaoRoute
   '/api/public/blackpix-webhook': typeof ApiPublicBlackpixWebhookRoute
 }
 export interface FileRoutesById {
@@ -279,6 +288,7 @@ export interface FileRoutesById {
   '/produto_/tirzepatida-60mg': typeof ProdutoTirzepatida60mgRoute
   '/ferramentas/': typeof FerramentasIndexRoute
   '/_authenticated/admin/blackpix': typeof AuthenticatedAdminBlackpixRoute
+  '/_authenticated/admin/checkout-homologacao': typeof AuthenticatedAdminCheckoutHomologacaoRoute
   '/api/public/blackpix-webhook': typeof ApiPublicBlackpixWebhookRoute
 }
 export interface FileRouteTypes {
@@ -311,6 +321,7 @@ export interface FileRouteTypes {
     | '/produto/tirzepatida-60mg'
     | '/ferramentas/'
     | '/admin/blackpix'
+    | '/admin/checkout-homologacao'
     | '/api/public/blackpix-webhook'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -341,6 +352,7 @@ export interface FileRouteTypes {
     | '/produto/tirzepatida-60mg'
     | '/ferramentas'
     | '/admin/blackpix'
+    | '/admin/checkout-homologacao'
     | '/api/public/blackpix-webhook'
   id:
     | '__root__'
@@ -372,6 +384,7 @@ export interface FileRouteTypes {
     | '/produto_/tirzepatida-60mg'
     | '/ferramentas/'
     | '/_authenticated/admin/blackpix'
+    | '/_authenticated/admin/checkout-homologacao'
     | '/api/public/blackpix-webhook'
   fileRoutesById: FileRoutesById
 }
@@ -616,10 +629,12 @@ declare module '@tanstack/react-router' {
 
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedAdminBlackpixRoute: typeof AuthenticatedAdminBlackpixRoute
+  AuthenticatedAdminCheckoutHomologacaoRoute: typeof AuthenticatedAdminCheckoutHomologacaoRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedAdminBlackpixRoute: AuthenticatedAdminBlackpixRoute,
+  AuthenticatedAdminCheckoutHomologacaoRoute: AuthenticatedAdminCheckoutHomologacaoRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
