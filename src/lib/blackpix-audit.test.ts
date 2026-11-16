@@ -124,6 +124,9 @@ describe("BlackPix safe audit", () => {
       duration_ms: 12,
     };
     expect(parseBlackPixReceipts([receipt])).toEqual([receipt]);
+    expect(
+      parseBlackPixReceipts([{ ...receipt, received_at: "2026-11-14T10:00:00.000+00:00" }]),
+    ).toEqual([receipt]);
     expect(() =>
       parseBlackPixReceipts([{ ...receipt, customer_email: "private@example.test" }]),
     ).toThrow();
