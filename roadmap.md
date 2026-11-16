@@ -1,5 +1,10 @@
 # OCTA — ajustes institucionais
 
+## Correção do webhook BlackPix
+- [ ] Conferir implementação de main e substituir endpoint legado por inbox autenticada e idempotente.
+- [ ] Verificar banco, variáveis servidor, permissões e persistência antes do HTTP 200; testar erros sanitizados.
+- [ ] Publicar correção após verificação de segurança; não confirmar pagamento pelo recebimento.
+
 - [x] Atualizar e-mail e manter telefone em todas as páginas.
 - [x] Ocultar endereço, CNPJ e demais dados cadastrais.
 - [x] Criar Quem Somos original com o relato fornecido, sem Nossa Jornada.
