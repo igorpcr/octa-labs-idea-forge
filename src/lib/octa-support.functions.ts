@@ -1,7 +1,9 @@
 import { createServerFn } from "@tanstack/react-start";
+import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { supportHistory, supportSources, requiresHuman, safeSupportAnswer } from "./octa-support";
 
 export const askOctaSupport = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
   .inputValidator((value: unknown) => supportHistory.parse(value))
   .handler(async ({ data }) => {
     const last = data.messages.at(-1);
