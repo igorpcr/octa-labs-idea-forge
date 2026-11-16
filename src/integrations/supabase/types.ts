@@ -14,55 +14,16 @@ export type Database = {
   }
   public: {
     Tables: {
-      blackpix_webhook_receipts: {
-        Row: {
-          duration_ms: number
-          error_code: string
-          http_status: number
-          id: string
-          processing_status: string
-          received_at: string
-          recorded_at: string
-          signature_status: string
-        }
-        Insert: {
-          duration_ms: number
-          error_code: string
-          http_status: number
-          id: string
-          processing_status: string
-          received_at: string
-          recorded_at?: string
-          signature_status?: string
-        }
-        Update: {
-          duration_ms?: number
-          error_code?: string
-          http_status?: number
-          id?: string
-          processing_status?: string
-          received_at?: string
-          recorded_at?: string
-          signature_status?: string
-        }
+      blackpix_webhook_inbox: {
+        Row: { event_payload: Json; id: string; processed_at: string | null; received_at: string; signature_digest: string }
+        Insert: { event_payload: Json; id?: string; processed_at?: string | null; received_at?: string; signature_digest: string }
+        Update: { event_payload?: Json; id?: string; processed_at?: string | null; received_at?: string; signature_digest?: string }
         Relationships: []
       }
       user_roles: {
-        Row: {
-          id: string
-          role: Database["public"]["Enums"]["app_role"]
-          user_id: string
-        }
-        Insert: {
-          id?: string
-          role: Database["public"]["Enums"]["app_role"]
-          user_id: string
-        }
-        Update: {
-          id?: string
-          role?: Database["public"]["Enums"]["app_role"]
-          user_id?: string
-        }
+        Row: { created_at: string; role: string; user_id: string }
+        Insert: { created_at?: string; role: string; user_id: string }
+        Update: { created_at?: string; role?: string; user_id?: string }
         Relationships: []
       }
     }
@@ -73,7 +34,7 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      app_role: "admin" | "user"
+      [_ in never]: never
     }
     CompositeTypes: {
       [_ in never]: never
@@ -200,8 +161,6 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {
-      app_role: ["admin", "user"],
-    },
+    Enums: {},,
   },
 } as const
