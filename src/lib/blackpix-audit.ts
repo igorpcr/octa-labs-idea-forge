@@ -31,9 +31,15 @@ export type BlackPixAuditOptions = {
 export const blackPixReceiptSelect =
   "id,received_at,processing_status,signature_status,error_code,http_status,duration_ms";
 
+const blackPixReceiptRowSchema = blackPixAuditSchema
+  .extend({
+    received_at: z.string().refine((value) => !Number.isNaN(Date.parse(value)), "invalid_datetime"),
+  })
+  .transform((row) => ({ ...row, received_at: new Date(row.received_at).toISOString() }));
+
 /** Keep administrative history to the same allowlist accepted by private storage. */
 export function parseBlackPixReceipts(rows: unknown): BlackPixAudit[] {
-  return z.array(blackPixAuditSchema).parse(rows);
+  return z.array(blackPixReceiptRowSchema).parse(rows);
 }
 
 export function logBlackPixAudit(record: BlackPixAudit): void {
