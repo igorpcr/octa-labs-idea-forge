@@ -1,0 +1,32 @@
+name: BlackPix PostgreSQL concurrency
+on:
+  pull_request:
+    paths:
+      - 'drizzle/migrations/0002_octa_pix_orders.sql'
+      - 'drizzle/migrations/0004_octa_pix_charge_lease.sql'
+      - 'scripts/test-blackpix-postgres-concurrency.mjs'
+      - '.github/workflows/blackpix-postgres-concurrency.yml'
+jobs:
+  postgres-concurrency:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: octa_pix_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d octa_pix_test"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      TEST_DATABASE_URL: postgres://postgres:postgres@localhost:5432/octa_pix_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+      - run: bun scripts/test-blackpix-postgres-concurrency.mjs
