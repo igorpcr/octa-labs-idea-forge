@@ -33,7 +33,8 @@ async function receive(request: Request): Promise<Response> {
   // Signature digest is unique for provider retries of the same signed request.
   const digest = createHash("sha256").update(signature ?? "").digest("hex");
   try {
-    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { getBlackPixSupabaseAdmin } = await import("@/lib/blackpix-supabase.server");
+    const supabaseAdmin = getBlackPixSupabaseAdmin();
     // The inbox is created by migration 0003; generated Supabase types are
     // refreshed separately. No browser-facing access is granted.
     const { error } = await (supabaseAdmin as unknown as {
