@@ -13,7 +13,7 @@ const json = (status: number, payload: Record<string, string>) =>
  */
 async function receive(request: Request): Promise<Response> {
   const secret = process.env["BLACKPIX_WEBHOOK_SECRET"];
-  if (!secret) return json(503, { error: "webhook_not_configured" });
+  if (!secret) { console.error("[blackpix_webhook] webhook_not_configured"); return json(503, { error: "webhook_not_configured" }); }
   let raw: string;
   try { raw = await request.text(); }
   catch { return json(400, { error: "invalid_body" }); }
@@ -23,7 +23,7 @@ async function receive(request: Request): Promise<Response> {
     if (!(await validBlackPixSignature(raw, signature, secret))) {
       return json(401, { error: "invalid_signature" });
     }
-  } catch { return json(503, { error: "signature_verification_unavailable" }); }
+  } catch { console.error("[blackpix_webhook] signature_verification_unavailable"); return json(503, { error: "signature_verification_unavailable" }); }
   let payload: unknown;
   try { payload = JSON.parse(raw); }
   catch { return json(400, { error: "invalid_json" }); }
@@ -33,7 +33,8 @@ async function receive(request: Request): Promise<Response> {
   // Signature digest is unique for provider retries of the same signed request.
   const digest = createHash("sha256").update(signature ?? "").digest("hex");
   try {
-    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { getBlackPixSupabaseAdmin } = await import("@/lib/blackpix-supabase.server");
+    const supabaseAdmin = getBlackPixSupabaseAdmin();
     // The inbox is created by migration 0003; generated Supabase types are
     // refreshed separately. No browser-facing access is granted.
     const { error } = await (supabaseAdmin as unknown as {
@@ -45,9 +46,22 @@ async function receive(request: Request): Promise<Response> {
       { signature_digest: digest, event_payload: payload },
       { onConflict: "signature_digest", ignoreDuplicates: true },
     );
-    if (error) return json(503, { error: "webhook_storage_unavailable" });
+    if (error) {
+      console.error("[blackpix_webhook] storage_error", { code: error.code ?? "unknown", hint: error.hint ? "present" : "absent" });
+      return json(503, { error: "webhook_storage_unavailable" });
+    }
   } catch {
     return json(503, { error: "webhook_storage_unavailable" });
+  }
+  // A verified webhook is a trigger, not proof of payment. Query the provider
+  // for a bounded batch of persisted orders; never trust event payload status.
+  // Reconciliation failures do not invalidate a durably stored webhook.
+  try {
+    const { reconcilePendingPixOrders } = await import("@/lib/blackpix-order-reconciliation.server");
+    const result = await reconcilePendingPixOrders(5);
+    if (result.failed) console.error("[blackpix_webhook] reconciliation_incomplete", { failed: result.failed });
+  } catch {
+    console.error("[blackpix_webhook] reconciliation_unavailable");
   }
   return json(200, { status: "received" });
 }
