@@ -16,7 +16,7 @@ export function parseSuperfreteRates(value: unknown): ShippingOption[] {
         typeof rate.name !== "string" || !rate.name.trim() ||
         typeof rate.company !== "object" || !rate.company || Array.isArray(rate.company)) continue;
     const carrier = (rate.company as Record<string, unknown>).name;
-    const price = typeof rate.price === "number" ? rate.price : typeof rate.price === "string" && /^\\d+(?:\\.\\d{1,2})?$/.test(rate.price) ? Number(rate.price) : NaN;
+    const price = typeof rate.price === "number" ? rate.price : typeof rate.price === "string" && /^[0-9]+(?:[.][0-9]{1,2})?$/.test(rate.price) ? Number(rate.price) : NaN;
     const cents = Math.round(price * 100);
     if (typeof carrier !== "string" || !carrier.trim() || !Number.isFinite(price) || price <= 0 ||
         !Number.isSafeInteger(cents) || !Number.isSafeInteger(rate.delivery_time) ||
