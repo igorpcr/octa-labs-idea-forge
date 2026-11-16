@@ -17,6 +17,8 @@ import {
 import { Shimmer } from "@/components/ai-elements/shimmer";
 import { askOctaSupport } from "@/lib/octa-support.functions";
 import { supportSources } from "@/lib/octa-support";
+import { useAccount } from "@/components/auth-context";
+import { Link } from "@tanstack/react-router";
 import { octaContact } from "@/lib/octa-contact";
 
 type ChatMessage = {
@@ -34,11 +36,12 @@ export function SupportChat() {
   const [copied, setCopied] = useState(false);
   const field = useRef<HTMLTextAreaElement>(null);
   const request = useServerFn(askOctaSupport);
+  const { user } = useAccount();
   useEffect(() => {
     if (open && !busy) field.current?.focus();
   }, [open, busy]);
   async function send(text: string) {
-    if (busy || !text.trim()) return;
+    if (busy || !text.trim() || !user) return;
     const next: ChatMessage[] = [
       ...messages,
       { role: "user", parts: [{ type: "text", text: text.trim() }] },
@@ -229,6 +232,11 @@ export function SupportChat() {
             </div>
           )}
           <div className="shrink-0 border-t border-border p-3">
+            {!user ? (
+              <p className="w-full text-center text-sm text-muted-foreground">
+                <Link to="/auth" className="text-primary underline" onClick={() => setOpen(false)}>Entre na sua conta</Link> para usar o assistente, ou fale com a equipe pelo WhatsApp.
+              </p>
+            ) : (
             <PromptInput onSubmit={({ text }) => send(text)} className="w-full">
               <PromptInputTextarea
                 ref={field}
@@ -249,6 +257,7 @@ export function SupportChat() {
                 />
               </PromptInputFooter>
             </PromptInput>
+            )}
           </div>
         </section>
       )}
