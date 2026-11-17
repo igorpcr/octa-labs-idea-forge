@@ -1,4 +1,5 @@
 import { useState, type ReactNode } from "react";
+import { supabase } from "@/integrations/supabase/client";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, CreditCard, LockKeyhole, MapPin, MessageCircle, Minus, Plus, ShoppingBag, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -72,6 +73,27 @@ export function ReviewPage() {
   return <CheckoutShell step={2} title="Revisar pedido">{!validDelivery(delivery) ? <><p className="text-muted-foreground">Preencha os dados de entrega antes de continuar.</p><Button asChild className="mt-6"><Link to="/finalizar/entrega">Informar endereço<ArrowRight /></Link></Button></> : <><section className="border-b border-border pb-6"><div className="flex items-center justify-between gap-4"><h2 className="text-xl font-semibold">Dados de contato</h2><Button asChild variant="link"><Link to="/finalizar/entrega">Editar</Link></Button></div><p className="mt-4">{delivery.name}</p><p className="mt-2 break-all text-muted-foreground">{delivery.email}</p><p className="mt-2 text-muted-foreground">{delivery.phone}</p></section><section className="py-6"><h2 className="text-xl font-semibold">Endereço de entrega</h2><p className="mt-4 leading-relaxed text-muted-foreground">{delivery.street}, {delivery.number}{delivery.complement && ` · ${delivery.complement}`}<br />{delivery.district} · {delivery.city} / {delivery.state}<br />CEP {delivery.cep}</p><p className="mt-5 text-sm text-muted-foreground">{selectedShipping && selectedShipping.destinationCep === delivery.cep.replace(/\D/g, "") ? `${selectedShipping.carrier} · ${selectedShipping.name} · ${money(selectedShipping.priceCents)} · prazo estimado ${selectedShipping.deliveryDays} dias. Cotação informativa, não contratação de transporte.` : "Frete não selecionado. Volte à entrega para consultar uma modalidade elegível."}</p></section><Button asChild size="lg"><Link to="/finalizar/pagamento">Ver simulação sem pagamento<ArrowRight /></Link></Button></>}</CheckoutShell>;
 }
 export function PaymentPage() {
-  const { delivery } = useCart();
-  return <CheckoutShell step={3} title="Pagamento">{!validDelivery(delivery) ? <><p>Confirme os dados de entrega primeiro.</p><Button asChild className="mt-5"><Link to="/finalizar/entrega">Informar endereço</Link></Button></> : <><LockKeyhole className="h-10 w-10 text-highlight" /><h2 className="mt-5 text-2xl font-semibold">Pagamentos desativados — ambiente de teste</h2><p className="mt-4 max-w-xl leading-relaxed text-muted-foreground">Este é um fluxo de revisão do catálogo. Nenhum pedido real será registrado e nenhuma cobrança será gerada. A integração transacional com o catálogo autorizado será habilitada somente após homologação.</p><div className="mt-7 flex items-center gap-3 border-y border-border py-5"><CreditCard className="text-silver" /><div><p className="font-medium">Pix · Desativado</p><p className="mt-1 text-sm text-muted-foreground">Aguardando liberação para pagamentos.</p></div></div><Button disabled size="lg" className="mt-7 w-full sm:w-auto"><LockKeyhole />Gerar Pix</Button><div className="mt-5 flex flex-wrap gap-3"><Button asChild variant="outline"><Link to="/finalizar/revisao"><ArrowLeft />Voltar à revisão</Link></Button><Button asChild variant="outline"><a href={octaContact.whatsapp} target="_blank" rel="noreferrer"><MessageCircle />Consultar a OCTA</a></Button></div></>}</CheckoutShell>;
+  const { delivery, items } = useCart();
+  const [busy, setBusy] = useState(false);
+  const [order, setOrder] = useState<{ id: string; totalCents: number } | null>(null);
+  const [submitError, setSubmitError] = useState("");
+  const [requestKey] = useState(() => crypto.randomUUID());
+  async function createSimulatedOrder() {
+    if (!validDelivery(delivery) || !items.length || busy) return;
+    setBusy(true); setSubmitError("");
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session?.access_token) { setSubmitError("Entre na sua conta para registrar a simulação."); return; }
+      const { data, error } = await supabase.functions.invoke("octa-sim-multi-checkout", {
+        body: { idempotencyKey: requestKey, destinationCep: delivery.cep.replace(/\\D/g, ""), items: items.map(i => ({ sku: i.id, quantity: i.quantity })) },
+        headers: { Authorization: `Bearer ${session.access_token}` },
+      });
+      if (error || !data || typeof data.orderId !== "string" || !Number.isSafeInteger(data.totalCents)) {
+        setSubmitError("Não foi possível registrar a simulação. Confira a disponibilidade dos SKUs no servidor."); return;
+      }
+      setOrder({ id: data.orderId, totalCents: data.totalCents });
+    } catch { setSubmitError("Serviço de homologação indisponível. Nenhuma cobrança foi criada."); }
+    finally { setBusy(false); }
+  }
+  return <CheckoutShell step={3} title="Pagamento">{!validDelivery(delivery) ? <><p>Confirme os dados de entrega primeiro.</p><Button asChild className="mt-5"><Link to="/finalizar/entrega">Informar endereço</Link></Button></> : <><LockKeyhole className="h-10 w-10 text-highlight" /><h2 className="mt-5 text-2xl font-semibold">Pagamentos desativados — ambiente de teste</h2><p className="mt-4 max-w-xl leading-relaxed text-muted-foreground">Este é um fluxo de revisão do catálogo. Nenhum pedido real será registrado e nenhuma cobrança será gerada. A integração transacional com o catálogo autorizado será habilitada somente após homologação.</p><div className="mt-7 flex items-center gap-3 border-y border-border py-5"><CreditCard className="text-silver" /><div><p className="font-medium">Pix · Desativado</p><p className="mt-1 text-sm text-muted-foreground">Aguardando liberação para pagamentos.</p></div></div><Button disabled size="lg" className="mt-7 w-full sm:w-auto"><LockKeyhole />Gerar Pix</Button><div className="mt-5 rounded-lg border p-4"><h3 className="font-semibold">Pedido de simulação</h3><p className="mt-2 text-sm text-muted-foreground">O registro depende de SKUs autorizados no servidor. A documentação ficará pendente de revisão manual; não há pagamento ou envio automático.</p>{submitError && <p role="alert" className="mt-2 text-sm text-destructive">{submitError}</p>}{order ? <p className="mt-3 text-sm">Simulação registrada: <strong>{order.id}</strong> · Total {money(order.totalCents)} · Documentação pendente.</p> : <Button type="button" variant="outline" className="mt-3" disabled={busy} onClick={() => void createSimulatedOrder()}>{busy ? "Registrando…" : "Registrar pedido simulado"}</Button>}</div><div className="mt-5 flex flex-wrap gap-3"><Button asChild variant="outline"><Link to="/finalizar/revisao"><ArrowLeft />Voltar à revisão</Link></Button><Button asChild variant="outline"><a href={octaContact.whatsapp} target="_blank" rel="noreferrer"><MessageCircle />Consultar a OCTA</a></Button></div></>}</CheckoutShell>;
 }
