@@ -24,6 +24,11 @@ Deno.serve(async (request) => {
     if (!Array.isArray(roles) || roles.length !== 1) return reply(403, { error: "forbidden" });
     const orders = await fetch(`${url}/rest/v1/octa_demo_orders?select=id,created_at,status,subtotal_cents,shipping_cents,total_cents,shipping_source&order=created_at.desc&limit=30`, { headers, signal: AbortSignal.timeout(8000) });
     if (!orders.ok) return reply(503, { error: "orders_unavailable" });
-    return reply(200, { orders: await orders.json(), paymentAvailable: false });
+    const legacyOrders = await orders.json();
+    const sim = await fetch(`${url}/rest/v1/octa_sim_orders?select=id,created_at,status,subtotal_cents,shipping_cents,total_cents,octa_sim_documentation(status)&order=created_at.desc&limit=30`, { headers, signal: AbortSignal.timeout(8000) });
+    // The new schema is staged separately; do not misreport missing deployment as an empty result.
+    if (!sim.ok) return reply(503, { error: "simulated_orders_schema_not_deployed" });
+    const simulatedOrders = await sim.json();
+    return reply(200, { orders: legacyOrders, simulatedOrders, paymentAvailable: false });
   } catch { return reply(503, { error: "temporarily_unavailable" }); }
 });
