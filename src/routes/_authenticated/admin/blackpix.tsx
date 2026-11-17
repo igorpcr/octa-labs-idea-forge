@@ -140,7 +140,12 @@ function BlackPixDiagnostics() {
             Verificando acesso…
           </p>
         )}
-        {access === "error" && (\n          <p className="mt-8 text-muted-foreground" role="alert">\n            Não foi possível verificar sua permissão administrativa. Recarregue a página ou tente novamente mais tarde.\n          </p>\n        )}\n        {access === "denied" && (
+        {access === "error" && (
+          <p className="mt-8 text-muted-foreground" role="alert">
+            Não foi possível verificar sua permissão administrativa. Recarregue a página ou tente novamente mais tarde.
+          </p>
+        )}
+        {access === "denied" && (
           <p className="mt-8 text-muted-foreground" role="alert">
             Sua conta ainda não possui permissão de administrador.
           </p>
