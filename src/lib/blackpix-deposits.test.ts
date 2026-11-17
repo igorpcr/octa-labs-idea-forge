@@ -17,11 +17,13 @@ afterEach(() => {
 describe("BlackPix deposit client", () => {
   it("sends the documented payload and headers without exposing the API key in the body", async () => {
     process.env["BLACKPIX_API_KEY"] = "bpx_live_test_only";
-    const fetcher = vi.fn(async () => Response.json({ success: true, reused: false, deposit }));
+    const fetcher = vi.fn(async (_input: RequestInfo | URL, _init?: RequestInit) => Response.json({ success: true, reused: false, deposit }));
     const result = await createPixDeposit({ amountCents: 19700, description: deposit.description, idempotencyKey: key }, fetcher as typeof fetch);
     expect(result.deposit.pixCopyPasteCode).toBe("000201...");
     expect(fetcher).toHaveBeenCalledOnce();
-    const [url, init] = fetcher.mock.calls[0] as [string, RequestInit];
+    const call = fetcher.mock.calls[0];
+    if (!call?.[1]) throw new Error("Expected fetch request");
+    const [url, init] = call;
     expect(url).toBe("https://blackpix.site/api/integrations/v1/deposits");
     expect(init.method).toBe("POST");
     expect(init.headers).toMatchObject({ Authorization: "Bearer bpx_live_test_only", "Idempotency-Key": key, "Content-Type": "application/json" });
@@ -40,7 +42,7 @@ describe("BlackPix deposit client", () => {
   });
   it("queries a deposit using the documented route", async () => {
     process.env["BLACKPIX_API_KEY"] = "bpx_live_test_only";
-    const fetcher = vi.fn(async () => Response.json({ success: true, deposit }));
+    const fetcher = vi.fn(async (_input: RequestInfo | URL, _init?: RequestInit) => Response.json({ success: true, deposit }));
     await getPixDeposit("PIX-test", fetcher as typeof fetch);
     expect(fetcher.mock.calls[0]?.[0]).toBe("https://blackpix.site/api/integrations/v1/deposits/PIX-test");
   });

@@ -10,11 +10,11 @@ export function parseTrustedCatalog(raw: string | undefined): ReadonlyMap<string
   for (const entry of parsed) {
     if (!entry || typeof entry !== "object" || Array.isArray(entry)) throw new Error("invalid_server_catalog");
     const item = entry as Record<string, unknown>;
-    if (typeof item.id !== "string" || !/^[a-zA-Z0-9_-]{1,80}$/.test(item.id) ||
-      typeof item.name !== "string" || item.name.trim().length === 0 || item.name.length > 200 ||
-      !Number.isSafeInteger(item.priceCents) || (item.priceCents as number) <= 0 ||
-      typeof item.enabled !== "boolean" || catalog.has(item.id)) throw new Error("invalid_server_catalog");
-    catalog.set(item.id, { id: item.id, name: item.name, priceCents: item.priceCents as number, enabled: item.enabled });
+    if (typeof item['id'] !== "string" || !/^[a-zA-Z0-9_-]{1,80}$/.test(item['id']) ||
+      typeof item['name'] !== "string" || item['name'].trim().length === 0 || item['name'].length > 200 ||
+      !Number.isSafeInteger(item['priceCents']) || (item['priceCents'] as number) <= 0 ||
+      typeof item['enabled'] !== "boolean" || catalog.has(item['id'])) throw new Error("invalid_server_catalog");
+    catalog.set(item['id'], { id: item['id'], name: item['name'], priceCents: item['priceCents'] as number, enabled: item['enabled'] });
   }
   return catalog;
 }

@@ -34,19 +34,19 @@ function apiKey(): string {
 function depositResponse(value: unknown): PixDepositResponse {
   if (!value || typeof value !== "object") throw new Error("Invalid BlackPix response");
   const data = value as Record<string, unknown>;
-  const d = data.deposit;
-  if (data.success !== true || typeof data.reused !== "boolean" || !d || typeof d !== "object") {
+  const d = data['deposit'];
+  if (data['success'] !== true || typeof data['reused'] !== "boolean" || !d || typeof d !== "object") {
     throw new Error("Invalid BlackPix response");
   }
   const deposit = d as Record<string, unknown>;
   if (
-    typeof deposit.id !== "string" || !deposit.id ||
-    typeof deposit.requestId !== "string" ||
-    typeof deposit.status !== "string" ||
-    !Number.isSafeInteger(deposit.amountCents) ||
-    typeof deposit.pixCopyPasteCode !== "string" ||
-    typeof deposit.description !== "string" ||
-    deposit.currency !== "BRL"
+    typeof deposit['id'] !== "string" || !deposit['id'] ||
+    typeof deposit['requestId'] !== "string" ||
+    typeof deposit['status'] !== "string" ||
+    !Number.isSafeInteger(deposit['amountCents']) ||
+    typeof deposit['pixCopyPasteCode'] !== "string" ||
+    typeof deposit['description'] !== "string" ||
+    deposit['currency'] !== "BRL"
   ) throw new Error("Invalid BlackPix deposit");
   return data as PixDepositResponse;
 }

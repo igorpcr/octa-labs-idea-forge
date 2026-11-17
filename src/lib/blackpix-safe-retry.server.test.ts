@@ -4,7 +4,7 @@ const id = "550e8400-e29b-41d4-a716-446655440000";
 const key = "f4f1aa01-67cc-4bda-91ac-4ec5ac1b0001";
 const row = { id, status: "pending", amount_cents: 1234, currency: "BRL", description: "OCTA order", idempotency_key: key, deposit_id: null, provider_request_id: null };
 const deposit = { id: "dep", requestId: "req", pixCopyPasteCode: "pix", amountCents: 1234, currency: "BRL", description: "OCTA order", expiresAt: "2026-12-01T00:00:00Z" };
-function mocks(stored = row) {
+function mocks(stored: Omit<typeof row, "deposit_id"> & { deposit_id: string | null } = row) {
   const read = vi.fn().mockResolvedValue({ data: stored, error: null });
   const linked = vi.fn().mockResolvedValue({ data: { id }, error: null });
   const readQuery = { eq: () => ({ maybeSingle: read }) };

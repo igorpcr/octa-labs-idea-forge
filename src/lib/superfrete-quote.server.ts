@@ -12,10 +12,10 @@ export function parseSuperfreteRates(value: unknown): ShippingOption[] {
   for (const entry of value) {
     if (!entry || typeof entry !== "object" || Array.isArray(entry)) continue;
     const rate = entry as Record<string, unknown>;
-    if (rate.has_error !== false || !Number.isSafeInteger(rate.id) ||
-        typeof rate.name !== "string" || !rate.name.trim() ||
-        typeof rate.company !== "object" || !rate.company || Array.isArray(rate.company)) continue;
-    const carrier = (rate.company as Record<string, unknown>).name;
+    if (rate['has_error'] !== false || !Number.isSafeInteger(rate['id']) ||
+        typeof rate['name'] !== "string" || !rate['name'].trim() ||
+        typeof rate['company'] !== "object" || !rate['company'] || Array.isArray(rate['company'])) continue;
+    const carrier = (rate['company'] as Record<string, unknown>)['name'];
     const price = typeof rate.price === "number" ? rate.price : typeof rate.price === "string" && /^[0-9]+(?:[.][0-9]{1,2})?$/.test(rate.price) ? Number(rate.price) : NaN;
     const cents = Math.round(price * 100);
     if (typeof carrier !== "string" || !carrier.trim() || !Number.isFinite(price) || price <= 0 ||
