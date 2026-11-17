@@ -3,6 +3,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { History, LoaderCircle, LogOut, RefreshCw, ShieldCheck, Sparkles } from "lucide-react";
 import { useAccount } from "@/components/auth-context";
+import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { ImportedHeader, ImportedFooter } from "../../index";
 import {
@@ -12,7 +13,6 @@ import {
 } from "@/lib/blackpix-diagnostics";
 import {
   analyzeBlackPix,
-  diagnosticAccess,
   listBlackPixReceipts,
 } from "@/lib/blackpix-diagnostics.functions";
 import type { BlackPixAudit } from "@/lib/blackpix-audit";
@@ -55,7 +55,6 @@ function BlackPixDiagnostics() {
   const [receipts, setReceipts] = useState<BlackPixAudit[]>([]);
   const [receiptsBusy, setReceiptsBusy] = useState(false);
   const [receiptsError, setReceiptsError] = useState<string | null>(null);
-  const checkAccess = useServerFn(diagnosticAccess);
   const analyze = useServerFn(analyzeBlackPix);
   const listReceipts = useServerFn(listBlackPixReceipts);
   const trackedAccess = useRef<string | null>(null);
@@ -71,7 +70,11 @@ function BlackPixDiagnostics() {
         return;
       }
       try {
-        const permission = await checkAccess();
+        const { data: sessionResult, error: sessionError } = await supabase.auth.getSession();
+        if (sessionError || !sessionResult.session || sessionResult.session.user.id !== user.id) throw new Error("session_unavailable");
+        const { data: role, error: roleError } = await supabase.from("user_roles").select("role").eq("user_id", user.id).eq("role", "admin").maybeSingle();
+        if (roleError) throw roleError;
+        const permission = { isAdmin: role?.role === "admin" };
         if (active) {
           setAccess(permission.isAdmin ? "admin" : "denied");
           setResult(null);
@@ -88,7 +91,7 @@ function BlackPixDiagnostics() {
     return () => {
       active = false;
     };
-  }, [checkAccess, user]);
+  }, [user]);
   const refreshReceipts = useCallback(async () => {
     setReceiptsBusy(true);
     setReceiptsError(null);
