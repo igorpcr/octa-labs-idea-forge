@@ -86,7 +86,7 @@ export function PaymentPage() {
       const { data: { session } } = await supabase.auth.getSession();
       if (!session?.access_token) { setSubmitError("Entre na sua conta para registrar a simulação."); return; }
       const { data, error } = await supabase.functions.invoke("octa-sim-multi-checkout", {
-        body: { idempotencyKey: requestKey, destinationCep: delivery.cep.replace(/\\D/g, ""), items: items.map(i => ({ sku: catalogMapping.products.find(p => p.displayTitle === i.name)?.serverSku ?? "", quantity: i.quantity })) },
+        body: { idempotencyKey: requestKey, destinationCep: delivery.cep.replace(/\D/g, ""), items: items.map(i => ({ sku: catalogMapping.products.find(p => p.displayTitle === i.name)?.serverSku ?? "", quantity: i.quantity })) },
         headers: { Authorization: `Bearer ${session.access_token}` },
       });
       if (error || !data || typeof data.orderId !== "string" || !Number.isSafeInteger(data.totalCents)) {
