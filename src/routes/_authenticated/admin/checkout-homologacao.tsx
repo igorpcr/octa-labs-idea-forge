@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useAccount } from "@/components/auth-context";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
+import { DemoOrdersAdmin } from "@/components/demo-orders-admin";
 
 export const Route = createFileRoute("/_authenticated/admin/checkout-homologacao")({
   component: CheckoutHomologacao,
@@ -93,6 +94,7 @@ function CheckoutHomologacao() {
       !user ? <p role="alert">Entre na sua conta para continuar.</p> :
       !allowed ? <p role="alert">{accessError || "Acesso restrito a administradores. Confirme que entrou com a conta administrativa autorizada."}</p> :
       <Button type="button" onClick={() => void run()} disabled={busy}>{busy ? "Testando…" : "Executar teste autenticado de idempotência"}</Button>}
+    {allowed && !checking && <DemoOrdersAdmin />}
     {error && <p role="alert">{error}</p>}
     {result && <section aria-live="polite" className="space-y-3">
       <h2 className="font-semibold">{result.passed ? "Teste aprovado" : "Teste não aprovado"}</h2>
