@@ -2,8 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { useAccount } from "@/components/auth-context";
 import { supabase } from "@/integrations/supabase/client";
-import { diagnosticAccess } from "@/lib/blackpix-diagnostics.functions";
-import { useServerFn } from "@tanstack/react-start";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/_authenticated/admin/checkout-homologacao")({
@@ -30,21 +28,49 @@ async function attempt(key: string): Promise<Attempt> {
 }
 function CheckoutHomologacao() {
   const { user, loading } = useAccount();
-  const accessCheck = useServerFn(diagnosticAccess);
   const [allowed, setAllowed] = useState(false);
   const [checking, setChecking] = useState(true);
+  const [accessError, setAccessError] = useState("");
   const [busy, setBusy] = useState(false);
   const [result, setResult] = useState<{ first: Attempt; second: Attempt; passed: boolean } | null>(null);
   const [error, setError] = useState("");
   useEffect(() => {
     let active = true;
-    if (!user) { setAllowed(false); setChecking(false); return; }
-    setChecking(true);
-    void accessCheck().then(x => { if (active) setAllowed(x.isAdmin); })
-      .catch(() => { if (active) setAllowed(false); })
-      .finally(() => { if (active) setChecking(false); });
+    async function verifyAdmin() {
+      if (!user) {
+        if (active) { setAllowed(false); setChecking(false); }
+        return;
+      }
+      setChecking(true);
+      setAccessError("");
+      try {
+        // Query with the signed-in user's JWT; the database RLS policy only
+        // permits reading that user's own roles. Never trust client role flags.
+        const { data, error: roleError } = await supabase
+          .from("user_roles")
+          .select("role")
+          .eq("user_id", user.id)
+          .eq("role", "admin")
+          .maybeSingle();
+        if (!active) return;
+        if (roleError) {
+          setAllowed(false);
+          setAccessError("Não foi possível verificar sua função administrativa. Atualize a sessão e tente novamente.");
+        } else {
+          setAllowed(data?.role === "admin");
+        }
+      } catch {
+        if (active) {
+          setAllowed(false);
+          setAccessError("Falha na verificação de autorização. Tente novamente.");
+        }
+      } finally {
+        if (active) setChecking(false);
+      }
+    }
+    void verifyAdmin();
     return () => { active = false; };
-  }, [user, accessCheck]);
+  }, [user?.id]);
   async function run() {
     setBusy(true); setError(""); setResult(null);
     try {
@@ -65,7 +91,7 @@ function CheckoutHomologacao() {
     <p>Teste administrativo com Kit de Pesquisa Bioquímica fictício. Não gera Pix nem habilita pagamentos.</p>
     {(loading || checking) ? <p>Verificando autorização…</p> :
       !user ? <p role="alert">Entre na sua conta para continuar.</p> :
-      !allowed ? <p role="alert">Acesso restrito a administradores.</p> :
+      !allowed ? <p role="alert">{accessError || "Acesso restrito a administradores. Confirme que entrou com a conta administrativa autorizada."}</p> :
       <Button type="button" onClick={() => void run()} disabled={busy}>{busy ? "Testando…" : "Executar teste autenticado de idempotência"}</Button>}
     {error && <p role="alert">{error}</p>}
     {result && <section aria-live="polite" className="space-y-3">
