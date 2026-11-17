@@ -38,7 +38,11 @@ import { Route as ProdutoTirzepatida30mgRouteImport } from './routes/produto_.ti
 import { Route as ProdutoTirzepatida60mgRouteImport } from './routes/produto_.tirzepatida-60mg'
 import { Route as AuthenticatedAdminBlackpixRouteImport } from './routes/_authenticated/admin/blackpix'
 import { Route as AuthenticatedAdminCheckoutHomologacaoRouteImport } from './routes/_authenticated/admin/checkout-homologacao'
+import { Route as ApiInternalBlackpixCreateDepositRouteImport } from './routes/api/internal/blackpix-create-deposit'
+import { Route as ApiInternalBlackpixReconcileRouteImport } from './routes/api/internal/blackpix-reconcile'
+import { Route as ApiPublicBlackpixQuoteRouteImport } from './routes/api/public/blackpix-quote'
 import { Route as ApiPublicBlackpixWebhookRouteImport } from './routes/api/public/blackpix-webhook'
+import { Route as ApiPublicSuperfreteQuoteRouteImport } from './routes/api/public/superfrete-quote'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -189,10 +193,33 @@ const AuthenticatedAdminCheckoutHomologacaoRoute =
     path: '/admin/checkout-homologacao',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const ApiInternalBlackpixCreateDepositRoute =
+  ApiInternalBlackpixCreateDepositRouteImport.update({
+    id: '/api/internal/blackpix-create-deposit',
+    path: '/api/internal/blackpix-create-deposit',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiInternalBlackpixReconcileRoute =
+  ApiInternalBlackpixReconcileRouteImport.update({
+    id: '/api/internal/blackpix-reconcile',
+    path: '/api/internal/blackpix-reconcile',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiPublicBlackpixQuoteRoute = ApiPublicBlackpixQuoteRouteImport.update({
+  id: '/api/public/blackpix-quote',
+  path: '/api/public/blackpix-quote',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicBlackpixWebhookRoute =
   ApiPublicBlackpixWebhookRouteImport.update({
     id: '/api/public/blackpix-webhook',
     path: '/api/public/blackpix-webhook',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiPublicSuperfreteQuoteRoute =
+  ApiPublicSuperfreteQuoteRouteImport.update({
+    id: '/api/public/superfrete-quote',
+    path: '/api/public/superfrete-quote',
     getParentRoute: () => rootRouteImport,
   } as any)
 
@@ -225,7 +252,11 @@ export interface FileRoutesByFullPath {
   '/ferramentas/': typeof FerramentasIndexRoute
   '/admin/blackpix': typeof AuthenticatedAdminBlackpixRoute
   '/admin/checkout-homologacao': typeof AuthenticatedAdminCheckoutHomologacaoRoute
+  '/api/internal/blackpix-create-deposit': typeof ApiInternalBlackpixCreateDepositRoute
+  '/api/internal/blackpix-reconcile': typeof ApiInternalBlackpixReconcileRoute
+  '/api/public/blackpix-quote': typeof ApiPublicBlackpixQuoteRoute
   '/api/public/blackpix-webhook': typeof ApiPublicBlackpixWebhookRoute
+  '/api/public/superfrete-quote': typeof ApiPublicSuperfreteQuoteRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -256,7 +287,11 @@ export interface FileRoutesByTo {
   '/ferramentas': typeof FerramentasIndexRoute
   '/admin/blackpix': typeof AuthenticatedAdminBlackpixRoute
   '/admin/checkout-homologacao': typeof AuthenticatedAdminCheckoutHomologacaoRoute
+  '/api/internal/blackpix-create-deposit': typeof ApiInternalBlackpixCreateDepositRoute
+  '/api/internal/blackpix-reconcile': typeof ApiInternalBlackpixReconcileRoute
+  '/api/public/blackpix-quote': typeof ApiPublicBlackpixQuoteRoute
   '/api/public/blackpix-webhook': typeof ApiPublicBlackpixWebhookRoute
+  '/api/public/superfrete-quote': typeof ApiPublicSuperfreteQuoteRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -289,7 +324,11 @@ export interface FileRoutesById {
   '/ferramentas/': typeof FerramentasIndexRoute
   '/_authenticated/admin/blackpix': typeof AuthenticatedAdminBlackpixRoute
   '/_authenticated/admin/checkout-homologacao': typeof AuthenticatedAdminCheckoutHomologacaoRoute
+  '/api/internal/blackpix-create-deposit': typeof ApiInternalBlackpixCreateDepositRoute
+  '/api/internal/blackpix-reconcile': typeof ApiInternalBlackpixReconcileRoute
+  '/api/public/blackpix-quote': typeof ApiPublicBlackpixQuoteRoute
   '/api/public/blackpix-webhook': typeof ApiPublicBlackpixWebhookRoute
+  '/api/public/superfrete-quote': typeof ApiPublicSuperfreteQuoteRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -322,7 +361,11 @@ export interface FileRouteTypes {
     | '/ferramentas/'
     | '/admin/blackpix'
     | '/admin/checkout-homologacao'
+    | '/api/internal/blackpix-create-deposit'
+    | '/api/internal/blackpix-reconcile'
+    | '/api/public/blackpix-quote'
     | '/api/public/blackpix-webhook'
+    | '/api/public/superfrete-quote'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -353,7 +396,11 @@ export interface FileRouteTypes {
     | '/ferramentas'
     | '/admin/blackpix'
     | '/admin/checkout-homologacao'
+    | '/api/internal/blackpix-create-deposit'
+    | '/api/internal/blackpix-reconcile'
+    | '/api/public/blackpix-quote'
     | '/api/public/blackpix-webhook'
+    | '/api/public/superfrete-quote'
   id:
     | '__root__'
     | '/'
@@ -385,7 +432,11 @@ export interface FileRouteTypes {
     | '/ferramentas/'
     | '/_authenticated/admin/blackpix'
     | '/_authenticated/admin/checkout-homologacao'
+    | '/api/internal/blackpix-create-deposit'
+    | '/api/internal/blackpix-reconcile'
+    | '/api/public/blackpix-quote'
     | '/api/public/blackpix-webhook'
+    | '/api/public/superfrete-quote'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -416,7 +467,11 @@ export interface RootRouteChildren {
   ProdutoTirzepatida30mgRoute: typeof ProdutoTirzepatida30mgRoute
   ProdutoTirzepatida60mgRoute: typeof ProdutoTirzepatida60mgRoute
   FerramentasIndexRoute: typeof FerramentasIndexRoute
+  ApiInternalBlackpixCreateDepositRoute: typeof ApiInternalBlackpixCreateDepositRoute
+  ApiInternalBlackpixReconcileRoute: typeof ApiInternalBlackpixReconcileRoute
+  ApiPublicBlackpixQuoteRoute: typeof ApiPublicBlackpixQuoteRoute
   ApiPublicBlackpixWebhookRoute: typeof ApiPublicBlackpixWebhookRoute
+  ApiPublicSuperfreteQuoteRoute: typeof ApiPublicSuperfreteQuoteRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -617,11 +672,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminBlackpixRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/admin/checkout-homologacao': {
+      id: '/_authenticated/admin/checkout-homologacao'
+      path: '/admin/checkout-homologacao'
+      fullPath: '/admin/checkout-homologacao'
+      preLoaderRoute: typeof AuthenticatedAdminCheckoutHomologacaoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/api/internal/blackpix-create-deposit': {
+      id: '/api/internal/blackpix-create-deposit'
+      path: '/api/internal/blackpix-create-deposit'
+      fullPath: '/api/internal/blackpix-create-deposit'
+      preLoaderRoute: typeof ApiInternalBlackpixCreateDepositRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/internal/blackpix-reconcile': {
+      id: '/api/internal/blackpix-reconcile'
+      path: '/api/internal/blackpix-reconcile'
+      fullPath: '/api/internal/blackpix-reconcile'
+      preLoaderRoute: typeof ApiInternalBlackpixReconcileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/blackpix-quote': {
+      id: '/api/public/blackpix-quote'
+      path: '/api/public/blackpix-quote'
+      fullPath: '/api/public/blackpix-quote'
+      preLoaderRoute: typeof ApiPublicBlackpixQuoteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/blackpix-webhook': {
       id: '/api/public/blackpix-webhook'
       path: '/api/public/blackpix-webhook'
       fullPath: '/api/public/blackpix-webhook'
       preLoaderRoute: typeof ApiPublicBlackpixWebhookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/superfrete-quote': {
+      id: '/api/public/superfrete-quote'
+      path: '/api/public/superfrete-quote'
+      fullPath: '/api/public/superfrete-quote'
+      preLoaderRoute: typeof ApiPublicSuperfreteQuoteRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -634,7 +724,8 @@ interface AuthenticatedRouteRouteChildren {
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedAdminBlackpixRoute: AuthenticatedAdminBlackpixRoute,
-  AuthenticatedAdminCheckoutHomologacaoRoute: AuthenticatedAdminCheckoutHomologacaoRoute,
+  AuthenticatedAdminCheckoutHomologacaoRoute:
+    AuthenticatedAdminCheckoutHomologacaoRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
@@ -670,7 +761,11 @@ const rootRouteChildren: RootRouteChildren = {
   ProdutoTirzepatida30mgRoute: ProdutoTirzepatida30mgRoute,
   ProdutoTirzepatida60mgRoute: ProdutoTirzepatida60mgRoute,
   FerramentasIndexRoute: FerramentasIndexRoute,
+  ApiInternalBlackpixCreateDepositRoute: ApiInternalBlackpixCreateDepositRoute,
+  ApiInternalBlackpixReconcileRoute: ApiInternalBlackpixReconcileRoute,
+  ApiPublicBlackpixQuoteRoute: ApiPublicBlackpixQuoteRoute,
   ApiPublicBlackpixWebhookRoute: ApiPublicBlackpixWebhookRoute,
+  ApiPublicSuperfreteQuoteRoute: ApiPublicSuperfreteQuoteRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
