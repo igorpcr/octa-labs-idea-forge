@@ -44,7 +44,7 @@ const receiptStatusLabels: Record<BlackPixAudit["processing_status"], string> = 
 
 function BlackPixDiagnostics() {
   const { user, signOut } = useAccount();
-  const [access, setAccess] = useState<"loading" | "signed_out" | "denied" | "admin">("loading");
+  const [access, setAccess] = useState<"loading" | "signed_out" | "denied" | "admin" | "error">("loading");
   const [status, setStatus] = useState<DiagnosticInput["status"]>("blocked");
   const [errorCode, setErrorCode] = useState<DiagnosticInput["error"]>(
     "event_processing_unavailable",
@@ -81,7 +81,7 @@ function BlackPixDiagnostics() {
           }
         }
       } catch {
-        if (active) setAccess("denied");
+        if (active) setAccess("error");
       }
     }
     void refresh();
@@ -137,7 +137,7 @@ function BlackPixDiagnostics() {
             Verificando acesso…
           </p>
         )}
-        {access === "denied" && (
+        {access === "error" && (\n          <p className="mt-8 text-muted-foreground" role="alert">\n            Não foi possível verificar sua permissão administrativa. Recarregue a página ou tente novamente mais tarde.\n          </p>\n        )}\n        {access === "denied" && (
           <p className="mt-8 text-muted-foreground" role="alert">
             Sua conta ainda não possui permissão de administrador.
           </p>
