@@ -21,10 +21,10 @@ async function attempt(key: string): Promise<Attempt> {
     ? response.error.context.status : response.error ? 503 : 200;
   return {
     status,
-    orderId: typeof result?['orderId'] === "string" ? result['orderId'] : undefined,
-    created: typeof result?['created'] === "boolean" ? result['created'] : undefined,
-    totalCents: typeof result?['totalCents'] === "number" ? result['totalCents'] : undefined,
-    error: typeof result?['error'] === "string" ? result['error'] : response['error']?.message,
+    orderId: typeof result?.['orderId'] === "string" ? result['orderId'] : undefined,
+    created: typeof result?.['created'] === "boolean" ? result['created'] : undefined,
+    totalCents: typeof result?.['totalCents'] === "number" ? result['totalCents'] : undefined,
+    error: typeof result?.['error'] === "string" ? result['error'] : response['error']?.message,
   };
 }
 function CheckoutHomologacao() {
