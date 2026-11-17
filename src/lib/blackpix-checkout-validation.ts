@@ -9,15 +9,15 @@ export function validateCheckout(input: unknown, catalog: ReadonlyMap<string, Tr
   const lines = input.map((entry: unknown) => {
     if (!entry || typeof entry !== "object" || Array.isArray(entry)) throw new Error("invalid_item");
     const item = entry as Record<string, unknown>;
-    if (typeof item.id !== "string" || !item.id || !Number.isSafeInteger(item.quantity) || (item.quantity as number) < 1 || (item.quantity as number) > 99) throw new Error("invalid_item");
-    if (seen.has(item.id)) throw new Error("duplicate_item");
-    seen.add(item.id);
-    const product = catalog.get(item.id);
+    if (typeof item['id'] !== "string" || !item['id'] || !Number.isSafeInteger(item['quantity']) || (item['quantity'] as number) < 1 || (item['quantity'] as number) > 99) throw new Error("invalid_item");
+    if (seen.has(item['id'])) throw new Error("duplicate_item");
+    seen.add(item['id']);
+    const product = catalog.get(item['id']);
     if (!product || !product.enabled || !Number.isSafeInteger(product.priceCents) || product.priceCents <= 0) throw new Error("unavailable_product");
-    const lineTotal = product.priceCents * (item.quantity as number);
+    const lineTotal = product.priceCents * (item['quantity'] as number);
     if (!Number.isSafeInteger(lineTotal) || !Number.isSafeInteger(amountCents + lineTotal)) throw new Error("invalid_total");
     amountCents += lineTotal;
-    return { id: product.id, name: product.name, quantity: item.quantity as number, unitCents: product.priceCents };
+    return { id: product.id, name: product.name, quantity: item['quantity'] as number, unitCents: product.priceCents };
   });
   return { lines, amountCents };
 }

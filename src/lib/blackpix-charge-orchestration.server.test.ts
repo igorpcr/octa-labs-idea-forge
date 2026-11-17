@@ -17,7 +17,7 @@ describe("trusted BlackPix charge orchestration", () => {
   it("persists first, charges with stored idempotency key, then links provider", async () => {
     const m = mocks();
     const result = await createTrustedPixCharge([{ id: "sku-1", quantity: 1 }], m);
-    expect(m.persist.mock.invocationCallOrder[0]).toBeLessThan(m.create.mock.invocationCallOrder[0]);
+    expect(m.persist.mock.invocationCallOrder[0]).toBeLessThan(m.create.mock.invocationCallOrder[0] ?? Number.NEGATIVE_INFINITY);
     expect(m.create).toHaveBeenCalledWith({ amountCents: 2500, description: order.description, idempotencyKey: order.idempotencyKey });
     expect(m.update).toHaveBeenCalledWith(expect.objectContaining({ deposit_id: "dep-1", provider_request_id: "req-1" }));
     expect(result.pixCopyPasteCode).toBe("pix-code");

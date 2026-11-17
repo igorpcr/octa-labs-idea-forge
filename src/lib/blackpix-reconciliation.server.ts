@@ -25,27 +25,27 @@ export function assessPixDeposit(charge: StoredPixCharge, raw: unknown): Reconci
   const result = raw as Record<string, unknown>;
   // GET response envelope has not been documented. Accept either the documented
   // creation-style envelope or the deposit object, but only after strict checks.
-  const candidate = result.deposit && typeof result.deposit === "object" ? result.deposit : result;
+  const candidate = result['deposit'] && typeof result['deposit'] === "object" ? result['deposit'] : result;
   const deposit = candidate as Record<string, unknown>;
   if (
-    typeof deposit.id !== "string" ||
-    typeof deposit.requestId !== "string" ||
-    !Number.isSafeInteger(deposit.amountCents) ||
-    typeof deposit.status !== "string" ||
-    deposit.currency !== "BRL"
+    typeof deposit['id'] !== "string" ||
+    typeof deposit['requestId'] !== "string" ||
+    !Number.isSafeInteger(deposit['amountCents']) ||
+    typeof deposit['status'] !== "string" ||
+    deposit['currency'] !== "BRL"
   ) return { ...base, outcome: "invalid_provider_response" };
   if (
-    deposit.id !== charge.depositId ||
-    deposit.requestId !== charge.requestId ||
-    deposit.amountCents !== charge.amountCents
+    deposit['id'] !== charge.depositId ||
+    deposit['requestId'] !== charge['requestId'] ||
+    deposit['amountCents'] !== charge['amountCents']
   ) return { ...base, outcome: "mismatch" };
-  if (deposit.status !== "paid") {
-    return { ...base, outcome: "pending", providerStatus: deposit.status };
+  if (deposit['status'] !== "paid") {
+    return { ...base, outcome: "pending", providerStatus: deposit['status'] };
   }
-  if (typeof deposit.paidAt !== "string" || !Number.isFinite(Date.parse(deposit.paidAt))) {
+  if (typeof deposit['paidAt'] !== "string" || !Number.isFinite(Date.parse(deposit['paidAt']))) {
     return { ...base, outcome: "invalid_provider_response" };
   }
-  return { ...base, outcome: "paid", paidAt: deposit.paidAt };
+  return { ...base, outcome: "paid", paidAt: deposit['paidAt'] };
 }
 
 export async function reconcilePixCharge(

@@ -1,5 +1,9 @@
 # OCTA — ajustes institucionais
 
+## Acesso administrativo BlackPix
+- [x] Distinguir falha técnica de acesso negado e preservar JWT/RLS nos três serviços administrativos; 119 testes passaram e compilação automática OK.
+- [ ] Concluir acesso administrativo e publicar após validação. Bloqueios: token real enviado e validado, mas a conta solicitante não possui papel admin no backend ligado às ferramentas; conexão do cliente aponta para outra instância. Não alterar privilégios automaticamente. Créditos esgotados; publicação não executada, falha técnica simulada no navegador ainda não validada.
+
 ## Correção do webhook BlackPix
 - [ ] Conferir implementação de main e substituir endpoint legado por inbox autenticada e idempotente.
 - [ ] Verificar banco, variáveis servidor, permissões e persistência antes do HTTP 200; testar erros sanitizados.

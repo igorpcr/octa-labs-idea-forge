@@ -18,6 +18,7 @@ import {
 import type { BlackPixAudit } from "@/lib/blackpix-audit";
 import { checkoutHead } from "@/lib/octa-cart";
 import capturedCSS from "@/styles/site.css?raw";
+import { accessFailureState, type BlackPixAccess } from "@/lib/blackpix-access";
 
 export const Route = createFileRoute("/_authenticated/admin/blackpix")({
   head: () => ({
@@ -44,7 +45,8 @@ const receiptStatusLabels: Record<BlackPixAudit["processing_status"], string> = 
 
 function BlackPixDiagnostics() {
   const { user, signOut } = useAccount();
-  const [access, setAccess] = useState<"loading" | "signed_out" | "denied" | "admin">("loading");
+  const [access, setAccess] = useState<BlackPixAccess>("loading");
+  const [accessRevision, setAccessRevision] = useState(0);
   const [status, setStatus] = useState<DiagnosticInput["status"]>("blocked");
   const [errorCode, setErrorCode] = useState<DiagnosticInput["error"]>(
     "event_processing_unavailable",
@@ -70,6 +72,9 @@ function BlackPixDiagnostics() {
         }
         return;
       }
+      setAccess("loading");
+      setReceipts([]);
+      setResult(null);
       try {
         const permission = await checkAccess();
         if (active) {
@@ -80,15 +85,15 @@ function BlackPixDiagnostics() {
             window.__lovableEvents?.track?.("project.admin_access_granted", { area: "blackpix" });
           }
         }
-      } catch {
-        if (active) setAccess("denied");
+      } catch (failure) {
+        if (active) setAccess(accessFailureState(failure));
       }
     }
     void refresh();
     return () => {
       active = false;
     };
-  }, [checkAccess, user]);
+  }, [checkAccess, user, accessRevision]);
   const refreshReceipts = useCallback(async () => {
     setReceiptsBusy(true);
     setReceiptsError(null);
@@ -141,6 +146,18 @@ function BlackPixDiagnostics() {
           <p className="mt-8 text-muted-foreground" role="alert">
             Sua conta ainda não possui permissão de administrador.
           </p>
+        )}
+        {(access === "error" || access === "signed_out") && (
+          <div className="mt-8">
+            <p className="text-muted-foreground" role="alert">
+              {access === "signed_out"
+                ? "Não foi possível validar sua sessão. Entre novamente para continuar."
+                : "Não foi possível verificar sua permissão por uma falha técnica. Seu acesso não foi negado."}
+            </p>
+            <Button variant="outline" className="mt-4" onClick={() => setAccessRevision((value) => value + 1)}>
+              <RefreshCw /> Tentar novamente
+            </Button>
+          </div>
         )}
         {access === "admin" && (
           <form onSubmit={submit} className="mt-8 space-y-6 border-y border-border py-8">
@@ -273,7 +290,7 @@ function BlackPixDiagnostics() {
             </p>
           </section>
         )}
-        {(access === "admin" || access === "denied") && (
+        {access !== "loading" && (
           <Button
             variant="ghost"
             className="mt-8"

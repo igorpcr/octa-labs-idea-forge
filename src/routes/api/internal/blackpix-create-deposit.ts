@@ -24,24 +24,24 @@ async function handle(request: Request): Promise<Response> {
   try { body = await request.json(); } catch { return json(400, { error: "invalid_json" }); }
   if (!body || typeof body !== "object" || Array.isArray(body)) return json(400, { error: "invalid_body" });
   const input = body as Record<string, unknown>;
-  if (!Number.isSafeInteger(input.amountCents) || (input.amountCents as number) <= 0 ||
-      typeof input.description !== "string" || input.description.trim().length < 1 ||
-      input.description.length > 255) return json(400, { error: "invalid_charge" });
+  if (!Number.isSafeInteger(input['amountCents']) || (input['amountCents'] as number) <= 0 ||
+      typeof input['description'] !== "string" || input['description'].trim().length < 1 ||
+      input['description'].length > 255) return json(400, { error: "invalid_charge" });
   const db = getBlackPixSupabaseAdmin();
   const idempotencyKey = randomUUID();
   const { data: order, error: insertError } = await db.from("octa_pix_orders")
-    .insert({ amount_cents: input.amountCents, description: input.description,
+    .insert({ amount_cents: input['amountCents'], description: input['description'],
       idempotency_key: idempotencyKey, status: "pending" })
     .select("id").single();
   if (insertError || !order) return json(503, { error: "order_storage_unavailable" });
   try {
     const response = await createPixDeposit({
-      amountCents: input.amountCents as number,
-      description: input.description,
+      amountCents: input['amountCents'] as number,
+      description: input['description'],
       idempotencyKey,
     });
     const deposit = response.deposit;
-    if (deposit.amountCents !== input.amountCents || deposit.currency !== "BRL" ||
+    if (deposit['amountCents'] !== input['amountCents'] || deposit.currency !== "BRL" ||
         !deposit.id || !deposit.requestId) {
       console.error("[blackpix_create] provider_mismatch");
       return json(502, { error: "provider_mismatch", orderId: order.id });

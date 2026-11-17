@@ -20,8 +20,8 @@ export const Route = createFileRoute("/api/public/superfrete-quote")({
     let lines: ReturnType<typeof quoteTrustedCart>["lines"];
     let subtotalCents: number;
     try {
-      destinationCep = validateDestinationPostalCode(input.destinationCep);
-      const trustedQuote = quoteTrustedCart(input.items as never, process.env["OCTA_TRUSTED_CATALOG_JSON"]);
+      destinationCep = validateDestinationPostalCode(input['destinationCep']);
+      const trustedQuote = quoteTrustedCart(input['items'] as never, process.env["OCTA_TRUSTED_CATALOG_JSON"]);
       lines = trustedQuote.lines;
       subtotalCents = trustedQuote.amountCents;
     } catch { return respond(422, { error: "invalid_cart_or_destination" }); }
@@ -33,7 +33,7 @@ export const Route = createFileRoute("/api/public/superfrete-quote")({
       return respond(422, { error: "manual_shipping_review_required" });
     // Parcel capacity is NOT inferred from quantity. Only one item may use the
     // standard box until packed-weight and fit metadata are server validated.
-    if (lines.length !== 1 || lines[0].quantity !== 1) return respond(422, { error: "manual_shipping_review_required" });
+    if (lines.length !== 1 || lines[0]?.quantity !== 1) return respond(422, { error: "manual_shipping_review_required" });
     const base = process.env["SUPABASE_URL"];
     const secret = process.env["OCTA_SUPABASE_FUNCTION_JWT"];
     if (!base || !secret) return respond(503, { error: "shipping_proxy_not_configured" });
@@ -46,17 +46,17 @@ export const Route = createFileRoute("/api/public/superfrete-quote")({
       if (!upstream.ok) return respond(502, { error: "shipping_quote_unavailable" });
       const result: unknown = await upstream.json();
       if (!result || typeof result !== "object" || Array.isArray(result)) throw new Error("invalid_response");
-      const rates = (result as Record<string, unknown>).rates;
+      const rates = (result as Record<string, unknown>)['rates'];
       if (!Array.isArray(rates)) throw new Error("invalid_response");
       const safeRates = rates.filter((x): x is Record<string, unknown> => !!x && typeof x === "object" && !Array.isArray(x) &&
-        Number.isSafeInteger((x as Record<string, unknown>).serviceId) &&
-        typeof (x as Record<string, unknown>).name === "string" &&
-        typeof (x as Record<string, unknown>).carrier === "string" &&
-        Number.isSafeInteger((x as Record<string, unknown>).priceCents) &&
-        Number((x as Record<string, unknown>).priceCents) > 0 &&
-        Number.isSafeInteger((x as Record<string, unknown>).deliveryDays) &&
-        Number((x as Record<string, unknown>).deliveryDays) > 0);
-      return respond(200, { subtotalCents, rates: safeRates.map(rate => ({ ...rate, totalCents: subtotalCents + Number(rate.priceCents) })), currency: "BRL", paymentAvailable: false });
+        Number.isSafeInteger((x as Record<string, unknown>)['serviceId']) &&
+        typeof (x as Record<string, unknown>)['name'] === "string" &&
+        typeof (x as Record<string, unknown>)['carrier'] === "string" &&
+        Number.isSafeInteger((x as Record<string, unknown>)['priceCents']) &&
+        Number((x as Record<string, unknown>)['priceCents']) > 0 &&
+        Number.isSafeInteger((x as Record<string, unknown>)['deliveryDays']) &&
+        Number((x as Record<string, unknown>)['deliveryDays']) > 0);
+      return respond(200, { subtotalCents, rates: safeRates.map(rate => ({ ...rate, totalCents: subtotalCents + Number(rate['priceCents']) })), currency: "BRL", paymentAvailable: false });
     } catch { return respond(502, { error: "shipping_quote_unavailable" }); }
   } } },
 });
