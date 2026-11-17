@@ -1,0 +1,743 @@
+{
+  "schemaVersion": 1,
+  "source": "src/routes/produtos.tsx",
+  "generatedFor": "manual-review",
+  "rules": {
+    "price": "server-authoritative-only",
+    "availability": "disabled-until-verified",
+    "shipping": "manual-review-until-carrier-and-product-eligibility-verified",
+    "payment": "disabled"
+  },
+  "products": [
+    {
+      "displayTitle": "Tirzepatida 30mg",
+      "proposedSku": "octa-tirzepatida-30mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-tirzepatida-30mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "Tirzepatida 60mg",
+      "proposedSku": "octa-tirzepatida-60mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-tirzepatida-60mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "Retatrutida 30mg",
+      "proposedSku": "octa-retatrutida-30mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-retatrutida-30mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "Retatrutida 60mg",
+      "proposedSku": "octa-retatrutida-60mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-retatrutida-60mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "Cagrilintida + Semaglutida 10mg",
+      "proposedSku": "octa-cagrilintida-semaglutida-10mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-cagrilintida-semaglutida-10mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "Cagrilintida + Semaglutida 20mg",
+      "proposedSku": "octa-cagrilintida-semaglutida-20mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-cagrilintida-semaglutida-20mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "AOD 9604 5mg",
+      "proposedSku": "octa-aod-9604-5mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-aod-9604-5mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "AOD 9604 10mg",
+      "proposedSku": "octa-aod-9604-10mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-aod-9604-10mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "Adipotide 2mg",
+      "proposedSku": "octa-adipotide-2mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-adipotide-2mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "AICAR 50mg",
+      "proposedSku": "octa-aicar-50mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-aicar-50mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "SLU-PP-332 5mg",
+      "proposedSku": "octa-slu-pp-332-5mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-slu-pp-332-5mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "SLU-PP-332 10mg",
+      "proposedSku": "octa-slu-pp-332-10mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-slu-pp-332-10mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "5-Amino-1MQ 5mg",
+      "proposedSku": "octa-5-amino-1mq-5mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-5-amino-1mq-5mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "5-Amino-1MQ 10mg",
+      "proposedSku": "octa-5-amino-1mq-10mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-5-amino-1mq-10mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "HGH Frag 176-191 1mg",
+      "proposedSku": "octa-hgh-frag-176-191-1mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-hgh-frag-176-191-1mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "HGH Frag 176-191 2mg",
+      "proposedSku": "octa-hgh-frag-176-191-2mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-hgh-frag-176-191-2mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "HGH Frag 176-191 5mg",
+      "proposedSku": "octa-hgh-frag-176-191-5mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-hgh-frag-176-191-5mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "HGH Frag 176-191 10mg",
+      "proposedSku": "octa-hgh-frag-176-191-10mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-hgh-frag-176-191-10mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "HGH Frag 176-191 12mg",
+      "proposedSku": "octa-hgh-frag-176-191-12mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-hgh-frag-176-191-12mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "HGH Frag 176-191 15mg",
+      "proposedSku": "octa-hgh-frag-176-191-15mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-hgh-frag-176-191-15mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "BPC-157 5mg",
+      "proposedSku": "octa-bpc-157-5mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-bpc-157-5mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "BPC-157 10mg",
+      "proposedSku": "octa-bpc-157-10mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-bpc-157-10mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "BPC-157 20mg",
+      "proposedSku": "octa-bpc-157-20mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-bpc-157-20mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "TB-500 5mg",
+      "proposedSku": "octa-tb-500-5mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-tb-500-5mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "TB-500 10mg",
+      "proposedSku": "octa-tb-500-10mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-tb-500-10mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "TB-500 + BPC-157 10mg",
+      "proposedSku": "octa-tb-500-bpc-157-10mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-tb-500-bpc-157-10mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "KPV 10mg",
+      "proposedSku": "octa-kpv-10mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-kpv-10mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "KLOW 80mg",
+      "proposedSku": "octa-klow-80mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-klow-80mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "PEG-MGF 2mg",
+      "proposedSku": "octa-peg-mgf-2mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-peg-mgf-2mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "ACE-031 10mg",
+      "proposedSku": "octa-ace-031-10mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-ace-031-10mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "VIP 5mg",
+      "proposedSku": "octa-vip-5mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-vip-5mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "CJC-1295 sem DAC 5mg",
+      "proposedSku": "octa-cjc-1295-sem-dac-5mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-cjc-1295-sem-dac-5mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "CJC-1295 sem DAC 10mg",
+      "proposedSku": "octa-cjc-1295-sem-dac-10mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-cjc-1295-sem-dac-10mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "CJC-1295 sem DAC 5mg + Ipamorelin 5mg",
+      "proposedSku": "octa-cjc-1295-sem-dac-5mg-ipamorelin-5mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-cjc-1295-sem-dac-5mg-ipamorelin-5mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "Ipamorelin 5mg",
+      "proposedSku": "octa-ipamorelin-5mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-ipamorelin-5mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "Ipamorelin 10mg",
+      "proposedSku": "octa-ipamorelin-10mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-ipamorelin-10mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "GHRP-6 5mg",
+      "proposedSku": "octa-ghrp-6-5mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-ghrp-6-5mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "GHRP-6 10mg",
+      "proposedSku": "octa-ghrp-6-10mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-ghrp-6-10mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "Tesamorelin 5mg",
+      "proposedSku": "octa-tesamorelin-5mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-tesamorelin-5mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "Tesamorelin 10mg",
+      "proposedSku": "octa-tesamorelin-10mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-tesamorelin-10mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "Tesamorelin 15mg",
+      "proposedSku": "octa-tesamorelin-15mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-tesamorelin-15mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "Sermorelin 5mg",
+      "proposedSku": "octa-sermorelin-5mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-sermorelin-5mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "IGF-1 LR3 0,1mg",
+      "proposedSku": "octa-igf-1-lr3-0-1mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-igf-1-lr3-0-1mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "IGF-1 LR3 1mg",
+      "proposedSku": "octa-igf-1-lr3-1mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-igf-1-lr3-1mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "HGH 191AA 10UI",
+      "proposedSku": "octa-hgh-191aa-10ui",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-hgh-191aa-10ui",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "HGH 191AA 12UI",
+      "proposedSku": "octa-hgh-191aa-12ui",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-hgh-191aa-12ui",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "HGH 191AA 15UI",
+      "proposedSku": "octa-hgh-191aa-15ui",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-hgh-191aa-15ui",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "HGH 191AA 24UI",
+      "proposedSku": "octa-hgh-191aa-24ui",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-hgh-191aa-24ui",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "HGH 191AA 36UI",
+      "proposedSku": "octa-hgh-191aa-36ui",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-hgh-191aa-36ui",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "HCG 5000UI",
+      "proposedSku": "octa-hcg-5000ui",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-hcg-5000ui",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "Kisspeptin 10mg",
+      "proposedSku": "octa-kisspeptin-10mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-kisspeptin-10mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "Epithalon 10mg",
+      "proposedSku": "octa-epithalon-10mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-epithalon-10mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "Epithalon 50mg",
+      "proposedSku": "octa-epithalon-50mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-epithalon-50mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "Epithalon 100mg",
+      "proposedSku": "octa-epithalon-100mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-epithalon-100mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "MOTS-C 10mg",
+      "proposedSku": "octa-mots-c-10mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-mots-c-10mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "MOTS-C 20mg",
+      "proposedSku": "octa-mots-c-20mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-mots-c-20mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "MOTS-C 40mg",
+      "proposedSku": "octa-mots-c-40mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-mots-c-40mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "SS-31 10mg",
+      "proposedSku": "octa-ss-31-10mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-ss-31-10mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "SS-31 50mg",
+      "proposedSku": "octa-ss-31-50mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-ss-31-50mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "NAD+ 100mg",
+      "proposedSku": "octa-nad-100mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-nad-100mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "NAD+ 500mg",
+      "proposedSku": "octa-nad-500mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-nad-500mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "NAD+ 1000mg",
+      "proposedSku": "octa-nad-1000mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-nad-1000mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "Cardiogen 20mg",
+      "proposedSku": "octa-cardiogen-20mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-cardiogen-20mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "Cortagen 20mg",
+      "proposedSku": "octa-cortagen-20mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-cortagen-20mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "Matrixyl 30mg",
+      "proposedSku": "octa-matrixyl-30mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-matrixyl-30mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "Selank 10mg",
+      "proposedSku": "octa-selank-10mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-selank-10mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "Semax 10mg",
+      "proposedSku": "octa-semax-10mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-semax-10mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "Semax + Selank 20mg",
+      "proposedSku": "octa-semax-selank-20mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-semax-selank-20mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "Adamax 5mg",
+      "proposedSku": "octa-adamax-5mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-adamax-5mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "Cerebrolysin 60mg",
+      "proposedSku": "octa-cerebrolysin-60mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-cerebrolysin-60mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "DSIP 2mg",
+      "proposedSku": "octa-dsip-2mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-dsip-2mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "PE-22-28 5mg",
+      "proposedSku": "octa-pe-22-28-5mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-pe-22-28-5mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    },
+    {
+      "displayTitle": "PT-141 10mg",
+      "proposedSku": "octa-pt-141-10mg",
+      "sourceOccurrenceCount": 1,
+      "serverSku": "octa-pt-141-10mg",
+      "serverPriceCents": null,
+      "availability": "disabled_pending_verification",
+      "shippingEligibility": "manual-review",
+      "checkoutEnabled": false
+    }
+  ]
+}

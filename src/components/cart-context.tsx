@@ -4,7 +4,8 @@ import { ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { addCartItem, emptyDelivery, parseBRL, type CartItem, type Delivery } from "@/lib/octa-cart";
 
-type CartContextValue = { items: CartItem[]; setQuantity: (id: string, quantity: number) => void; delivery: Delivery; setDelivery: (value: Delivery) => void; ready: boolean };
+export type SelectedShipping = { serviceId: number; name: string; carrier: string; priceCents: number; deliveryDays: number; destinationCep: string };
+type CartContextValue = { selectedShipping: SelectedShipping | null; setSelectedShipping: (value: SelectedShipping | null) => void; items: CartItem[]; setQuantity: (id: string, quantity: number) => void; delivery: Delivery; setDelivery: (value: Delivery) => void; ready: boolean };
 const CartContext = createContext<CartContextValue | null>(null);
 export function useCart() {
   const context = useContext(CartContext);
@@ -13,7 +14,9 @@ export function useCart() {
 }
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
-  const [delivery, setDelivery] = useState<Delivery>(emptyDelivery);
+  const [delivery, setDeliveryState] = useState<Delivery>(emptyDelivery);
+  const [selectedShipping, setSelectedShipping] = useState<SelectedShipping | null>(null);
+  const setDelivery = (value: Delivery) => { if (value.cep.replace(/\\D/g, "") !== delivery.cep.replace(/\\D/g, "")) setSelectedShipping(null); setDeliveryState(value); };
   const [ready, setReady] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {
@@ -42,12 +45,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
       event.preventDefault();
       event.stopPropagation();
       setItems(current => addCartItem(current, { id: name, name, image, pixCents }));
+      setSelectedShipping(null);
       void navigate({ to: "/carrinho" });
     };
     document.addEventListener("click", purchase, true);
     return () => document.removeEventListener("click", purchase, true);
   }, [navigate]);
-  return <CartContext.Provider value={{ items, delivery, setDelivery, ready, setQuantity: (id, quantity) => setItems(current => quantity <= 0 ? current.filter(i => i.id !== id) : current.map(i => i.id === id ? { ...i, quantity: Math.floor(quantity) } : i)) }}>{children}</CartContext.Provider>;
+  return <CartContext.Provider value={{ items, delivery, setDelivery, selectedShipping, setSelectedShipping, ready, setQuantity: (id, quantity) => { setSelectedShipping(null); setItems(current => quantity <= 0 ? current.filter(i => i.id !== id) : current.map(i => i.id === id ? { ...i, quantity: Math.floor(quantity) } : i)); } }}>{children}</CartContext.Provider>;
 }
 export function CartLink() {
   const { items } = useCart();
