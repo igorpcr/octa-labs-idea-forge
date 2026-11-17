@@ -7,6 +7,7 @@ const mocks = vi.hoisted(() => ({
   account: { user: null as null | { id: string }, loading: false, signOut: vi.fn() },
   signup: vi.fn(),
   permission: vi.fn(),
+  session: vi.fn(),
   receipts: vi.fn(),
   navigate: vi.fn(),
 }));
@@ -20,7 +21,7 @@ vi.mock("@tanstack/react-router", () => ({
 }));
 vi.mock("@tanstack/react-start", () => ({ useServerFn: (fn: unknown) => fn }));
 vi.mock("@/components/auth-context", () => ({ useAccount: () => mocks.account }));
-vi.mock("@/integrations/supabase/client", () => ({ supabase: { auth: { signUp: mocks.signup } } }));
+vi.mock("@/integrations/supabase/client", () => ({ supabase: { auth: { signUp: mocks.signup, getSession: mocks.session }, from: () => ({ select: () => ({ eq: () => ({ eq: () => ({ maybeSingle: mocks.permission }) }) }) }) } }));
 vi.mock("@/integrations/lovable/index", () => ({ lovable: { auth: {} } }));
 vi.mock("@/routes/index", () => ({ ImportedHeader: () => null, ImportedFooter: () => null }));
 vi.mock("@/lib/blackpix-diagnostics.functions", () => ({
@@ -57,6 +58,7 @@ describe("Existing account flow events", () => {
     vi.clearAllMocks();
     mocks.account.user = null;
     mocks.receipts.mockResolvedValue({ receipts: [], error: null });
+    mocks.session.mockImplementation(async () => ({ data: { session: { user: { id: mocks.account.user?.id } } }, error: null }));
     window.__lovableEvents = { track: vi.fn(() => null) };
   });
   afterEach(() => {
@@ -88,7 +90,7 @@ describe("Existing account flow events", () => {
   });
   it("counts entry only after successful administrator authorization", async () => {
     mocks.account.user = { id: "test-admin" };
-    mocks.permission.mockResolvedValue({ isAdmin: true });
+    mocks.permission.mockResolvedValue({ data: { role: "admin" }, error: null });
     await open("/_authenticated/admin/blackpix");
     await waitFor(() =>
       expect(screen.getByRole("button", { name: "Analisar aviso" })).toBeTruthy(),
@@ -100,14 +102,14 @@ describe("Existing account flow events", () => {
   });
   it("does not count denied administrator access", async () => {
     mocks.account.user = { id: "test-nonadmin" };
-    mocks.permission.mockResolvedValue({ isAdmin: false });
+    mocks.permission.mockResolvedValue({ data: null, error: null });
     await open("/_authenticated/admin/blackpix");
     await waitFor(() => expect(screen.getByRole("alert")).toBeTruthy());
     expect(window.__lovableEvents?.track).not.toHaveBeenCalled();
   });
   it("shows verified webhook history without identifiers or private content", async () => {
     mocks.account.user = { id: "test-admin" };
-    mocks.permission.mockResolvedValue({ isAdmin: true });
+    mocks.permission.mockResolvedValue({ data: { role: "admin" }, error: null });
     mocks.receipts.mockResolvedValue({
       receipts: [
         {
