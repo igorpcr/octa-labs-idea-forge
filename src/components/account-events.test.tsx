@@ -105,6 +105,17 @@ describe("Existing account flow events", () => {
     await waitFor(() => expect(screen.getByRole("alert")).toBeTruthy());
     expect(window.__lovableEvents?.track).not.toHaveBeenCalled();
   });
+  it("does not expose admin operations or count entry after a technical failure", async () => {
+    mocks.account.user = { id: "test-admin" };
+    mocks.permission.mockRejectedValue(new Error("admin_role_check_unavailable"));
+    await open("/_authenticated/admin/blackpix");
+    await waitFor(() => expect(screen.getByRole("alert")).toBeTruthy());
+    expect(mocks.receipts).not.toHaveBeenCalled();
+    expect(window.__lovableEvents?.track).not.toHaveBeenCalled();
+    mocks.permission.mockResolvedValue({ isAdmin: true });
+    fireEvent.click(screen.getByRole("button", { name: "Tentar novamente" }));
+    await waitFor(() => expect(mocks.receipts).toHaveBeenCalledOnce());
+  });
   it("shows verified webhook history without identifiers or private content", async () => {
     mocks.account.user = { id: "test-admin" };
     mocks.permission.mockResolvedValue({ isAdmin: true });

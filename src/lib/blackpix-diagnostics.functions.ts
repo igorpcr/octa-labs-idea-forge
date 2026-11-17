@@ -2,6 +2,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { blackPixReceiptSelect, parseBlackPixReceipts } from "./blackpix-audit";
 import { diagnosticInput, safeDiagnosticInput, withAdminAccess } from "./blackpix-diagnostics";
+import { checkedAdminRole } from "./blackpix-access";
 
 export const diagnosticAccess = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
@@ -12,7 +13,7 @@ export const diagnosticAccess = createServerFn({ method: "GET" })
       .eq("user_id", context.userId)
       .eq("role", "admin")
       .maybeSingle();
-    return { isAdmin: !error && data?.role === "admin" };
+    return { isAdmin: checkedAdminRole({ data, error }) };
   });
 
 export const listBlackPixReceipts = createServerFn({ method: "GET" })
@@ -24,7 +25,7 @@ export const listBlackPixReceipts = createServerFn({ method: "GET" })
       .eq("user_id", context.userId)
       .eq("role", "admin")
       .maybeSingle();
-    return withAdminAccess(!error && role?.role === "admin", async () => {
+    return withAdminAccess(checkedAdminRole({ data: role, error }), async () => {
       const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
       const { data, error: readError } = await supabaseAdmin
         .from("blackpix_webhook_receipts")
@@ -48,7 +49,7 @@ export const analyzeBlackPix = createServerFn({ method: "POST" })
       .eq("user_id", context.userId)
       .eq("role", "admin")
       .maybeSingle();
-    return withAdminAccess(!error && role?.role === "admin", async () => {
+    return withAdminAccess(checkedAdminRole({ data: role, error }), async () => {
       const { generateResponse, GatewayError } = await import("@lovable.dev/ai-gateway");
       try {
         const response = await generateResponse({
