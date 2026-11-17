@@ -3,6 +3,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { History, LoaderCircle, LogOut, RefreshCw, ShieldCheck, Sparkles } from "lucide-react";
 import { useAccount } from "@/components/auth-context";
+import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { ImportedHeader, ImportedFooter } from "../../index";
 import {
@@ -12,7 +13,6 @@ import {
 } from "@/lib/blackpix-diagnostics";
 import {
   analyzeBlackPix,
-  diagnosticAccess,
   listBlackPixReceipts,
 } from "@/lib/blackpix-diagnostics.functions";
 import type { BlackPixAudit } from "@/lib/blackpix-audit";
@@ -44,7 +44,7 @@ const receiptStatusLabels: Record<BlackPixAudit["processing_status"], string> = 
 
 function BlackPixDiagnostics() {
   const { user, signOut } = useAccount();
-  const [access, setAccess] = useState<"loading" | "signed_out" | "denied" | "admin">("loading");
+  const [access, setAccess] = useState<"loading" | "signed_out" | "denied" | "admin" | "error">("loading");
   const [status, setStatus] = useState<DiagnosticInput["status"]>("blocked");
   const [errorCode, setErrorCode] = useState<DiagnosticInput["error"]>(
     "event_processing_unavailable",
@@ -55,7 +55,6 @@ function BlackPixDiagnostics() {
   const [receipts, setReceipts] = useState<BlackPixAudit[]>([]);
   const [receiptsBusy, setReceiptsBusy] = useState(false);
   const [receiptsError, setReceiptsError] = useState<string | null>(null);
-  const checkAccess = useServerFn(diagnosticAccess);
   const analyze = useServerFn(analyzeBlackPix);
   const listReceipts = useServerFn(listBlackPixReceipts);
   const trackedAccess = useRef<string | null>(null);
@@ -71,7 +70,11 @@ function BlackPixDiagnostics() {
         return;
       }
       try {
-        const permission = await checkAccess();
+        const { data: sessionResult, error: sessionError } = await supabase.auth.getSession();
+        if (sessionError || !sessionResult.session || sessionResult.session.user.id !== user.id) throw new Error("session_unavailable");
+        const { data: role, error: roleError } = await supabase.from("user_roles").select("role").eq("user_id", user.id).eq("role", "admin").maybeSingle();
+        if (roleError) throw roleError;
+        const permission = { isAdmin: role?.role === "admin" };
         if (active) {
           setAccess(permission.isAdmin ? "admin" : "denied");
           setResult(null);
@@ -81,14 +84,14 @@ function BlackPixDiagnostics() {
           }
         }
       } catch {
-        if (active) setAccess("denied");
+        if (active) setAccess("error");
       }
     }
     void refresh();
     return () => {
       active = false;
     };
-  }, [checkAccess, user]);
+  }, [user]);
   const refreshReceipts = useCallback(async () => {
     setReceiptsBusy(true);
     setReceiptsError(null);
@@ -137,7 +140,7 @@ function BlackPixDiagnostics() {
             Verificando acesso…
           </p>
         )}
-        {access === "denied" && (
+        {access === "error" && (\n          <p className="mt-8 text-muted-foreground" role="alert">\n            Não foi possível verificar sua permissão administrativa. Recarregue a página ou tente novamente mais tarde.\n          </p>\n        )}\n        {access === "denied" && (
           <p className="mt-8 text-muted-foreground" role="alert">
             Sua conta ainda não possui permissão de administrador.
           </p>
