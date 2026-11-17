@@ -16,7 +16,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [delivery, setDeliveryState] = useState<Delivery>(emptyDelivery);
   const [selectedShipping, setSelectedShipping] = useState<SelectedShipping | null>(null);
-  const setDelivery = (value: Delivery) => { setDeliveryState(value); setSelectedShipping(null); };
+  const setDelivery = (value: Delivery) => { if (value.cep.replace(/\\D/g, "") !== delivery.cep.replace(/\\D/g, "")) setSelectedShipping(null); setDeliveryState(value); };
   const [ready, setReady] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {
