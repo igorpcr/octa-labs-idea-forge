@@ -56,6 +56,7 @@ describe("Existing account flow events", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     mocks.account.user = null;
+    mocks.permission.mockReset();
     mocks.receipts.mockResolvedValue({ receipts: [], error: null });
     window.__lovableEvents = { track: vi.fn(() => null) };
   });
@@ -103,6 +104,34 @@ describe("Existing account flow events", () => {
     mocks.permission.mockResolvedValue({ isAdmin: false });
     await open("/_authenticated/admin/blackpix");
     await waitFor(() => expect(screen.getByRole("alert")).toBeTruthy());
+    expect(window.__lovableEvents?.track).not.toHaveBeenCalled();
+  });
+  it("does not call server authorization or expose admin controls when signed out", async () => {
+    mocks.account.user = null;
+    await open("/_authenticated/admin/blackpix");
+    expect(mocks.permission).not.toHaveBeenCalled();
+    expect(mocks.receipts).not.toHaveBeenCalled();
+    expect(screen.queryByRole("button", { name: "Analisar aviso" })).toBeNull();
+    expect(window.__lovableEvents?.track).not.toHaveBeenCalled();
+  });
+  it("denies non-admin response from the server without fetching private receipts", async () => {
+    mocks.account.user = { id: "test-nonadmin" };
+    mocks.permission.mockResolvedValue({ isAdmin: false });
+    await open("/_authenticated/admin/blackpix");
+    await waitFor(() => expect(screen.getByText("Sua conta ainda não possui permissão de administrador.")).toBeTruthy());
+    expect(mocks.permission).toHaveBeenCalledOnce();
+    expect(mocks.receipts).not.toHaveBeenCalled();
+    expect(screen.queryByRole("button", { name: "Analisar aviso" })).toBeNull();
+    expect(window.__lovableEvents?.track).not.toHaveBeenCalled();
+  });
+  it("fails closed on server authorization errors without treating them as a role denial", async () => {
+    mocks.account.user = { id: "test-admin" };
+    mocks.permission.mockRejectedValue(new Error("admin_role_check_unavailable"));
+    await open("/_authenticated/admin/blackpix");
+    await waitFor(() => expect(screen.getByText(/falha técnica/)).toBeTruthy());
+    expect(screen.queryByText("Sua conta ainda não possui permissão de administrador.")).toBeNull();
+    expect(screen.queryByRole("button", { name: "Analisar aviso" })).toBeNull();
+    expect(mocks.receipts).not.toHaveBeenCalled();
     expect(window.__lovableEvents?.track).not.toHaveBeenCalled();
   });
   it("does not expose admin operations or count entry after a technical failure", async () => {
