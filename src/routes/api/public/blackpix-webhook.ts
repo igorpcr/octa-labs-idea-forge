@@ -40,7 +40,7 @@ async function receive(request: Request): Promise<Response> {
     const { error } = await (supabaseAdmin as unknown as {
       from: (name: string) => {
         upsert: (row: Record<string, unknown>, options: { onConflict: string; ignoreDuplicates: boolean }) =>
-          PromiseLike<{ error: { code?: string } | null }>;
+          PromiseLike<{ error: { code?: string; hint?: string } | null }>;
       };
     }).from("blackpix_webhook_inbox").upsert(
       { signature_digest: digest, event_payload: payload },

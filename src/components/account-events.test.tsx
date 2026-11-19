@@ -7,7 +7,6 @@ const mocks = vi.hoisted(() => ({
   account: { user: null as null | { id: string }, loading: false, signOut: vi.fn() },
   signup: vi.fn(),
   permission: vi.fn(),
-  session: vi.fn(),
   receipts: vi.fn(),
   navigate: vi.fn(),
 }));
@@ -21,7 +20,7 @@ vi.mock("@tanstack/react-router", () => ({
 }));
 vi.mock("@tanstack/react-start", () => ({ useServerFn: (fn: unknown) => fn }));
 vi.mock("@/components/auth-context", () => ({ useAccount: () => mocks.account }));
-vi.mock("@/integrations/supabase/client", () => ({ supabase: { auth: { signUp: mocks.signup, getSession: mocks.session }, from: () => ({ select: () => ({ eq: () => ({ eq: () => ({ maybeSingle: mocks.permission }) }) }) }) } }));
+vi.mock("@/integrations/supabase/client", () => ({ supabase: { auth: { signUp: mocks.signup } } }));
 vi.mock("@/integrations/lovable/index", () => ({ lovable: { auth: {} } }));
 vi.mock("@/routes/index", () => ({ ImportedHeader: () => null, ImportedFooter: () => null }));
 vi.mock("@/lib/blackpix-diagnostics.functions", () => ({
@@ -57,8 +56,8 @@ describe("Existing account flow events", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     mocks.account.user = null;
+    mocks.permission.mockReset();
     mocks.receipts.mockResolvedValue({ receipts: [], error: null });
-    mocks.session.mockImplementation(async () => ({ data: { session: { user: { id: mocks.account.user?.id } } }, error: null }));
     window.__lovableEvents = { track: vi.fn(() => null) };
   });
   afterEach(() => {
@@ -90,7 +89,7 @@ describe("Existing account flow events", () => {
   });
   it("counts entry only after successful administrator authorization", async () => {
     mocks.account.user = { id: "test-admin" };
-    mocks.permission.mockResolvedValue({ data: { role: "admin" }, error: null });
+    mocks.permission.mockResolvedValue({ isAdmin: true });
     await open("/_authenticated/admin/blackpix");
     await waitFor(() =>
       expect(screen.getByRole("button", { name: "Analisar aviso" })).toBeTruthy(),
@@ -102,14 +101,53 @@ describe("Existing account flow events", () => {
   });
   it("does not count denied administrator access", async () => {
     mocks.account.user = { id: "test-nonadmin" };
-    mocks.permission.mockResolvedValue({ data: null, error: null });
+    mocks.permission.mockResolvedValue({ isAdmin: false });
     await open("/_authenticated/admin/blackpix");
     await waitFor(() => expect(screen.getByRole("alert")).toBeTruthy());
     expect(window.__lovableEvents?.track).not.toHaveBeenCalled();
   });
+  it("does not call server authorization or expose admin controls when signed out", async () => {
+    mocks.account.user = null;
+    await open("/_authenticated/admin/blackpix");
+    expect(mocks.permission).not.toHaveBeenCalled();
+    expect(mocks.receipts).not.toHaveBeenCalled();
+    expect(screen.queryByRole("button", { name: "Analisar aviso" })).toBeNull();
+    expect(window.__lovableEvents?.track).not.toHaveBeenCalled();
+  });
+  it("denies non-admin response from the server without fetching private receipts", async () => {
+    mocks.account.user = { id: "test-nonadmin" };
+    mocks.permission.mockResolvedValue({ isAdmin: false });
+    await open("/_authenticated/admin/blackpix");
+    await waitFor(() => expect(screen.getByText("Sua conta ainda não possui permissão de administrador.")).toBeTruthy());
+    expect(mocks.permission).toHaveBeenCalledOnce();
+    expect(mocks.receipts).not.toHaveBeenCalled();
+    expect(screen.queryByRole("button", { name: "Analisar aviso" })).toBeNull();
+    expect(window.__lovableEvents?.track).not.toHaveBeenCalled();
+  });
+  it("fails closed on server authorization errors without treating them as a role denial", async () => {
+    mocks.account.user = { id: "test-admin" };
+    mocks.permission.mockRejectedValue(new Error("admin_role_check_unavailable"));
+    await open("/_authenticated/admin/blackpix");
+    await waitFor(() => expect(screen.getByText(/falha técnica/)).toBeTruthy());
+    expect(screen.queryByText("Sua conta ainda não possui permissão de administrador.")).toBeNull();
+    expect(screen.queryByRole("button", { name: "Analisar aviso" })).toBeNull();
+    expect(mocks.receipts).not.toHaveBeenCalled();
+    expect(window.__lovableEvents?.track).not.toHaveBeenCalled();
+  });
+  it("does not expose admin operations or count entry after a technical failure", async () => {
+    mocks.account.user = { id: "test-admin" };
+    mocks.permission.mockRejectedValue(new Error("admin_role_check_unavailable"));
+    await open("/_authenticated/admin/blackpix");
+    await waitFor(() => expect(screen.getByRole("alert")).toBeTruthy());
+    expect(mocks.receipts).not.toHaveBeenCalled();
+    expect(window.__lovableEvents?.track).not.toHaveBeenCalled();
+    mocks.permission.mockResolvedValue({ isAdmin: true });
+    fireEvent.click(screen.getByRole("button", { name: "Tentar novamente" }));
+    await waitFor(() => expect(mocks.receipts).toHaveBeenCalledOnce());
+  });
   it("shows verified webhook history without identifiers or private content", async () => {
     mocks.account.user = { id: "test-admin" };
-    mocks.permission.mockResolvedValue({ data: { role: "admin" }, error: null });
+    mocks.permission.mockResolvedValue({ isAdmin: true });
     mocks.receipts.mockResolvedValue({
       receipts: [
         {
