@@ -3,12 +3,12 @@ import { useEffect, useState } from "react";
 import { useAccount } from "@/components/auth-context";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
-import { DemoOrdersAdmin } from "@/components/demo-orders-admin";
 
 export const Route = createFileRoute("/_authenticated/admin/checkout-homologacao")({
+  head: () => ({ meta: [{ title: "Homologação de checkout — OCTA Labs" }, { name: "description", content: "Verificação administrativa do checkout demonstrativo OCTA Labs, sem pagamentos." }, { property: "og:title", content: "Homologação de checkout — OCTA Labs" }, { property: "og:description", content: "Verificação administrativa do checkout demonstrativo OCTA Labs, sem pagamentos." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }, { name: "robots", content: "noindex, nofollow" }] }),
   component: CheckoutHomologacao,
 });
-type Attempt = { status: number; orderId?: string; created?: boolean; totalCents?: number; error?: string };
+type Attempt = { status: number; orderId?: string | undefined; created?: boolean | undefined; totalCents?: number | undefined; error?: string | undefined };
 async function attempt(key: string): Promise<Attempt> {
   const { data: { session }, error: sessionError } = await supabase.auth.getSession();
   if (sessionError || !session?.access_token) return { status: 401, error: "Sessão expirada: faça login novamente." };
@@ -21,10 +21,10 @@ async function attempt(key: string): Promise<Attempt> {
     ? response.error.context.status : response.error ? 503 : 200;
   return {
     status,
-    orderId: typeof result?.orderId === "string" ? result.orderId : undefined,
-    created: typeof result?.created === "boolean" ? result.created : undefined,
-    totalCents: typeof result?.totalCents === "number" ? result.totalCents : undefined,
-    error: typeof result?.error === "string" ? result.error : response.error?.message,
+    orderId: typeof result?.['orderId'] === "string" ? result['orderId'] : undefined,
+    created: typeof result?.['created'] === "boolean" ? result['created'] : undefined,
+    totalCents: typeof result?.['totalCents'] === "number" ? result['totalCents'] : undefined,
+    error: typeof result?.['error'] === "string" ? result['error'] : response['error']?.message,
   };
 }
 function CheckoutHomologacao() {
@@ -94,7 +94,6 @@ function CheckoutHomologacao() {
       !user ? <p role="alert">Entre na sua conta para continuar.</p> :
       !allowed ? <p role="alert">{accessError || "Acesso restrito a administradores. Confirme que entrou com a conta administrativa autorizada."}</p> :
       <Button type="button" onClick={() => void run()} disabled={busy}>{busy ? "Testando…" : "Executar teste autenticado de idempotência"}</Button>}
-    {allowed && !checking && <DemoOrdersAdmin />}
     {error && <p role="alert">{error}</p>}
     {result && <section aria-live="polite" className="space-y-3">
       <h2 className="font-semibold">{result.passed ? "Teste aprovado" : "Teste não aprovado"}</h2>
